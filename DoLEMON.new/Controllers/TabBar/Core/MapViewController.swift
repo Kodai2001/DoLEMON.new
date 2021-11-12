@@ -24,14 +24,13 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
         navigationItem.searchController = searchVC
         
         // titleの設定
-        navigationItem.title = "MAPS"
-        navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationItem.title = "MAPS"
+//        navigationItem.largeTitleDisplayMode = .always
+//        navigationController?.navigationBar.prefersLargeTitles = true
     }
    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        mapView.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.frame.size.width, height: view.frame.size.height - view.safeAreaInsets.top)
         mapView.frame = view.bounds
     }
     
@@ -41,6 +40,8 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
               let resultVC = searchController.searchResultsController as? ResultViewController else {
             return
         }
+        
+        resultVC.delegate = self
         
         GooglePlaceManager.shared.findPlaces(query: query) { result in
             switch result {
@@ -53,4 +54,28 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
             }
         }
     }
+}
+
+extension MapViewController: ResultViewControllerDelegate {
+    func didTapPlace(with coordinate: CLLocationCoordinate2D) {
+        searchVC.searchBar.resignFirstResponder()
+        searchVC.dismiss(animated: true, completion: nil)
+        
+        // Remove all map pins
+        let annotaions = mapView.annotations
+        mapView.removeAnnotations(annotaions)
+        
+        // Add a map pin
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinate
+        mapView.addAnnotation(pin)
+        mapView.setRegion(MKCoordinateRegion(
+                            center: coordinate,
+                            span: MKCoordinateSpan(
+                                latitudeDelta: 0.5,
+                                longitudeDelta: 0.5)),
+                          animated: true)
+    }
+    
+    
 }
