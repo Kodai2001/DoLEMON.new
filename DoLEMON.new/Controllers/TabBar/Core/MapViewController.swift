@@ -6,24 +6,36 @@
 //
 
 import UIKit
+import MapKit
 
-class MapViewController: UIViewController {
-
+class MapViewController: UIViewController, UISearchResultsUpdating {
+    
+    
+    
+    let mapView = MKMapView()
+    
+    let searchVC = UISearchController(searchResultsController: ResultViewController())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .red
+        view.addSubview(mapView)
+        searchVC.searchBar.backgroundColor = .secondarySystemBackground
+        searchVC.searchResultsUpdater = self
+        navigationItem.searchController = searchVC
+        
+        // titleの設定
+        navigationItem.title = "MAPS"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+   
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        mapView.frame = CGRect(x: 0, y: view.safeAreaInsets.top, width: view.frame.size.width, height: view.frame.size.height - view.safeAreaInsets.top)
+        mapView.frame = view.bounds
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
-    */
-
 }

@@ -10,20 +10,15 @@ import UIKit
 class AddPlaceViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+            super.viewDidLoad()
+            self.title = "Second"
 
-        // Do any additional setup after loading the view.
-    }
-    
+            // ただ背景色がシアンなだけ
+        self.view.backgroundColor = UIColor.yellow
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+        }
 
 }
