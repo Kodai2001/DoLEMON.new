@@ -37,14 +37,17 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let query = searchController.searchBar.text,
-              !query.trimmingCharacters(in: .whitespaces).isEmpty else {
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              let resultVC = searchController.searchResultsController as? ResultViewController else {
             return
         }
         
         GooglePlaceManager.shared.findPlaces(query: query) { result in
             switch result {
             case .success(let places):
-                print(places)
+                DispatchQueue.main.async {
+                    resultVC.update(with: places)
+                }
             case .failure(let error):
                 print(error)
             }
