@@ -22,16 +22,21 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
         searchVC.searchBar.backgroundColor = .secondarySystemBackground
         searchVC.searchResultsUpdater = self
         navigationItem.searchController = searchVC
+        view.backgroundColor = .systemBackground
         
         // titleの設定
-//        navigationItem.title = "MAPS"
-//        navigationItem.largeTitleDisplayMode = .always
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "MAPS"
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        mapView.frame = view.bounds
+        mapView.frame = CGRect(
+            x: 0,
+            y: view.safeAreaInsets.top,
+            width: view.frame.size.width,
+            height: view.frame.size.height - view.safeAreaInsets.top)
     }
     
     func updateSearchResults(for searchController: UISearchController) {

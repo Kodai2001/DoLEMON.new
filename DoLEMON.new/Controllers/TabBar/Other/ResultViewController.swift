@@ -27,7 +27,6 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        view.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
         

@@ -22,6 +22,7 @@
 		8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */; };
 		8823A3A5273DD60700C7E228 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A4273DD60700C7E228 /* MainTabBarController.swift */; };
 		8823A3A8273DF26200C7E228 /* GooglePlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */; };
+		8823A3AC273F300700C7E228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8823A3AB273F300700C7E228 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8823A3A4273DD60700C7E228 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceManager.swift; sourceTree = "<group>"; };
+		8823A3AB273F300700C7E228 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				8823A37C273D204100C7E228 /* AppDelegate.swift */,
 				8823A37E273D204100C7E228 /* SceneDelegate.swift */,
 				8823A385273D204800C7E228 /* Assets.xcassets */,
+				8823A3AB273F300700C7E228 /* Main.storyboard */,
 				8823A387273D204800C7E228 /* LaunchScreen.storyboard */,
 				8823A38A273D204800C7E228 /* Info.plist */,
 			);
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8823A389273D204800C7E228 /* LaunchScreen.storyboard in Resources */,
+				8823A3AC273F300700C7E228 /* Main.storyboard in Resources */,
 				8823A386273D204800C7E228 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
