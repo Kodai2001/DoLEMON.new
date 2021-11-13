@@ -20,9 +20,9 @@
 		8823A39F273D2A4500C7E228 /* SearchFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A39E273D2A4500C7E228 /* SearchFriendViewController.swift */; };
 		8823A3A1273D2A8200C7E228 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A0273D2A8100C7E228 /* AddPlaceViewController.swift */; };
 		8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */; };
-		8823A3A5273DD60700C7E228 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A4273DD60700C7E228 /* MainTabBarController.swift */; };
 		8823A3A8273DF26200C7E228 /* GooglePlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */; };
 		8823A3AC273F300700C7E228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8823A3AB273F300700C7E228 /* Main.storyboard */; };
+		8823A3AE273F465400C7E228 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3AD273F465300C7E228 /* CommentsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +42,9 @@
 		8823A39E273D2A4500C7E228 /* SearchFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendViewController.swift; sourceTree = "<group>"; };
 		8823A3A0273D2A8100C7E228 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		8823A3A4273DD60700C7E228 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceManager.swift; sourceTree = "<group>"; };
 		8823A3AB273F300700C7E228 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8823A3AD273F465300C7E228 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,7 +106,8 @@
 		8823A390273D240C00C7E228 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8823A3A6273DD60D00C7E228 /* TabBar */,
+				8823A39D273D288400C7E228 /* Other */,
+				8823A398273D259500C7E228 /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -152,18 +153,9 @@
 				8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */,
 				8823A39B273D273700C7E228 /* AddFriendViewController.swift */,
 				8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */,
+				8823A3AD273F465300C7E228 /* CommentsViewController.swift */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		8823A3A6273DD60D00C7E228 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				8823A3A4273DD60700C7E228 /* MainTabBarController.swift */,
-				8823A39D273D288400C7E228 /* Other */,
-				8823A398273D259500C7E228 /* Core */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		F263E82E9153A13F8FB748B5 /* Frameworks */ = {
@@ -289,9 +281,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8823A3A8273DF26200C7E228 /* GooglePlaceManager.swift in Sources */,
+				8823A3AE273F465400C7E228 /* CommentsViewController.swift in Sources */,
 				8823A39F273D2A4500C7E228 /* SearchFriendViewController.swift in Sources */,
 				8823A394273D244E00C7E228 /* LoginViewController.swift in Sources */,
-				8823A3A5273DD60700C7E228 /* MainTabBarController.swift in Sources */,
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
 				8823A3A1273D2A8200C7E228 /* AddPlaceViewController.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,

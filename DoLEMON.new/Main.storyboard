@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="51" y="856"/>
         </scene>
-        <!--View Controller-->
+        <!--Search Friend View Controller-->
         <scene sceneID="wVv-62-gTR">
             <objects>
-                <viewController id="F64-Ax-i56" sceneMemberID="viewController">
+                <viewController id="F64-Ax-i56" customClass="SearchFriendViewController" customModule="DoLEMON_new" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R59-uv-Eto">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="1971" y="1612"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="Q1W-ur-fIo">
             <objects>
-                <viewController id="ulh-9i-OZY" sceneMemberID="viewController">
+                <viewController id="ulh-9i-OZY" customClass="MapViewController" customModule="DoLEMON_new" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XEg-Be-fvA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,11 +55,11 @@
             </objects>
             <point key="canvasLocation" x="1225" y="1612"/>
         </scene>
-        <!--Main Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="Y5j-k4-XMG">
             <objects>
-                <tabBarController id="Ahh-c0-JqV" customClass="MainTabBarController" customModule="DoLEMON_new" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eqt-oI-7KR">
+                <tabBarController id="Ahh-c0-JqV" sceneMemberID="viewController">
+                    <tabBar key="tabBar" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eqt-oI-7KR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -95,7 +95,7 @@
         <scene sceneID="ARu-qa-rJ2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="awZ-PX-0ew" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="mappin.and.ellipse" catalog="system" id="64U-mh-tTY"/>
+                    <tabBarItem key="tabBarItem" title="" image="mappin.and.ellipse" catalog="system" selectedImage="mappin.and.ellipse" id="64U-mh-tTY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUx-CX-6kP">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -114,7 +114,7 @@
         <scene sceneID="0qv-WN-smb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KvK-f8-C5j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="person.badge.plus" catalog="system" id="TcW-7M-XST"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.fill.badge.plus" catalog="system" selectedImage="person.badge.plus" id="TcW-7M-XST"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gUQ-d7-A1r">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -133,6 +133,7 @@
     <resources>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <image name="person.badge.plus" catalog="system" width="128" height="124"/>
+        <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
