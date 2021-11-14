@@ -23,6 +23,13 @@
 		8823A3A8273DF26200C7E228 /* GooglePlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */; };
 		8823A3AC273F300700C7E228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8823A3AB273F300700C7E228 /* Main.storyboard */; };
 		8823A3AE273F465400C7E228 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3AD273F465300C7E228 /* CommentsViewController.swift */; };
+		8872F8592740906600504F81 /* UserFollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8582740906600504F81 /* UserFollowListViewController.swift */; };
+		8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */; };
+		8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85F2740938200504F81 /* EditProfileViewController.swift */; };
+		8872F8622740965500504F81 /* UserPinPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8612740965500504F81 /* UserPinPlaceTableViewCell.swift */; };
+		8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */; };
+		8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F86A2741049E00504F81 /* ProfileTableViewController.swift */; };
+		8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +52,13 @@
 		8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceManager.swift; sourceTree = "<group>"; };
 		8823A3AB273F300700C7E228 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8823A3AD273F465300C7E228 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		8872F8582740906600504F81 /* UserFollowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowListViewController.swift; sourceTree = "<group>"; };
+		8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
+		8872F85F2740938200504F81 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		8872F8612740965500504F81 /* UserPinPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPinPlaceTableViewCell.swift; sourceTree = "<group>"; };
+		8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPinPlaceListViewController.swift; sourceTree = "<group>"; };
+		8872F86A2741049E00504F81 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomHeaderView.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,8 +107,7 @@
 				8823A392273D242A00C7E228 /* Models */,
 				8823A391273D241B00C7E228 /* Views */,
 				8823A390273D240C00C7E228 /* Controllers */,
-				8823A37C273D204100C7E228 /* AppDelegate.swift */,
-				8823A37E273D204100C7E228 /* SceneDelegate.swift */,
+				8872F8672740FAB100504F81 /* Supporting Files */,
 				8823A385273D204800C7E228 /* Assets.xcassets */,
 				8823A3AB273F300700C7E228 /* Main.storyboard */,
 				8823A387273D204800C7E228 /* LaunchScreen.storyboard */,
@@ -115,6 +128,8 @@
 		8823A391273D241B00C7E228 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */,
+				8872F85C2740911C00504F81 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				8823A399273D25D000C7E228 /* MapViewController.swift */,
-				8823A39E273D2A4500C7E228 /* SearchFriendViewController.swift */,
+				8872F86A2741049E00504F81 /* ProfileTableViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -149,13 +164,43 @@
 			isa = PBXGroup;
 			children = (
 				8823A397273D247100C7E228 /* Onboarding */,
+				8872F8572740904F00504F81 /* General */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		8872F8572740904F00504F81 /* General */ = {
+			isa = PBXGroup;
+			children = (
 				8823A3A0273D2A8100C7E228 /* AddPlaceViewController.swift */,
 				8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */,
 				8823A39B273D273700C7E228 /* AddFriendViewController.swift */,
 				8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */,
 				8823A3AD273F465300C7E228 /* CommentsViewController.swift */,
+				8823A39E273D2A4500C7E228 /* SearchFriendViewController.swift */,
+				8872F8582740906600504F81 /* UserFollowListViewController.swift */,
+				8872F85F2740938200504F81 /* EditProfileViewController.swift */,
+				8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */,
 			);
-			path = Other;
+			path = General;
+			sourceTree = "<group>";
+		};
+		8872F85C2740911C00504F81 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */,
+				8872F8612740965500504F81 /* UserPinPlaceTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8872F8672740FAB100504F81 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8823A37C273D204100C7E228 /* AppDelegate.swift */,
+				8823A37E273D204100C7E228 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		F263E82E9153A13F8FB748B5 /* Frameworks */ = {
@@ -285,11 +330,18 @@
 				8823A39F273D2A4500C7E228 /* SearchFriendViewController.swift in Sources */,
 				8823A394273D244E00C7E228 /* LoginViewController.swift in Sources */,
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
+				8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */,
 				8823A3A1273D2A8200C7E228 /* AddPlaceViewController.swift in Sources */,
+				8872F8592740906600504F81 /* UserFollowListViewController.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,
+				8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */,
 				8823A381273D204100C7E228 /* HomeViewController.swift in Sources */,
+				8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */,
 				8823A37D273D204100C7E228 /* AppDelegate.swift in Sources */,
 				8823A37F273D204100C7E228 /* SceneDelegate.swift in Sources */,
+				8872F8622740965500504F81 /* UserPinPlaceTableViewCell.swift in Sources */,
+				8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */,
+				8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */,
 				8823A396273D246A00C7E228 /* RegisterViewController.swift in Sources */,
 				8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */,
 			);

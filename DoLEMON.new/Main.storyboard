@@ -23,17 +23,29 @@
             </objects>
             <point key="canvasLocation" x="51" y="856"/>
         </scene>
-        <!--Search Friend View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="wVv-62-gTR">
             <objects>
-                <viewController id="F64-Ax-i56" customClass="SearchFriendViewController" customModule="DoLEMON_new" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="R59-uv-Eto">
+                <viewController id="F64-Ax-i56" customClass="ProfileViewController" customModule="DoLEMON_new" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MVP-W6-GUj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="jBr-e9-Ysf"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="POO-zV-LSM">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="POO-zV-LSM" id="kNV-ra-9PK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <navigationItem key="navigationItem" id="AFd-cz-7fp"/>
+                    <connections>
+                        <outlet property="tableView" destination="MVP-W6-GUj" id="f88-60-bWh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K73-6s-dfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,7 +126,7 @@
         <scene sceneID="0qv-WN-smb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KvK-f8-C5j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person.fill.badge.plus" catalog="system" selectedImage="person.badge.plus" id="TcW-7M-XST"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.circle.fill" catalog="system" selectedImage="person.circle.fill" id="TcW-7M-XST"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gUQ-d7-A1r">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -132,8 +144,7 @@
     </scenes>
     <resources>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
-        <image name="person.badge.plus" catalog="system" width="128" height="124"/>
-        <image name="person.fill.badge.plus" catalog="system" width="128" height="124"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
