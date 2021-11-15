@@ -31,6 +31,8 @@ class ProfileTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(cellIcon)
         contentView.addSubview(cellLabel)
+        
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {

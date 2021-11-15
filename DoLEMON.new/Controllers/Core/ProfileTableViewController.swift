@@ -7,15 +7,8 @@
 
 import UIKit
 
-//struct CustomCell {
-//    let icon: UIImage
-//    let title: String
-//}
 
 class ProfileViewController: UIViewController {
-    
-//    let customCell = CustomCell(icon: UIImage(systemName: "person.fill.badge.plus")!, title: "Add Friend")
-    
     
     var profileCustomHeaderView = ProfileCustomHeaderView()
     
@@ -23,12 +16,21 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
+        
+        // title
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Profile"
+        
         tableView.delegate = self
         tableView.dataSource = self
         profileCustomHeaderView.delegate = self
         // HeaderView
         tableView.register(ProfileCustomHeaderView.self,
                            forHeaderFooterViewReuseIdentifier: "ProfileCustomHeaderView")
+        
+        // tableViewCell
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
     }
     
@@ -42,10 +44,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let vc = SearchFriendViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,8 +57,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath)
-        cell.textLabel?.text = "cell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell",
+                                                 for: indexPath) as! ProfileTableViewCell
         return cell
     }
     

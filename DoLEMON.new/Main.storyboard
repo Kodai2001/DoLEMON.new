@@ -126,7 +126,7 @@
         <scene sceneID="0qv-WN-smb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KvK-f8-C5j" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person.circle.fill" catalog="system" selectedImage="person.circle.fill" id="TcW-7M-XST"/>
+                    <tabBarItem key="tabBarItem" title="" image="person.fill" catalog="system" selectedImage="person.fill" id="TcW-7M-XST"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gUQ-d7-A1r">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -144,7 +144,7 @@
     </scenes>
     <resources>
         <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
-        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

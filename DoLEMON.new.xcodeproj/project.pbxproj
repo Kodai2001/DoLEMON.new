@@ -31,6 +31,7 @@
 		8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F86A2741049E00504F81 /* ProfileTableViewController.swift */; };
 		8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */; };
 		8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */; };
+		8872F8762741EAD400504F81 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8752741EAD400504F81 /* Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		8872F86A2741049E00504F81 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomHeaderView.swift; sourceTree = "<group>"; };
 		8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		8872F8752741EAD400504F81 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 		8823A37B273D204100C7E228 /* DoLEMON.new */ = {
 			isa = PBXGroup;
 			children = (
+				8872F8742741EABF00504F81 /* Resources */,
 				8823A392273D242A00C7E228 /* Models */,
 				8823A391273D241B00C7E228 /* Views */,
 				8823A390273D240C00C7E228 /* Controllers */,
@@ -204,6 +207,14 @@
 				8823A37E273D204100C7E228 /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8872F8742741EABF00504F81 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8872F8752741EAD400504F81 /* Extentions.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F263E82E9153A13F8FB748B5 /* Frameworks */ = {
@@ -348,6 +359,7 @@
 				8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */,
 				8823A396273D246A00C7E228 /* RegisterViewController.swift in Sources */,
 				8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */,
+				8872F8762741EAD400504F81 /* Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
