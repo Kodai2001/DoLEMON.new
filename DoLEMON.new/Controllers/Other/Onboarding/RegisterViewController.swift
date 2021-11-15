@@ -10,6 +10,13 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
+    private let profileImageButton: UIButton = {
+       let button = UIButton()
+        button.setImage(UIImage(named: "profileImage"), for: .normal)
+        button.addTarget(self, action: #selector(profileImageButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     private let createAccountButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.5725490196, blue: 0.7450980392, alpha: 1)
@@ -28,7 +35,7 @@ class RegisterViewController: UIViewController {
        let textField = UITextField()
         textField.backgroundColor = .white
         textField.layer.masksToBounds = true
-        textField.layer.cornerRadius = 30.0
+        textField.layer.cornerRadius = 10.0
         textField.placeholder = "       Email"
         return textField
     }()
@@ -37,7 +44,7 @@ class RegisterViewController: UIViewController {
        let textField = UITextField()
         textField.backgroundColor = .white
         textField.layer.masksToBounds = true
-        textField.layer.cornerRadius = 30.0
+        textField.layer.cornerRadius = 10.0
         textField.placeholder = "       Full Name"
         return textField
     }()
@@ -46,7 +53,7 @@ class RegisterViewController: UIViewController {
        let textField = UITextField()
         textField.backgroundColor = .white
         textField.layer.masksToBounds = true
-        textField.layer.cornerRadius = 30.0
+        textField.layer.cornerRadius = 10.0
         textField.placeholder = "       Username"
         return textField
     }()
@@ -55,7 +62,7 @@ class RegisterViewController: UIViewController {
        let textField = UITextField()
         textField.backgroundColor = .white
         textField.layer.masksToBounds = true
-        textField.layer.cornerRadius = 30.0
+        textField.layer.cornerRadius = 10.0
         textField.placeholder = "       Password"
         return textField
     }()
@@ -75,52 +82,64 @@ class RegisterViewController: UIViewController {
         view.addSubview(passwordlTextField)
         view.addSubview(userNamelTextField)
         view.addSubview(fullNameTextField)
+        view.addSubview(profileImageButton)
     }
     
     override func viewDidLayoutSubviews() {
-       
         
+        // profileImageButton
+        profileImageButton.frame.size.width = 200
+        profileImageButton.frame.size.height = 200
+        profileImageButton.frame.origin.x = self.view.frame.size.width / 2 - profileImageButton.frame.size.width / 2
+        profileImageButton.frame.origin.y = view.safeAreaInsets.top
+       
         // emailTextField
         emailTextField.frame.size.width = 300
-        emailTextField.frame.size.height = 70
+        emailTextField.frame.size.height = 35
         emailTextField.frame.origin.x = self.view.frame.size.width / 2 - emailTextField.frame.size.width / 2
-        emailTextField.frame.origin.y = view.safeAreaInsets.top + 20
+        emailTextField.frame.origin.y = view.safeAreaInsets.top + 200
         
         //fullNameTextField
         fullNameTextField.frame.size.width = 300
-        fullNameTextField.frame.size.height = 70
+        fullNameTextField.frame.size.height = 35
         fullNameTextField.frame.origin.x = self.view.frame.size.width / 2 - fullNameTextField.frame.size.width / 2
-        fullNameTextField.frame.origin.y = emailTextField.frame.origin.y + 100
+        fullNameTextField.frame.origin.y = emailTextField.frame.origin.y + 50
         
         // userNamelTextField
         userNamelTextField.frame.size.width = 300
-        userNamelTextField.frame.size.height = 70
+        userNamelTextField.frame.size.height = 35
         userNamelTextField.frame.origin.x = self.view.frame.size.width / 2 - userNamelTextField.frame.size.width / 2
-        userNamelTextField.frame.origin.y = emailTextField.frame.origin.y + 200
+        userNamelTextField.frame.origin.y = emailTextField.frame.origin.y + 100
         
         //passwordTextField
         passwordlTextField.frame.size.width = 300
-        passwordlTextField.frame.size.height = 70
+        passwordlTextField.frame.size.height = 35
         passwordlTextField.frame.origin.x = self.view.frame.size.width / 2 - passwordlTextField.frame.size.width / 2
-        passwordlTextField.frame.origin.y = emailTextField.frame.origin.y + 300
+        passwordlTextField.frame.origin.y = emailTextField.frame.origin.y + 150
         
         // loginButton
         createAccountButton.frame.size.width = 300
         createAccountButton.frame.size.height = 70
         createAccountButton.frame.origin.x = self.view.frame.size.width / 2 - createAccountButton.frame.size.width / 2
-        createAccountButton.frame.origin.y = emailTextField.frame.origin.y + 450
+        createAccountButton.frame.origin.y = passwordlTextField.frame.origin.y + 100
     }
     
     @objc func signUpButtonPressed() {
         let signUpManager = FirebaseAuthManager()
-        if let email = emailTextField.text, let password = passwordlTextField.text {
-            signUpManager.createUser(email: email, password: password) {[weak self] (success) in
+        if let email = emailTextField.text, let password = passwordlTextField.text, let fullName = fullNameTextField.text, let username = userNamelTextField.text {
+            signUpManager.createUser(
+                email: email,
+                fullName: fullName,
+                username: username,
+                password: password
+            )
+            {[weak self] (success) in
                 guard let `self` = self else { return }
                 var message: String = ""
                 if (success) {
                     message = "User was sucessfully created."
-                    let vc = MapViewController()
-                    self.present(vc, animated: true, completion: nil)
+//                    let vc = MapViewController()
+//                    self.present(vc, animated: true, completion: nil)
                 } else {
                     message = "There was an error."
                 }
@@ -129,6 +148,10 @@ class RegisterViewController: UIViewController {
                 self.present(alertController, animated: true)
             }
         }
+    }
+    
+    @objc func profileImageButtonPressed() {
+        print("profileImage")
     }
 }
 

@@ -62,6 +62,9 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let place = places[indexPath.row]
         
+        let vc = CommentsViewController()
+        present(vc, animated: true, completion: nil)
+        
         GooglePlaceManager.shared.resolveLocatioin(for: place) { [weak self] result in
             switch result {
             case .success(let coordinate):

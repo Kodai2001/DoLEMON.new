@@ -17,7 +17,7 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
     let searchVC = UISearchController(searchResultsController: ResultViewController())
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() 
         view.addSubview(mapView)
         searchVC.searchBar.backgroundColor = .secondarySystemBackground
         searchVC.searchResultsUpdater = self
