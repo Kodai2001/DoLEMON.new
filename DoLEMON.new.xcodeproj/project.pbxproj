@@ -33,6 +33,7 @@
 		8872F8762741EAD400504F81 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8752741EAD400504F81 /* Extentions.swift */; };
 		8872F87927424AAE00504F81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8872F87827424AAE00504F81 /* GoogleService-Info.plist */; };
 		8872F87B27424C9800504F81 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */; };
+		8872F87E27431ED100504F81 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87D27431ED100504F81 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		8872F8752741EAD400504F81 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		8872F87827424AAE00504F81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		8872F87D27431ED100504F81 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 		8823A392273D242A00C7E228 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8872F87D27431ED100504F81 /* Place.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
 				8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */,
 				8872F8592740906600504F81 /* UserFollowListViewController.swift in Sources */,
+				8872F87E27431ED100504F81 /* Place.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,
 				8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */,
 				8823A381273D204100C7E228 /* HomeViewController.swift in Sources */,

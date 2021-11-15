@@ -9,10 +9,6 @@ import Foundation
 import GooglePlaces
 import CoreLocation
 
-struct Place {
-    let name: String
-    let identifier: String
-}
 
 final class GooglePlaceManager {
     static let shared = GooglePlaceManager()
@@ -44,6 +40,8 @@ final class GooglePlaceManager {
             let places: [Place] = results.compactMap({
                 Place(
                     name: $0.attributedFullText.string,
+                    placeName: $0.attributedPrimaryText.string,
+                    address: $0.attributedSecondaryText?.string ?? "",
                     identifier: $0.placeID
                 )
             })

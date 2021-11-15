@@ -9,8 +9,10 @@ import UIKit
 
 class CommentsViewController: UIViewController {
     
+    
+    
     private let placeNameIcon: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFill
@@ -18,9 +20,9 @@ class CommentsViewController: UIViewController {
         return imageView
     }()
     
-    private let placeNameLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Tokyo Disney Sea"
+    let placeNameLabel: UILabel = {
+        let label = UILabel()
+        //label.text = "Tokyo Disney Sea"
         label.numberOfLines = 0
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
@@ -28,7 +30,7 @@ class CommentsViewController: UIViewController {
     }()
     
     private let addressIcon: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFill
@@ -36,9 +38,8 @@ class CommentsViewController: UIViewController {
         return imageView
     }()
     
-    private let addressLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Japan, Chiba, Urayasu, Maihama"
+    let addressLabel: UILabel = {
+        let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
@@ -46,7 +47,7 @@ class CommentsViewController: UIViewController {
     }()
     
     private let usernameIcon: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFill
@@ -55,7 +56,7 @@ class CommentsViewController: UIViewController {
     }()
     
     private let usernameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Kodai Hayashi"
         label.numberOfLines = 0
         label.textColor = .black
@@ -64,7 +65,7 @@ class CommentsViewController: UIViewController {
     }()
     
     private let textViewIcon: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8
         imageView.contentMode = .scaleAspectFill
@@ -73,7 +74,7 @@ class CommentsViewController: UIViewController {
     }()
     
     private let textView: UITextView = {
-       let textView = UITextView()
+        let textView = UITextView()
         textView.textColor = .black
         textView.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return textView
@@ -92,13 +93,13 @@ class CommentsViewController: UIViewController {
         )
         return button
     }()
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
         view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
-       //　UIが完成したら消す
+        //　UIが完成したら消す
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -170,6 +171,6 @@ class CommentsViewController: UIViewController {
         addButton.frame.origin.y = view.safeAreaInsets.top + 670
     }
     
-
-
+    
+    
 }

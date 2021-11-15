@@ -12,6 +12,8 @@ protocol ResultViewControllerDelegate: AnyObject {
     func didTapPlace(with coordinate: CLLocationCoordinate2D)
 }
 
+
+
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     weak var delegate: ResultViewControllerDelegate?
@@ -63,6 +65,8 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let place = places[indexPath.row]
         
         let vc = CommentsViewController()
+        vc.placeNameLabel.text = place.name
+        vc.addressLabel.text = place.address
         present(vc, animated: true, completion: nil)
         
         GooglePlaceManager.shared.resolveLocatioin(for: place) { [weak self] result in
