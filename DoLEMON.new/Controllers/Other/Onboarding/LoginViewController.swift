@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
             ofSize: 30,
             weight: .bold
         )
-        //button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -76,5 +76,23 @@ class LoginViewController: UIViewController {
         loginButton.frame.size.height = 70
         loginButton.frame.origin.x = self.view.frame.size.width / 2 - loginButton.frame.size.width / 2
         loginButton.frame.origin.y = emailTextField.frame.origin.y + 300
+    }
+    
+    @objc func loginButtonPressed() {
+        let loginManager = FirebaseAuthManager()
+        guard let email = emailTextField.text, let password = passwordlTextField.text else { return }
+        loginManager.signIn(email: email, pass: password) {[weak self] (success) in
+            guard let `self` = self else { return }
+            var message: String = ""
+            if (success) {
+                message = "User was sucessfully logged in."
+            } else {
+                message = "There was an error."
+            }
+            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertController, animated: true)
+
+        }
     }
 }

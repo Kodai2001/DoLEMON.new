@@ -18,7 +18,6 @@
 		8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A399273D25D000C7E228 /* MapViewController.swift */; };
 		8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A39B273D273700C7E228 /* AddFriendViewController.swift */; };
 		8823A39F273D2A4500C7E228 /* SearchFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A39E273D2A4500C7E228 /* SearchFriendViewController.swift */; };
-		8823A3A1273D2A8200C7E228 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A0273D2A8100C7E228 /* AddPlaceViewController.swift */; };
 		8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */; };
 		8823A3A8273DF26200C7E228 /* GooglePlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */; };
 		8823A3AC273F300700C7E228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8823A3AB273F300700C7E228 /* Main.storyboard */; };
@@ -32,6 +31,8 @@
 		8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */; };
 		8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */; };
 		8872F8762741EAD400504F81 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8752741EAD400504F81 /* Extentions.swift */; };
+		8872F87927424AAE00504F81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8872F87827424AAE00504F81 /* GoogleService-Info.plist */; };
+		8872F87B27424C9800504F81 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +50,6 @@
 		8823A399273D25D000C7E228 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		8823A39B273D273700C7E228 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		8823A39E273D2A4500C7E228 /* SearchFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendViewController.swift; sourceTree = "<group>"; };
-		8823A3A0273D2A8100C7E228 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceManager.swift; sourceTree = "<group>"; };
 		8823A3AB273F300700C7E228 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +63,8 @@
 		8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomHeaderView.swift; sourceTree = "<group>"; };
 		8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		8872F8752741EAD400504F81 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		8872F87827424AAE00504F81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -111,11 +113,12 @@
 				8872F8742741EABF00504F81 /* Resources */,
 				8823A392273D242A00C7E228 /* Models */,
 				8823A391273D241B00C7E228 /* Views */,
-				8823A390273D240C00C7E228 /* Controllers */,
-				8872F8672740FAB100504F81 /* Supporting Files */,
 				8823A385273D204800C7E228 /* Assets.xcassets */,
 				8823A3AB273F300700C7E228 /* Main.storyboard */,
 				8823A387273D204800C7E228 /* LaunchScreen.storyboard */,
+				8823A390273D240C00C7E228 /* Controllers */,
+				8872F8672740FAB100504F81 /* Supporting Files */,
+				8872F87827424AAE00504F81 /* GoogleService-Info.plist */,
 				8823A38A273D204800C7E228 /* Info.plist */,
 			);
 			path = DoLEMON.new;
@@ -125,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				8823A39D273D288400C7E228 /* Other */,
-				8823A398273D259500C7E228 /* Core */,
+				8823A398273D259500C7E228 /* CoreTabs */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -133,7 +136,7 @@
 		8823A391273D241B00C7E228 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */,
+				8872F87C27424CF100504F81 /* TableViewHeader */,
 				8872F85C2740911C00504F81 /* Cells */,
 			);
 			path = Views;
@@ -156,13 +159,13 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		8823A398273D259500C7E228 /* Core */ = {
+		8823A398273D259500C7E228 /* CoreTabs */ = {
 			isa = PBXGroup;
 			children = (
 				8823A399273D25D000C7E228 /* MapViewController.swift */,
 				8872F86A2741049E00504F81 /* ProfileTableViewController.swift */,
 			);
-			path = Core;
+			path = CoreTabs;
 			sourceTree = "<group>";
 		};
 		8823A39D273D288400C7E228 /* Other */ = {
@@ -177,12 +180,9 @@
 		8872F8572740904F00504F81 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				8823A3A0273D2A8100C7E228 /* AddPlaceViewController.swift */,
 				8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */,
-				8823A39B273D273700C7E228 /* AddFriendViewController.swift */,
-				8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */,
+				8872F8772742004500504F81 /* AddFriend */,
 				8823A3AD273F465300C7E228 /* CommentsViewController.swift */,
-				8823A39E273D2A4500C7E228 /* SearchFriendViewController.swift */,
 				8872F8582740906600504F81 /* UserFollowListViewController.swift */,
 				8872F85F2740938200504F81 /* EditProfileViewController.swift */,
 				8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */,
@@ -212,9 +212,28 @@
 		8872F8742741EABF00504F81 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */,
 				8872F8752741EAD400504F81 /* Extentions.swift */,
+				8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8872F8772742004500504F81 /* AddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				8823A39B273D273700C7E228 /* AddFriendViewController.swift */,
+				8823A39E273D2A4500C7E228 /* SearchFriendViewController.swift */,
+			);
+			path = AddFriend;
+			sourceTree = "<group>";
+		};
+		8872F87C27424CF100504F81 /* TableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */,
+			);
+			path = TableViewHeader;
 			sourceTree = "<group>";
 		};
 		F263E82E9153A13F8FB748B5 /* Frameworks */ = {
@@ -237,6 +256,7 @@
 				8823A376273D204100C7E228 /* Frameworks */,
 				8823A377273D204100C7E228 /* Resources */,
 				24A1CC16D877E8D59A3D8276 /* [CP] Copy Pods Resources */,
+				DD9253DA1CFDD6CB813132CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -287,6 +307,7 @@
 				8823A389273D204800C7E228 /* LaunchScreen.storyboard in Resources */,
 				8823A3AC273F300700C7E228 /* Main.storyboard in Resources */,
 				8823A386273D204800C7E228 /* Assets.xcassets in Resources */,
+				8872F87927424AAE00504F81 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +353,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DD9253DA1CFDD6CB813132CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoLEMON.new/Pods-DoLEMON.new-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DoLEMON.new/Pods-DoLEMON.new-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DoLEMON.new/Pods-DoLEMON.new-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -345,7 +383,6 @@
 				8823A394273D244E00C7E228 /* LoginViewController.swift in Sources */,
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
 				8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */,
-				8823A3A1273D2A8200C7E228 /* AddPlaceViewController.swift in Sources */,
 				8872F8592740906600504F81 /* UserFollowListViewController.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,
 				8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */,
@@ -355,6 +392,7 @@
 				8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */,
 				8823A37F273D204100C7E228 /* SceneDelegate.swift in Sources */,
 				8872F8622740965500504F81 /* UserPinPlaceTableViewCell.swift in Sources */,
+				8872F87B27424C9800504F81 /* FirebaseAuthManager.swift in Sources */,
 				8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */,
 				8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */,
 				8823A396273D246A00C7E228 /* RegisterViewController.swift in Sources */,

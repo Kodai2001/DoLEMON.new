@@ -20,7 +20,7 @@ class RegisterViewController: UIViewController {
             ofSize: 30,
             weight: .bold
         )
-        //button.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(signUpButtonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -109,6 +109,26 @@ class RegisterViewController: UIViewController {
         createAccountButton.frame.size.height = 70
         createAccountButton.frame.origin.x = self.view.frame.size.width / 2 - createAccountButton.frame.size.width / 2
         createAccountButton.frame.origin.y = emailTextField.frame.origin.y + 450
+    }
+    
+    @objc func signUpButtonPressed() {
+        let signUpManager = FirebaseAuthManager()
+        if let email = emailTextField.text, let password = passwordlTextField.text {
+            signUpManager.createUser(email: email, password: password) {[weak self] (success) in
+                guard let `self` = self else { return }
+                var message: String = ""
+                if (success) {
+                    message = "User was sucessfully created."
+                    let vc = MapViewController()
+                    self.present(vc, animated: true, completion: nil)
+                } else {
+                    message = "There was an error."
+                }
+                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alertController, animated: true)
+            }
+        }
     }
 }
 

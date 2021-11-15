@@ -13,7 +13,7 @@ class AddPlaceViewController: UIViewController {
             super.viewDidLoad()
             self.title = "Second"
 
-            // ただ背景色がシアンなだけ
+            
         self.view.backgroundColor = UIColor.yellow
         }
 
