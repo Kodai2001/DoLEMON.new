@@ -7,8 +7,17 @@
 
 import UIKit
 
+//struct CustomCell {
+//    let icon: UIImage
+//    let title: String
+//}
+
 class ProfileViewController: UIViewController {
     
+//    let customCell = CustomCell(icon: UIImage(systemName: "person.fill.badge.plus")!, title: "Add Friend")
+    
+    
+    var profileCustomHeaderView = ProfileCustomHeaderView()
     
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -16,11 +25,11 @@ class ProfileViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
+        profileCustomHeaderView.delegate = self
         // HeaderView
         tableView.register(ProfileCustomHeaderView.self,
                            forHeaderFooterViewReuseIdentifier: "ProfileCustomHeaderView")
-        
+        tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
     }
     
     override func viewDidLayoutSubviews() {
@@ -44,7 +53,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath)
         cell.textLabel?.text = "cell"
         return cell
     }
@@ -57,8 +66,18 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 250
     }
     
+}
+
+extension ProfileViewController: ProfileCustomHeaderViewDelegate {
+    func editProfileButtonPressed() {
+        print("Succesfully pressed")
+    }
+    
+    
+
+
 }
 

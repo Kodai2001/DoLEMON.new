@@ -30,6 +30,7 @@
 		8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */; };
 		8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F86A2741049E00504F81 /* ProfileTableViewController.swift */; };
 		8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */; };
+		8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPinPlaceListViewController.swift; sourceTree = "<group>"; };
 		8872F86A2741049E00504F81 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomHeaderView.swift; sourceTree = "<group>"; };
+		8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 			children = (
 				8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */,
 				8872F8612740965500504F81 /* UserPinPlaceTableViewCell.swift */,
+				8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				8823A381273D204100C7E228 /* HomeViewController.swift in Sources */,
 				8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */,
 				8823A37D273D204100C7E228 /* AppDelegate.swift in Sources */,
+				8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */,
 				8823A37F273D204100C7E228 /* SceneDelegate.swift in Sources */,
 				8872F8622740965500504F81 /* UserPinPlaceTableViewCell.swift in Sources */,
 				8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */,
