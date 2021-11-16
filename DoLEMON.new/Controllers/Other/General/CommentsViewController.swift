@@ -22,7 +22,6 @@ class CommentsViewController: UIViewController {
     
     let placeNameLabel: UILabel = {
         let label = UILabel()
-        //label.text = "Tokyo Disney Sea"
         label.numberOfLines = 0
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
@@ -55,9 +54,9 @@ class CommentsViewController: UIViewController {
         return imageView
     }()
     
-    private let usernameLabel: UILabel = {
+     let usernameLabel: UILabel = {
+        
         let label = UILabel()
-        label.text = "Kodai Hayashi"
         label.numberOfLines = 0
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)

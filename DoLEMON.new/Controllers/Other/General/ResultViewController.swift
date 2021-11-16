@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import FirebaseFirestore
 
 protocol ResultViewControllerDelegate: AnyObject {
     func didTapPlace(with coordinate: CLLocationCoordinate2D)
@@ -65,8 +66,23 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let place = places[indexPath.row]
         
         let vc = CommentsViewController()
-        vc.placeNameLabel.text = place.name
+        vc.placeNameLabel.text = place.placeName
         vc.addressLabel.text = place.address
+        
+        // AuthManagerに切り出したい
+        let db = Firestore.firestore()
+        db.collection("Users").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    guard let username = document.get("fullName") as? String else {return}
+                    vc.usernameLabel.text  = username
+                }
+            }
+        }
+        
+        // commntsVCにmodalで遷移
         present(vc, animated: true, completion: nil)
         
         GooglePlaceManager.shared.resolveLocatioin(for: place) { [weak self] result in

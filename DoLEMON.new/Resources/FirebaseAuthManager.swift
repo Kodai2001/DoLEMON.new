@@ -53,4 +53,17 @@ class FirebaseAuthManager {
             }
         }
     }
+    
+//    func fetchData() {
+//        let db = Firestore.firestore()
+//        db.collection("Users").getDocuments { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    　　fullname.text = document.get("fullName")
+//                }
+//            }
+//        }
+//    }
 }

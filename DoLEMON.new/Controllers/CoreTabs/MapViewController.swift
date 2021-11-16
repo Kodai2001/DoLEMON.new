@@ -22,6 +22,8 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
         navigationItem.searchController = searchVC
         view.backgroundColor = .systemBackground
         
+        mapView.delegate = self
+        
         // titleの設定
         navigationItem.title = "MAPS"
         navigationItem.largeTitleDisplayMode = .always
@@ -64,12 +66,10 @@ extension MapViewController: ResultViewControllerDelegate {
         searchVC.searchBar.resignFirstResponder()
         searchVC.dismiss(animated: true, completion: nil)
         
-        // Remove all map pins
-        let annotaions = mapView.annotations
-        mapView.removeAnnotations(annotaions)
-        
         // Add a map pin
         let pin = MKPointAnnotation()
+        pin.title = "TokyoDisneySea "
+        pin.subtitle = "Kodai Hayashi"
         pin.coordinate = coordinate
         mapView.addAnnotation(pin)
         mapView.setRegion(MKCoordinateRegion(
@@ -79,6 +79,41 @@ extension MapViewController: ResultViewControllerDelegate {
                                 longitudeDelta: 0.5)),
                           animated: true)
     }
+}
+
+
+//　ピンをカスタムする
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        //アノテーションビューを作成する。
+        let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
     
+        //吹き出しを表示可能にする。
+        pinView.canShowCallout = true
+        
+        //左ボタンをアノテーションビューに追加する。
+        let deletePinButton = UIButton()
+        deletePinButton.frame = CGRect(x: 0,y: 0,width: 40,height: 40)
+        deletePinButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        pinView.rightCalloutAccessoryView = deletePinButton
+        
+        //右ボタンをアノテーションビューに追加する。
+        let showDetailButton = UIButton()
+        showDetailButton.frame = CGRect(x: 0,y: 0,width: 40,height: 40)
+        showDetailButton.setImage(UIImage(systemName: "doc.text.magnifyingglass"), for: .normal)
+        pinView.leftCalloutAccessoryView = showDetailButton
+        return pinView
+    }
     
+    //吹き出しアクササリー押下時の呼び出しメソッド
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if(control == view.leftCalloutAccessoryView) {
+            print("detailVCに遷移")
+        } else {
+            guard let pin = view.annotation else {return}
+            mapView.removeAnnotation(pin)
+        }
+    }
 }

@@ -34,6 +34,7 @@
 		8872F87927424AAE00504F81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8872F87827424AAE00504F81 /* GoogleService-Info.plist */; };
 		8872F87B27424C9800504F81 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */; };
 		8872F87E27431ED100504F81 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87D27431ED100504F81 /* Place.swift */; };
+		8872F88027432C2900504F81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87F27432C2900504F81 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		8872F87827424AAE00504F81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		8872F87D27431ED100504F81 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		8872F87F27432C2900504F81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				8872F87D27431ED100504F81 /* Place.swift */,
+				8872F87F27432C2900504F81 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				8823A396273D246A00C7E228 /* RegisterViewController.swift in Sources */,
 				8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */,
 				8872F8762741EAD400504F81 /* Extentions.swift in Sources */,
+				8872F88027432C2900504F81 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
