@@ -9,6 +9,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import UIKit
 
+
+
 class FirebaseAuthManager {
     
     // create user
@@ -61,7 +63,7 @@ class FirebaseAuthManager {
 //                print("Error getting documents: \(err)")
 //            } else {
 //                for document in querySnapshot!.documents {
-//                    　　fullname.text = document.get("fullName")
+//
 //                }
 //            }
 //        }

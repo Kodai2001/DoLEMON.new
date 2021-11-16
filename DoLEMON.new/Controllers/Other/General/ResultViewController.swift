@@ -10,10 +10,8 @@ import CoreLocation
 import FirebaseFirestore
 
 protocol ResultViewControllerDelegate: AnyObject {
-    func didTapPlace(with coordinate: CLLocationCoordinate2D)
+    func didTapPlace(with coordinate: CLLocationCoordinate2D, title: String, subtitle: String)
 }
-
-
 
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -88,8 +86,23 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         GooglePlaceManager.shared.resolveLocatioin(for: place) { [weak self] result in
             switch result {
             case .success(let coordinate):
+                
                 DispatchQueue.main.async {
-                    self?.delegate?.didTapPlace(with: coordinate)
+                    
+                    // AuthManagerに切り出したい
+                    let db = Firestore.firestore()
+                    db.collection("Users").getDocuments { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            for document in querySnapshot!.documents {
+                                guard let username = document.get("fullName") as? String else {return}
+                                
+                                self?.delegate?.didTapPlace(with: coordinate, title: place.placeName, subtitle: username)
+                            }
+                        }
+                    }
+                    
                 }
                 break
             case .failure(let error):

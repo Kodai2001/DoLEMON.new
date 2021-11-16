@@ -35,6 +35,7 @@
 		8872F87B27424C9800504F81 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */; };
 		8872F87E27431ED100504F81 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87D27431ED100504F81 /* Place.swift */; };
 		8872F88027432C2900504F81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87F27432C2900504F81 /* User.swift */; };
+		8872F88227434A1B00504F81 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88127434A1A00504F81 /* Pin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		8872F87D27431ED100504F81 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		8872F87F27432C2900504F81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8872F88127434A1A00504F81 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 			children = (
 				8872F87D27431ED100504F81 /* Place.swift */,
 				8872F87F27432C2900504F81 /* User.swift */,
+				8872F88127434A1A00504F81 /* Pin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				8823A3A8273DF26200C7E228 /* GooglePlaceManager.swift in Sources */,
 				8823A3AE273F465400C7E228 /* CommentsViewController.swift in Sources */,
 				8823A39F273D2A4500C7E228 /* SearchFriendViewController.swift in Sources */,
+				8872F88227434A1B00504F81 /* Pin.swift in Sources */,
 				8823A394273D244E00C7E228 /* LoginViewController.swift in Sources */,
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
 				8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */,

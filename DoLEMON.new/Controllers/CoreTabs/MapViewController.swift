@@ -62,14 +62,13 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
 }
 
 extension MapViewController: ResultViewControllerDelegate {
-    func didTapPlace(with coordinate: CLLocationCoordinate2D) {
+    func didTapPlace(with coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
         searchVC.searchBar.resignFirstResponder()
-        searchVC.dismiss(animated: true, completion: nil)
-        
+        searchVC.dismiss(animated: true, completion: nil) 
         // Add a map pin
         let pin = MKPointAnnotation()
-        pin.title = "TokyoDisneySea "
-        pin.subtitle = "Kodai Hayashi"
+        pin.title = title
+        pin.subtitle = subtitle
         pin.coordinate = coordinate
         mapView.addAnnotation(pin)
         mapView.setRegion(MKCoordinateRegion(

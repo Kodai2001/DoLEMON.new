@@ -7,9 +7,9 @@
 
 import UIKit
 
+
+
 class CommentsViewController: UIViewController {
-    
-    
     
     private let placeNameIcon: UIImageView = {
         let imageView = UIImageView()
@@ -90,6 +90,7 @@ class CommentsViewController: UIViewController {
             ofSize: 50,
             weight: .bold
         )
+        button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
         return button
     }()
     
@@ -170,6 +171,8 @@ class CommentsViewController: UIViewController {
         addButton.frame.origin.y = view.safeAreaInsets.top + 670
     }
     
-    
+    @objc func didTapAddButton() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
 }
