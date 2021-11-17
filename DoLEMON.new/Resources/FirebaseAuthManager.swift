@@ -59,7 +59,6 @@ class FirebaseAuthManager {
     func getUserName(completion: @escaping (String) -> Void) {
         let db = Firestore.firestore()
         var result: String = ""
-        print(1)
         db.collection("Users").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -68,16 +67,13 @@ class FirebaseAuthManager {
                     guard let username = document.get("fullName") as? String else {return}
                     result = username
                     completion(result)
-                    print(2)
                 }
             }
         }
-        print(3)
     }
     
     func savePin(pin: Pin) {
         let db = Firestore.firestore()
-        
         db.collection("pin").addDocument(data: [
             "latitude": pin.latitude,
             "longitude": pin.longitude,
@@ -133,10 +129,11 @@ class FirebaseAuthManager {
         getAllPins { piNs in
             pins = piNs
             var results:[MKPointAnnotation] = []
-            print(pins.count)
             pins.forEach { pin in
                 let annotation = MKPointAnnotation()
                 let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude)!, longitude: CLLocationDegrees(pin.longitude)!)
+                annotation.title = pin.title
+                annotation.subtitle = pin.subtitle
                 annotation.coordinate = coordinate
                 results.append(annotation)
                 completion(results)

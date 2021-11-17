@@ -72,6 +72,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // commentVCに取得するusername取得
         authManager.getUserName { result in
             vc.usernameLabel.text = result
+            vc.pin.subtitle = result
         }
         
         vc.pin.title = place.placeName
@@ -98,7 +99,6 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             }
                         }
                     }
-                    
                 }
                 break
             case .failure(let error):
