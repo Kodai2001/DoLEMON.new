@@ -40,6 +40,7 @@ class ProfileTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         // cellIcon
         cellIcon.frame.size.width = 30
         cellIcon.frame.size.height = 30

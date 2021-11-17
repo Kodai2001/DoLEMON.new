@@ -124,7 +124,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
 
     override init(reuseIdentifier: String?) {
           super.init(reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .secondarySystemBackground
+        contentView.isUserInteractionEnabled = true
         addSubviews()
         let firestoreManager = FirestoreManager()
         firestoreManager.getUser { [self] results in
@@ -191,13 +191,13 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         editProfileButton.frame.size.width = 200
         editProfileButton.frame.size.height = 45
         editProfileButton.frame.origin.x = 20
-        editProfileButton.frame.origin.y = 125
+        editProfileButton.frame.origin.y = 110
         
         // profileImageView
         profileImageView.frame.size.width = 100
         profileImageView.frame.size.height = 100
         profileImageView.frame.origin.x = 250
-        profileImageView.frame.origin.y = 75
+        profileImageView.frame.origin.y = 95
     }
     
     // EditProfileButtonをタップしても反応しない

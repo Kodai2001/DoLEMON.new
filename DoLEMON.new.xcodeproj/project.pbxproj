@@ -25,7 +25,7 @@
 		8872F8592740906600504F81 /* UserFollowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8582740906600504F81 /* UserFollowListViewController.swift */; };
 		8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */; };
 		8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85F2740938200504F81 /* EditProfileViewController.swift */; };
-		8872F8622740965500504F81 /* UserPinPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8612740965500504F81 /* UserPinPlaceTableViewCell.swift */; };
+		8872F8622740965500504F81 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8612740965500504F81 /* EditProfileTableViewCell.swift */; };
 		8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */; };
 		8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F86A2741049E00504F81 /* ProfileTableViewController.swift */; };
 		8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */; };
@@ -38,6 +38,8 @@
 		8872F88227434A1B00504F81 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88127434A1A00504F81 /* Pin.swift */; };
 		8872F88427448EEB00504F81 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88327448EEB00504F81 /* Comment.swift */; };
 		8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8852744F66200504F81 /* FirestoreManager.swift */; };
+		8872F88A2745B7AF00504F81 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8892745B7AF00504F81 /* TestViewController.swift */; };
+		8872F88C2745BE5300504F81 /* EditProfileCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88B2745BE5300504F81 /* EditProfileCustomHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +64,7 @@
 		8872F8582740906600504F81 /* UserFollowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowListViewController.swift; sourceTree = "<group>"; };
 		8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		8872F85F2740938200504F81 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		8872F8612740965500504F81 /* UserPinPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPinPlaceTableViewCell.swift; sourceTree = "<group>"; };
+		8872F8612740965500504F81 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
 		8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPinPlaceListViewController.swift; sourceTree = "<group>"; };
 		8872F86A2741049E00504F81 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomHeaderView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,8 @@
 		8872F88127434A1A00504F81 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		8872F88327448EEB00504F81 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		8872F8852744F66200504F81 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		8872F8892745B7AF00504F81 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		8872F88B2745BE5300504F81 /* EditProfileCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCustomHeaderView.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -139,6 +143,7 @@
 			children = (
 				8823A39D273D288400C7E228 /* Other */,
 				8823A398273D259500C7E228 /* CoreTabs */,
+				8872F8892745B7AF00504F81 /* TestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -208,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */,
-				8872F8612740965500504F81 /* UserPinPlaceTableViewCell.swift */,
+				8872F8612740965500504F81 /* EditProfileTableViewCell.swift */,
 				8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */,
 			);
 			path = Cells;
@@ -247,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				8872F87027412D5200504F81 /* ProfileCustomHeaderView.swift */,
+				8872F88B2745BE5300504F81 /* EditProfileCustomHeaderView.swift */,
 			);
 			path = TableViewHeader;
 			sourceTree = "<group>";
@@ -408,15 +414,17 @@
 				8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */,
 				8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */,
 				8823A37D273D204100C7E228 /* AppDelegate.swift in Sources */,
+				8872F88A2745B7AF00504F81 /* TestViewController.swift in Sources */,
 				8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */,
 				8823A37F273D204100C7E228 /* SceneDelegate.swift in Sources */,
-				8872F8622740965500504F81 /* UserPinPlaceTableViewCell.swift in Sources */,
+				8872F8622740965500504F81 /* EditProfileTableViewCell.swift in Sources */,
 				8872F87B27424C9800504F81 /* FirebaseAuthManager.swift in Sources */,
 				8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */,
 				8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */,
 				8823A396273D246A00C7E228 /* RegisterViewController.swift in Sources */,
 				8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */,
 				8872F8762741EAD400504F81 /* Extentions.swift in Sources */,
+				8872F88C2745BE5300504F81 /* EditProfileCustomHeaderView.swift in Sources */,
 				8872F88027432C2900504F81 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
