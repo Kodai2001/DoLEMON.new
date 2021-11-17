@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import FirebaseFirestore
 
 class MapViewController: UIViewController, UISearchResultsUpdating {
     
@@ -16,6 +17,7 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(mapView)
         searchVC.searchBar.backgroundColor = .secondarySystemBackground
         searchVC.searchResultsUpdater = self
@@ -83,6 +85,8 @@ extension MapViewController: ResultViewControllerDelegate {
 
 //　ピンをカスタムする
 extension MapViewController: MKMapViewDelegate {
+    
+    //　ピンをカスタマイズする
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         //アノテーションビューを作成する。
@@ -113,6 +117,32 @@ extension MapViewController: MKMapViewDelegate {
         } else {
             guard let pin = view.annotation else {return}
             mapView.removeAnnotation(pin)
+            
+            let db = Firestore.firestore()
+            db.collection("pin")
+                //指定されたuidのピンを削除する
+                .document("Ycmy1AgM77QYdVcs5sta")
+                .delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+        }
+
+        }
+    }
+    
+    // マップのロード終了時に呼ばれる
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        let authManager = FirebaseAuthManager()
+        var annotations:[MKAnnotation] = []
+        
+        authManager.getAnnotations { results in
+            annotations = results
+            annotations.forEach { annotation in
+                mapView.addAnnotation(annotation)
+            }
         }
     }
 }

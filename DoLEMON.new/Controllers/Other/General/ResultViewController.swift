@@ -59,6 +59,8 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let authManager = FirebaseAuthManager()
+        
         tableView.isHidden = true
         
         let place = places[indexPath.row]
@@ -67,19 +69,12 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         vc.placeNameLabel.text = place.placeName
         vc.addressLabel.text = place.address
         
-        // AuthManagerに切り出したい
-        let db = Firestore.firestore()
-        db.collection("Users").getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    guard let username = document.get("fullName") as? String else {return}
-                    vc.usernameLabel.text  = username
-                }
-            }
+        // commentVCに取得するusername取得
+        authManager.getUserName { result in
+            vc.usernameLabel.text = result
         }
         
+        vc.pin.title = place.placeName
         // commntsVCにmodalで遷移
         present(vc, animated: true, completion: nil)
         
@@ -88,7 +83,6 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
             case .success(let coordinate):
                 
                 DispatchQueue.main.async {
-                    
                     // AuthManagerに切り出したい
                     let db = Firestore.firestore()
                     db.collection("Users").getDocuments { (querySnapshot, err) in
@@ -97,6 +91,8 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         } else {
                             for document in querySnapshot!.documents {
                                 guard let username = document.get("fullName") as? String else {return}
+                                vc.pin.latitude = String(coordinate.latitude)
+                                vc.pin.longitude = String(coordinate.longitude)
                                 
                                 self?.delegate?.didTapPlace(with: coordinate, title: place.placeName, subtitle: username)
                             }

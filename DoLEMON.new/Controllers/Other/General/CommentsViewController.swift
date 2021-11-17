@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 
 
 class CommentsViewController: UIViewController {
+    
+    var pin = Pin()
     
     private let placeNameIcon: UIImageView = {
         let imageView = UIImageView()
@@ -173,6 +176,9 @@ class CommentsViewController: UIViewController {
     
     @objc func didTapAddButton() {
         self.dismiss(animated: true, completion: nil)
+        
+        let authManager = FirebaseAuthManager()
+        authManager.savePin(pin: pin)
     }
     
 }

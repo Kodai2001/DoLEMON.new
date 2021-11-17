@@ -8,6 +8,9 @@
 import Foundation
 
 struct Pin {
-    let title: String
-    let subtitle: String
+    var title: String = ""
+    var subtitle: String = ""
+    
+    var latitude: String = ""
+    var longitude: String = ""
 }
