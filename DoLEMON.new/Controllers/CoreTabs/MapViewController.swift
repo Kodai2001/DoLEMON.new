@@ -116,10 +116,10 @@ extension MapViewController: MKMapViewDelegate {
         let commentVC = CommentsViewController()
         
         if(control == view.leftCalloutAccessoryView) {
-            let authManager = FirebaseAuthManager()
+            let firestoreManager = FirestoreManager()
             
             // 指定されたドキュメントをFirestoreから取り出せるようにしたい
-            authManager.getComment { result in
+            firestoreManager.getComment { result in
                 commentVC.placeNameLabel.text = result.placeName
                 commentVC.addressLabel.text = result.addressName
                 commentVC.usernameLabel.text = result.username
@@ -153,15 +153,15 @@ extension MapViewController: MKMapViewDelegate {
     
     // マップのロード終了時に呼ばれる
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        let authManager = FirebaseAuthManager()
+        let firestoreManger = FirestoreManager()
         var annotations:[MKAnnotation] = []
     
         
-//        authManager.getAnnotations { results in
-//            annotations = results
-//            annotations.forEach { annotation in
-//                mapView.addAnnotation(annotation)
-//            }
-//        }
+        firestoreManger.getAnnotations { results in
+            annotations = results
+            annotations.forEach { annotation in
+                mapView.addAnnotation(annotation)
+            }
+        }
     }
 }

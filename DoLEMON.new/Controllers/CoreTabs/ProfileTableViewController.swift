@@ -79,9 +79,5 @@ extension ProfileViewController: ProfileCustomHeaderViewDelegate {
     func editProfileButtonPressed() {
         print("Succesfully pressed")
     }
-    
-    
-
-
 }
 

@@ -59,7 +59,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let authManager = FirebaseAuthManager()
+        let firestoreManager = FirestoreManager()
         tableView.isHidden = true
         let place = places[indexPath.row]
         let commentsVC = CommentsViewController()
@@ -68,9 +68,9 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         commentsVC.addressLabel.text = place.address
         
         // commentVCとpinのsubtitleにfullnameを代入
-        authManager.getUserName { result in
-            commentsVC.usernameLabel.text = result
-            commentsVC.pin.subtitle = result
+        firestoreManager.getUser { results in
+            commentsVC.usernameLabel.text = results[0]
+            commentsVC.pin.subtitle = results[0]
         }
         
         commentsVC.pin.title = place.placeName

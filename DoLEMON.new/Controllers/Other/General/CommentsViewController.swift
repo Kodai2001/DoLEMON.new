@@ -103,8 +103,6 @@ class CommentsViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
-        //　UIが完成したら消す
-        navigationController?.navigationBar.isHidden = true
     }
     
     private func addSubviews() {
@@ -179,9 +177,9 @@ class CommentsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         // comment structにcommentVCのデータを入れる
         putDataIntoCommentStruct()
-        let authManager = FirebaseAuthManager()
-        authManager.savePin(pin: pin)
-        authManager.saveComment(comment: comment)
+        let firestoreManger = FirestoreManager()
+        firestoreManger.savePin(pin: pin)
+        firestoreManger.saveComment(comment: comment)
     }
     
     func putDataIntoCommentStruct () {

@@ -37,6 +37,7 @@
 		8872F88027432C2900504F81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87F27432C2900504F81 /* User.swift */; };
 		8872F88227434A1B00504F81 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88127434A1A00504F81 /* Pin.swift */; };
 		8872F88427448EEB00504F81 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88327448EEB00504F81 /* Comment.swift */; };
+		8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8852744F66200504F81 /* FirestoreManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		8872F87F27432C2900504F81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8872F88127434A1A00504F81 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		8872F88327448EEB00504F81 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		8872F8852744F66200504F81 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -227,6 +229,7 @@
 				8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */,
 				8872F8752741EAD400504F81 /* Extentions.swift */,
 				8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */,
+				8872F8852744F66200504F81 /* FirestoreManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				8872F88427448EEB00504F81 /* Comment.swift in Sources */,
 				8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */,
 				8823A381273D204100C7E228 /* HomeViewController.swift in Sources */,
+				8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */,
 				8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */,
 				8823A37D273D204100C7E228 /* AppDelegate.swift in Sources */,
 				8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */,

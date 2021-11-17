@@ -20,7 +20,7 @@ class AddFriendViewController: UIViewController {
     
     private let fullNameLabel: UILabel = {
        let label = UILabel()
-        label.text = "Kodai Hayashi"
+        label.text = "Sakura Endo"
         label.textAlignment = .center
         label.numberOfLines = 2
         label.textColor = .black

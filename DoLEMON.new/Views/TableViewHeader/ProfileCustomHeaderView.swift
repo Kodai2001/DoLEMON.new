@@ -15,6 +15,68 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
     
     public weak var delegate: ProfileCustomHeaderViewDelegate?
     
+    private let followingNumberButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = .clear
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitle("100", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont.systemFont(
+            ofSize: 25,
+            weight: .bold
+        )
+        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private let followingTextButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = .clear
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitle("Following", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(
+            ofSize: 15,
+            weight: .semibold
+        )
+        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private let followersNumberButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = .clear
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitle("7890", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont.systemFont(
+            ofSize: 25,
+            weight: .bold
+        )
+        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private let followersTextButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = .clear
+        button.layer.masksToBounds = true
+        button.layer.cornerRadius = 10
+        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitle("Followers", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(
+            ofSize: 15,
+            weight: .semibold
+        )
+        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
+        return button
+    }()
+    
     private let profileImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -26,7 +88,6 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
     
     private let fullNameLabel: UILabel = {
        let label = UILabel()
-        label.text = "Kodai Hayashi"
         label.textAlignment = .left
         label.numberOfLines = 2
         label.textColor = .black
@@ -36,7 +97,6 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
     
     private let accountNameLabel: UILabel = {
        let label = UILabel()
-        label.text = "@Erizabesu_Japan"
         label.textAlignment = .left
         label.numberOfLines = 2
         label.textColor = .black
@@ -58,7 +118,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
             ofSize: 30,
             weight: .bold
         )
-        button.addTarget(self, action: #selector(editProfileButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
         return button
     }()
 
@@ -66,7 +126,11 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
           super.init(reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .secondarySystemBackground
         addSubviews()
-        
+        let firestoreManager = FirestoreManager()
+        firestoreManager.getUser { [self] results in
+            fullNameLabel.text = results[0]
+            accountNameLabel.text = "@\(results[3])"
+        }
         
       }
     
@@ -79,21 +143,49 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         contentView.addSubview(fullNameLabel)
         contentView.addSubview(accountNameLabel)
         contentView.addSubview(editProfileButton)
+        contentView.addSubview(followingTextButton)
+        contentView.addSubview(followersTextButton)
+        contentView.addSubview(followingNumberButton)
+        contentView.addSubview(followersNumberButton)
     }
     
     override func layoutSubviews() {
         
+        // followingNumberButton
+        followingNumberButton.frame.size.width = 90
+        followingNumberButton.frame.size.height = 90
+        followingNumberButton.frame.origin.x = 125
+        followingNumberButton.frame.origin.y = 0
+        
+        // followersNumberButton
+        followersNumberButton.frame.size.width = 90
+        followersNumberButton.frame.size.height = 90
+        followersNumberButton.frame.origin.x = 20
+        followersNumberButton.frame.origin.y = 0
+        
+        // followingButton
+        followingTextButton.frame.size.width = 90
+        followingTextButton.frame.size.height = 90
+        followingTextButton.frame.origin.x = 125
+        followingTextButton.frame.origin.y = 30
+        
+        // followersButton
+        followersTextButton.frame.size.width = 90
+        followersTextButton.frame.size.height = 90
+        followersTextButton.frame.origin.x = 20
+        followersTextButton.frame.origin.y = 30
+        
         // fullNameLabel
         fullNameLabel.frame.size.width = 200
         fullNameLabel.frame.size.height = 41
-        fullNameLabel.frame.origin.x = 20
-        fullNameLabel.frame.origin.y = 30
+        fullNameLabel.frame.origin.x = 230
+        fullNameLabel.frame.origin.y = 0
         
         // accountNameLabel
         accountNameLabel.frame.size.width = 200
         accountNameLabel.frame.size.height = 20
-        accountNameLabel.frame.origin.x = 20
-        accountNameLabel.frame.origin.y = 70
+        accountNameLabel.frame.origin.x = 230
+        accountNameLabel.frame.origin.y = 40
         
         // editProfileButton
         editProfileButton.frame.size.width = 200
@@ -105,12 +197,13 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         profileImageView.frame.size.width = 100
         profileImageView.frame.size.height = 100
         profileImageView.frame.origin.x = 250
-        profileImageView.frame.origin.y = 30
+        profileImageView.frame.origin.y = 75
     }
     
-     @objc func editProfileButtonPressed() {
-        delegate?.editProfileButtonPressed()
-    }
+    // EditProfileButtonをタップしても反応しない
+     @objc func didTappedEditProfileButton() {
+        self.delegate?.editProfileButtonPressed()
+     }
     
     
     
