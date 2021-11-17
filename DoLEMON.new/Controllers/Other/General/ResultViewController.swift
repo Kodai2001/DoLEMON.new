@@ -60,24 +60,22 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
         
         let authManager = FirebaseAuthManager()
-        
         tableView.isHidden = true
-        
         let place = places[indexPath.row]
+        let commentsVC = CommentsViewController()
         
-        let vc = CommentsViewController()
-        vc.placeNameLabel.text = place.placeName
-        vc.addressLabel.text = place.address
+        commentsVC.placeNameLabel.text = place.placeName
+        commentsVC.addressLabel.text = place.address
         
-        // commentVCに取得するusername取得
+        // commentVCとpinのsubtitleにfullnameを代入
         authManager.getUserName { result in
-            vc.usernameLabel.text = result
-            vc.pin.subtitle = result
+            commentsVC.usernameLabel.text = result
+            commentsVC.pin.subtitle = result
         }
         
-        vc.pin.title = place.placeName
+        commentsVC.pin.title = place.placeName
         // commntsVCにmodalで遷移
-        present(vc, animated: true, completion: nil)
+        present(commentsVC, animated: true, completion: nil)
         
         GooglePlaceManager.shared.resolveLocatioin(for: place) { [weak self] result in
             switch result {
@@ -92,8 +90,8 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         } else {
                             for document in querySnapshot!.documents {
                                 guard let username = document.get("fullName") as? String else {return}
-                                vc.pin.latitude = String(coordinate.latitude)
-                                vc.pin.longitude = String(coordinate.longitude)
+                                commentsVC.pin.latitude = String(coordinate.latitude)
+                                commentsVC.pin.longitude = String(coordinate.longitude)
                                 
                                 self?.delegate?.didTapPlace(with: coordinate, title: place.placeName, subtitle: username)
                             }

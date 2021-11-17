@@ -113,7 +113,8 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
         if(control == view.leftCalloutAccessoryView) {
-            print("detailVCに遷移")
+            let vc = CommentsViewController()
+            present(vc, animated: true, completion: nil)
         } else {
             guard let pin = view.annotation else {return}
             mapView.removeAnnotation(pin)

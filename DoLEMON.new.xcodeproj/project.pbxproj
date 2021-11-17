@@ -36,6 +36,7 @@
 		8872F87E27431ED100504F81 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87D27431ED100504F81 /* Place.swift */; };
 		8872F88027432C2900504F81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F87F27432C2900504F81 /* User.swift */; };
 		8872F88227434A1B00504F81 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88127434A1A00504F81 /* Pin.swift */; };
+		8872F88427448EEB00504F81 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88327448EEB00504F81 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		8872F87D27431ED100504F81 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		8872F87F27432C2900504F81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8872F88127434A1A00504F81 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
+		8872F88327448EEB00504F81 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 				8872F87D27431ED100504F81 /* Place.swift */,
 				8872F87F27432C2900504F81 /* User.swift */,
 				8872F88127434A1A00504F81 /* Pin.swift */,
+				8872F88327448EEB00504F81 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				8872F8592740906600504F81 /* UserFollowListViewController.swift in Sources */,
 				8872F87E27431ED100504F81 /* Place.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,
+				8872F88427448EEB00504F81 /* Comment.swift in Sources */,
 				8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */,
 				8823A381273D204100C7E228 /* HomeViewController.swift in Sources */,
 				8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */,

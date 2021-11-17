@@ -74,11 +74,28 @@ class FirebaseAuthManager {
     
     func savePin(pin: Pin) {
         let db = Firestore.firestore()
-        db.collection("pin").addDocument(data: [
+        db.collection("Pins").addDocument(data: [
             "latitude": pin.latitude,
             "longitude": pin.longitude,
             "title": pin.title,
             "subtitle": pin.subtitle
+            
+        ]) { (error) in
+            if let e = error {
+                print("There was a issue saving data to firestore, \(e)")
+            } else {
+                print("Succecessfully saved data")
+            }
+        }
+    }
+    
+    func saveComment(comment: Comment) {
+        let db = Firestore.firestore()
+        db.collection("Comments").addDocument(data: [
+            "placeName": comment.placeName,
+            "addressName": comment.addressName,
+            "username": comment.username,
+            "commentText": comment.commentText
             
         ]) { (error) in
             if let e = error {
@@ -94,7 +111,7 @@ class FirebaseAuthManager {
         let db = Firestore.firestore()
         var results: [Pin] = []
         
-        db.collection("pin").getDocuments { (querySnapshot, error) in
+        db.collection("Pins").getDocuments { (querySnapshot, error) in
             if let e = error {
                 print("There was an issue retrieving data from Firestore. \(e)")
             } else {
