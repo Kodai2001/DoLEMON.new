@@ -76,7 +76,7 @@ class CommentsViewController: UIViewController {
         return imageView
     }()
     
-    private let textView: UITextView = {
+    let textView: UITextView = {
         let textView = UITextView()
         textView.textColor = .black
         textView.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
@@ -177,6 +177,7 @@ class CommentsViewController: UIViewController {
     
     @objc func didTapAddButton() {
         self.dismiss(animated: true, completion: nil)
+        // comment structにcommentVCのデータを入れる
         putDataIntoCommentStruct()
         let authManager = FirebaseAuthManager()
         authManager.savePin(pin: pin)

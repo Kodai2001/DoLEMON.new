@@ -112,16 +112,33 @@ extension MapViewController: MKMapViewDelegate {
     //吹き出しアクササリー押下時の呼び出しメソッド
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
+        // commentVCに遷移
+        let commentVC = CommentsViewController()
+        
         if(control == view.leftCalloutAccessoryView) {
-            let vc = CommentsViewController()
-            present(vc, animated: true, completion: nil)
+            let authManager = FirebaseAuthManager()
+            
+            // 指定されたドキュメントをFirestoreから取り出せるようにしたい
+            authManager.getComment { result in
+                commentVC.placeNameLabel.text = result.placeName
+                commentVC.addressLabel.text = result.addressName
+                commentVC.usernameLabel.text = result.username
+                commentVC.textView.text = result.commentText
+                self.present(commentVC, animated: true, completion: nil)
+            }
+            
+            
         } else {
             guard let pin = view.annotation else {return}
+            
+            // ピンをマップ上から削除する
             mapView.removeAnnotation(pin)
             
+            // 指定されたドキュメントをFirestoreから取り出せるようにしたい
             let db = Firestore.firestore()
             db.collection("pin")
-                //指定されたuidのピンを削除する
+                // 仮の値でtestしている
+                // 本当は特定のドキュメントのフィールドを取得したい
                 .document("Ycmy1AgM77QYdVcs5sta")
                 .delete() { err in
                 if let err = err {
@@ -138,12 +155,13 @@ extension MapViewController: MKMapViewDelegate {
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         let authManager = FirebaseAuthManager()
         var annotations:[MKAnnotation] = []
+    
         
-        authManager.getAnnotations { results in
-            annotations = results
-            annotations.forEach { annotation in
-                mapView.addAnnotation(annotation)
-            }
-        }
+//        authManager.getAnnotations { results in
+//            annotations = results
+//            annotations.forEach { annotation in
+//                mapView.addAnnotation(annotation)
+//            }
+//        }
     }
 }

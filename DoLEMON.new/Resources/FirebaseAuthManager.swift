@@ -106,56 +106,89 @@ class FirebaseAuthManager {
         }
     }
     
-    
-    func getAllPins(completion: @escaping ([Pin]) -> Void) {
+    func getComment(completion: @escaping (Comment) -> Void) {
         let db = Firestore.firestore()
-        var results: [Pin] = []
         
-        db.collection("Pins").getDocuments { (querySnapshot, error) in
-            if let e = error {
-                print("There was an issue retrieving data from Firestore. \(e)")
-            } else {
-                if let snapshotDocuments = querySnapshot?.documents {
-                    for doc in snapshotDocuments {
+        db.collection("Comments")
+            // 仮の値でtestしている
+            // 本当は特定のドキュメントのフィールドを取得したい
+            .document("A4LyIc30gHk1snRPtR7e")
+            .getDocument { (querySnapshot, error) in
+                if let e = error {
+                    print("There was an issue retrieving data from Firestore. \(e)")
+                } else {
+                    guard let data = querySnapshot?.data() else { return }
+                    
+                    if let placeName = data["placeName"] as? String,
+                       let addressName = data["addressName"] as? String,
+                       let username = data["username"] as? String,
+                       let commentText = data["commentText"] as? String
+                    {
+                        var result = Comment()
                         
-                        let data = doc.data()
-                        if let longitude = data["longitude"] as? String,
-                           let latitude = data["latitude"] as? String,
-                           let title = data["title"] as? String,
-                           let subtitle = data["subtitle"] as? String
-                        {
-                            var pin = Pin()
+                        result.placeName = placeName
+                        result.addressName = addressName
+                        result.username = username
+                        result.commentText = commentText
+                        completion(result)
+                    } else {
+                        print("There was an issue")
+                    }
+                }
+            }
+        
+        
+        
+        func getAllPins(completion: @escaping ([Pin]) -> Void) {
+            let db = Firestore.firestore()
+            var results: [Pin] = []
+            
+            db.collection("Pins").getDocuments { (querySnapshot, error) in
+                if let e = error {
+                    print("There was an issue retrieving data from Firestore. \(e)")
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        for doc in snapshotDocuments {
                             
-                            pin.longitude = longitude
-                            pin.latitude = latitude
-                            pin.title = title
-                            pin.subtitle = subtitle
-                            results.append(pin)
-                        } else {
-                            print("There was an issue")
+                            let data = doc.data()
+                            if let longitude = data["longitude"] as? String,
+                               let latitude = data["latitude"] as? String,
+                               let title = data["title"] as? String,
+                               let subtitle = data["subtitle"] as? String
+                            {
+                                var pin = Pin()
+                                
+                                pin.longitude = longitude
+                                pin.latitude = latitude
+                                pin.title = title
+                                pin.subtitle = subtitle
+                                results.append(pin)
+                            } else {
+                                print("There was an issue")
+                            }
+                            completion(results)
                         }
-                        completion(results)
                     }
                 }
             }
         }
-    }
-    
-    func getAnnotations(completion: @escaping ([MKAnnotation]) -> Void) {
-        var pins: [Pin] = []
-        getAllPins { piNs in
-            pins = piNs
-            var results:[MKPointAnnotation] = []
-            pins.forEach { pin in
-                let annotation = MKPointAnnotation()
-                let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude)!, longitude: CLLocationDegrees(pin.longitude)!)
-                annotation.title = pin.title
-                annotation.subtitle = pin.subtitle
-                annotation.coordinate = coordinate
-                results.append(annotation)
-                completion(results)
+        
+        func getAnnotations(completion: @escaping ([MKAnnotation]) -> Void) {
+            var pins: [Pin] = []
+            getAllPins { piNs in
+                pins = piNs
+                var results:[MKPointAnnotation] = []
+                pins.forEach { pin in
+                    let annotation = MKPointAnnotation()
+                    let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude)!, longitude: CLLocationDegrees(pin.longitude)!)
+                    annotation.title = pin.title
+                    annotation.subtitle = pin.subtitle
+                    annotation.coordinate = coordinate
+                    results.append(annotation)
+                    completion(results)
+                }
             }
         }
+        
     }
-    
 }
