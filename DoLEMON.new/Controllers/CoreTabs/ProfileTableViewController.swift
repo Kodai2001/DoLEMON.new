@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
         // title
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.title = "Profile"
+        self.navigationItem.title = "Profile" 
         
         tableView.delegate = self
         tableView.dataSource = self

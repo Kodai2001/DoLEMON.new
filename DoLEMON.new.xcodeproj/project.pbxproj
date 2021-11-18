@@ -40,6 +40,9 @@
 		8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8852744F66200504F81 /* FirestoreManager.swift */; };
 		8872F88A2745B7AF00504F81 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8892745B7AF00504F81 /* TestViewController.swift */; };
 		8872F88C2745BE5300504F81 /* EditProfileCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88B2745BE5300504F81 /* EditProfileCustomHeaderView.swift */; };
+		8872F8932745DBB700504F81 /* RenameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8922745DBB700504F81 /* RenameTableViewCell.swift */; };
+		8872F8972745DCEF00504F81 /* ChangeFullNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8962745DCEF00504F81 /* ChangeFullNameTableViewController.swift */; };
+		8872F8992745DD6700504F81 /* ChangeUsernameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8982745DD6700504F81 /* ChangeUsernameTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,9 @@
 		8872F8852744F66200504F81 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		8872F8892745B7AF00504F81 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		8872F88B2745BE5300504F81 /* EditProfileCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCustomHeaderView.swift; sourceTree = "<group>"; };
+		8872F8922745DBB700504F81 /* RenameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameTableViewCell.swift; sourceTree = "<group>"; };
+		8872F8962745DCEF00504F81 /* ChangeFullNameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFullNameTableViewController.swift; sourceTree = "<group>"; };
+		8872F8982745DD6700504F81 /* ChangeUsernameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameTableViewController.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -203,7 +209,7 @@
 				8872F8772742004500504F81 /* AddFriend */,
 				8823A3AD273F465300C7E228 /* CommentsViewController.swift */,
 				8872F8582740906600504F81 /* UserFollowListViewController.swift */,
-				8872F85F2740938200504F81 /* EditProfileViewController.swift */,
+				8872F88D2745DA9900504F81 /* EditProfile */,
 				8872F86527409B5600504F81 /* UserPinPlaceListViewController.swift */,
 			);
 			path = General;
@@ -215,6 +221,7 @@
 				8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */,
 				8872F8612740965500504F81 /* EditProfileTableViewCell.swift */,
 				8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */,
+				8872F8922745DBB700504F81 /* RenameTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -255,6 +262,16 @@
 				8872F88B2745BE5300504F81 /* EditProfileCustomHeaderView.swift */,
 			);
 			path = TableViewHeader;
+			sourceTree = "<group>";
+		};
+		8872F88D2745DA9900504F81 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				8872F85F2740938200504F81 /* EditProfileViewController.swift */,
+				8872F8962745DCEF00504F81 /* ChangeFullNameTableViewController.swift */,
+				8872F8982745DD6700504F81 /* ChangeUsernameTableViewController.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		F263E82E9153A13F8FB748B5 /* Frameworks */ = {
@@ -401,11 +418,14 @@
 				8823A3A8273DF26200C7E228 /* GooglePlaceManager.swift in Sources */,
 				8823A3AE273F465400C7E228 /* CommentsViewController.swift in Sources */,
 				8823A39F273D2A4500C7E228 /* SearchFriendViewController.swift in Sources */,
+				8872F8972745DCEF00504F81 /* ChangeFullNameTableViewController.swift in Sources */,
+				8872F8932745DBB700504F81 /* RenameTableViewCell.swift in Sources */,
 				8872F88227434A1B00504F81 /* Pin.swift in Sources */,
 				8823A394273D244E00C7E228 /* LoginViewController.swift in Sources */,
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
 				8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */,
 				8872F8592740906600504F81 /* UserFollowListViewController.swift in Sources */,
+				8872F8992745DD6700504F81 /* ChangeUsernameTableViewController.swift in Sources */,
 				8872F87E27431ED100504F81 /* Place.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,
 				8872F88427448EEB00504F81 /* Comment.swift in Sources */,

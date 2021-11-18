@@ -9,37 +9,18 @@ import UIKit
 
 class EditProfileTableViewCell: UITableViewCell {
     
-    private let fullNameLabel: UILabel = {
+    private let defaultTitleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 20, weight: .bold)
-        label.text = "FullName"
         return label
     }()
     
-    private let fullNameText: UILabel = {
+    private let textUserCanChangeLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = .systemFont(ofSize: 20, weight: .semibold)
-        label.text = "Sakura Endo"
         label.textColor = .systemBlue
-        return label
-    }()
-    
-    private let usernameLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 20, weight: .bold)
-        label.text = "Username"
-        return label
-    }()
-    
-    private let usernameText: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
-        label.text = "@Nogizaka46.SonyJapan"
-        label.textColor = .secondaryLabel
         return label
     }()
 
@@ -47,34 +28,37 @@ class EditProfileTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
-        
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func addSubviews() {
-        contentView.addSubview(fullNameLabel)
-        contentView.addSubview(fullNameText)
-        //contentView.addSubview(usernameText)
-        //contentView.addSubview(usernameLabel)
+        contentView.addSubview(defaultTitleLabel)
+        contentView.addSubview(textUserCanChangeLabel)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        // fullNameLabel
-        fullNameLabel.frame.size.width = 100
-        fullNameLabel.frame.size.height = 30
-        fullNameLabel.frame.origin.x = 20
-        fullNameLabel.frame.origin.y = 0
+        // defaultTitleLabel
+        defaultTitleLabel.frame.size.width = 100
+        defaultTitleLabel.frame.size.height = 30
+        defaultTitleLabel.frame.origin.x = 20
+        defaultTitleLabel.frame.origin.y = 17
     
-        // fullNameText
-        fullNameText.frame.size.width = 400
-        fullNameText.frame.size.height = 30
-        fullNameText.frame.origin.x = fullNameLabel.frame.origin.x+120
-        fullNameText.frame.origin.y = 0
+        // textUserCanChangeLabel
+        textUserCanChangeLabel.frame.size.width = 400
+        textUserCanChangeLabel.frame.size.height = 30
+        textUserCanChangeLabel.frame.origin.x = defaultTitleLabel.frame.origin.x+120
+        textUserCanChangeLabel.frame.origin.y = 17
+    }
+    
+    func configureCell(label: String, text: String) {
+        defaultTitleLabel.text = label
+        textUserCanChangeLabel.text = text
     }
     
 
