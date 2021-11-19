@@ -32,6 +32,7 @@ class ProfileViewController: UIViewController {
         
         // tableViewCell
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
+        
     }
     
     override func viewDidLayoutSubviews() {

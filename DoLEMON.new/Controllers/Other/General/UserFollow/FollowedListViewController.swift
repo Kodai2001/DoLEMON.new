@@ -1,13 +1,13 @@
 //
-//  ListViewController.swift
+//  FollowedListViewController.swift
 //  DoLEMON.new
 //
-//  Created by system on 2021/11/14.
+//  Created by system on 2021/11/18.
 //
 
 import UIKit
 
-class UserFollowListViewController: UIViewController {
+class FollowedListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

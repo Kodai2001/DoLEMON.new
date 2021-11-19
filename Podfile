@@ -6,7 +6,6 @@ target 'DoLEMON.new' do
   use_frameworks!
 
   pod 'GooglePlaces'
-  pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
 
