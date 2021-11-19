@@ -12,11 +12,12 @@ class ProfileViewController: UIViewController {
     
     var profileCustomHeaderView = ProfileCustomHeaderView()
     
+    
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
+        view.isUserInteractionEnabled = true
+        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
         
         // title
         navigationItem.largeTitleDisplayMode = .always
@@ -26,6 +27,7 @@ class ProfileViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         profileCustomHeaderView.delegate = self
+        
         // HeaderView
         tableView.register(ProfileCustomHeaderView.self,
                            forHeaderFooterViewReuseIdentifier: "ProfileCustomHeaderView")
@@ -41,6 +43,7 @@ class ProfileViewController: UIViewController {
     }
     
 }
+
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -79,8 +82,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+//MARK: - ProfileCustomHeaderViewDelegate
+
 extension ProfileViewController: ProfileCustomHeaderViewDelegate {
-    func editProfileButtonPressed() {
+    
+    func editProfileButtonPressed(_ header: ProfileCustomHeaderView) {
         print("Succesfully pressed")
     }
 }

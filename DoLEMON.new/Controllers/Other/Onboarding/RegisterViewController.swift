@@ -8,17 +8,28 @@
 
 import UIKit
 
+
 class RegisterViewController: UIViewController {
     
-    private let profileImageButton: UIButton = {
-       let button = UIButton()
-        button.setImage(UIImage(named: "profileImage"), for: .normal)
-        button.addTarget(self, action: #selector(profileImageButtonPressed), for: .touchUpInside)
+    private let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 60
+        return imageView
+    }()
+    
+    private let addProfileImageButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Add Profile Photo", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
+        button.titleLabel?.textAlignment = .center
+        button.addTarget(self, action: #selector(didTapAddProfileImageButton), for: .touchUpInside)
         return button
     }()
     
     private let createAccountButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton()
         button.backgroundColor = #colorLiteral(red: 0.9215686275, green: 0.5725490196, blue: 0.7450980392, alpha: 1)
         button.layer.cornerRadius = 30.0
         button.setTitleColor(UIColor.white,for: .normal)
@@ -32,7 +43,7 @@ class RegisterViewController: UIViewController {
     }()
     
     private let emailTextField: UITextField = {
-       let textField = UITextField()
+        let textField = UITextField()
         textField.backgroundColor = .white
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 10.0
@@ -41,7 +52,7 @@ class RegisterViewController: UIViewController {
     }()
     
     private let fullNameTextField: UITextField = {
-       let textField = UITextField()
+        let textField = UITextField()
         textField.backgroundColor = .white
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 10.0
@@ -50,7 +61,7 @@ class RegisterViewController: UIViewController {
     }()
     
     private let userNamelTextField: UITextField = {
-       let textField = UITextField()
+        let textField = UITextField()
         textField.backgroundColor = .white
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 10.0
@@ -59,7 +70,7 @@ class RegisterViewController: UIViewController {
     }()
     
     private let passwordlTextField: UITextField = {
-       let textField = UITextField()
+        let textField = UITextField()
         textField.backgroundColor = .white
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 10.0
@@ -67,8 +78,8 @@ class RegisterViewController: UIViewController {
         return textField
     }()
     
+    //MARK: -viewDidLoad
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
@@ -78,21 +89,29 @@ class RegisterViewController: UIViewController {
     
     private func addSubviews() {
         view.addSubview(createAccountButton)
+        view.addSubview(profileImageView)
         view.addSubview(emailTextField)
         view.addSubview(passwordlTextField)
         view.addSubview(userNamelTextField)
         view.addSubview(fullNameTextField)
-        view.addSubview(profileImageButton)
+        view.addSubview(addProfileImageButton)
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // profileImageView
+        profileImageView.frame.size.width = 120
+        profileImageView.frame.size.height = 120
+        profileImageView.frame.origin.x = self.view.frame.size.width / 2 - profileImageView.frame.size.width / 2
+        profileImageView.frame.origin.y = view.safeAreaInsets.top
         
         // profileImageButton
-        profileImageButton.frame.size.width = 200
-        profileImageButton.frame.size.height = 200
-        profileImageButton.frame.origin.x = self.view.frame.size.width / 2 - profileImageButton.frame.size.width / 2
-        profileImageButton.frame.origin.y = view.safeAreaInsets.top
-       
+        addProfileImageButton.frame.size.width = 300
+        addProfileImageButton.frame.size.height = 30
+        addProfileImageButton.frame.origin.x = self.view.frame.size.width / 2 - addProfileImageButton.frame.size.width / 2
+        addProfileImageButton.frame.origin.y = view.safeAreaInsets.top+115
+        
         // emailTextField
         emailTextField.frame.size.width = 300
         emailTextField.frame.size.height = 35
@@ -126,20 +145,21 @@ class RegisterViewController: UIViewController {
     
     @objc func signUpButtonPressed() {
         let signUpManager = FirebaseAuthManager()
-        if let email = emailTextField.text, let password = passwordlTextField.text, let fullName = fullNameTextField.text, let username = userNamelTextField.text {
+        if let email = emailTextField.text, let password = passwordlTextField.text, let fullName = fullNameTextField.text, let username = userNamelTextField.text, let image = profileImageView.image {
             signUpManager.createUser(
                 email: email,
                 fullName: fullName,
                 username: username,
-                password: password
+                password: password,
+                image: image
             )
             {[weak self] (success) in
                 guard let `self` = self else { return }
                 var message: String = ""
                 if (success) {
                     message = "User was sucessfully created."
-//                    let vc = MapViewController()
-//                    self.present(vc, animated: true, completion: nil)
+                    //                    let vc = MapViewController()
+                    //                    self.present(vc, animated: true, completion: nil)
                 } else {
                     message = "There was an error."
                 }
@@ -150,8 +170,31 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    @objc func profileImageButtonPressed() {
-        print("profileImage")
+    @objc func didTapAddProfileImageButton() {
+        
+        let accessPhotoManager = AccessPhotoManager()
+        accessPhotoManager.checkPermission()
+        
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        present(picker, animated: true)
+        self.present(picker, animated: true)
+    }
+}
+
+//MARK: -UIImagePickerControllerDelegate
+
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[.originalImage] as? UIImage {
+            addProfileImageButton.imageView?.image = UIImage(named: "")
+            profileImageView.image = selectedImage
+        }
+        self.dismiss(animated: true)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true)
     }
 }
 

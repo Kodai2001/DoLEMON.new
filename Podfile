@@ -8,5 +8,6 @@ target 'DoLEMON.new' do
   pod 'GooglePlaces'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
 end

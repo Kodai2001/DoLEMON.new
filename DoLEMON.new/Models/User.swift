@@ -12,4 +12,7 @@ struct User {
     var fullname: String = ""
     var password: String = ""
     var username: String = ""
+    var uid: String = ""
+    
+    var isFollowed: Bool = false
 }

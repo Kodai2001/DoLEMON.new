@@ -46,6 +46,8 @@
 		8872F89C274653D600504F81 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F89B274653D600504F81 /* PagingViewController.swift */; };
 		8872F89E2746684400504F81 /* FollowedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F89D2746684400504F81 /* FollowedListViewController.swift */; };
 		8872F8A02747211E00504F81 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F89F2747211E00504F81 /* DemoTableViewController.swift */; };
+		8872F8A22747A39000504F81 /* AccessPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8A12747A39000504F81 /* AccessPhotoManager.swift */; };
+		8872F8A52747A9F000504F81 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8A42747A9F000504F81 /* ImageUploader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,8 @@
 		8872F89B274653D600504F81 /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		8872F89D2746684400504F81 /* FollowedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowedListViewController.swift; sourceTree = "<group>"; };
 		8872F89F2747211E00504F81 /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
+		8872F8A12747A39000504F81 /* AccessPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPhotoManager.swift; sourceTree = "<group>"; };
+		8872F8A42747A9F000504F81 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +148,7 @@
 				8823A387273D204800C7E228 /* LaunchScreen.storyboard */,
 				8823A390273D240C00C7E228 /* Controllers */,
 				8872F8672740FAB100504F81 /* Supporting Files */,
+				8872F8A32747A9D900504F81 /* API */,
 				8872F87827424AAE00504F81 /* GoogleService-Info.plist */,
 				8823A38A273D204800C7E228 /* Info.plist */,
 			);
@@ -248,6 +253,7 @@
 				8872F8752741EAD400504F81 /* Extentions.swift */,
 				8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */,
 				8872F8852744F66200504F81 /* FirestoreManager.swift */,
+				8872F8A12747A39000504F81 /* AccessPhotoManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -289,6 +295,14 @@
 				8872F89F2747211E00504F81 /* DemoTableViewController.swift */,
 			);
 			path = UserFollow;
+			sourceTree = "<group>";
+		};
+		8872F8A32747A9D900504F81 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8872F8A42747A9F000504F81 /* ImageUploader.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		F263E82E9153A13F8FB748B5 /* Frameworks */ = {
@@ -437,9 +451,11 @@
 				8823A39F273D2A4500C7E228 /* SearchFriendViewController.swift in Sources */,
 				8872F8972745DCEF00504F81 /* ChangeFullNameTableViewController.swift in Sources */,
 				8872F8932745DBB700504F81 /* RenameTableViewCell.swift in Sources */,
+				8872F8A52747A9F000504F81 /* ImageUploader.swift in Sources */,
 				8872F88227434A1B00504F81 /* Pin.swift in Sources */,
 				8823A394273D244E00C7E228 /* LoginViewController.swift in Sources */,
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
+				8872F8A22747A39000504F81 /* AccessPhotoManager.swift in Sources */,
 				8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */,
 				8872F8592740906600504F81 /* FollowingListViewController.swift in Sources */,
 				8872F89C274653D600504F81 /* PagingViewController.swift in Sources */,

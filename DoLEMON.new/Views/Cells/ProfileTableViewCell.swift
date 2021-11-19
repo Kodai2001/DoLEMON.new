@@ -31,7 +31,8 @@ class ProfileTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(cellIcon)
         contentView.addSubview(cellLabel)
-        
+        contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
+
         selectionStyle = .none
     }
     

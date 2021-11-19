@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProfileCustomHeaderViewDelegate: AnyObject  {
-    func editProfileButtonPressed()
+    func editProfileButtonPressed(_ header: ProfileCustomHeaderView)
 }
 
 class ProfileCustomHeaderView: UITableViewHeaderFooterView {
@@ -122,16 +122,18 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         return button
     }()
 
+    //MARK: - Init
+    
     override init(reuseIdentifier: String?) {
           super.init(reuseIdentifier: reuseIdentifier)
-        contentView.isUserInteractionEnabled = true
         addSubviews()
         let firestoreManager = FirestoreManager()
         firestoreManager.getUser { [self] results in
             fullNameLabel.text = results[0]
             accountNameLabel.text = "@\(results[3])"
         }
-        
+        clipsToBounds = true
+        contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
       }
     
     required init?(coder: NSCoder) {
@@ -150,7 +152,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
     }
     
     override func layoutSubviews() {
-        
+        super.layoutSubviews()
         // followingNumberButton
         followingNumberButton.frame.size.width = 90
         followingNumberButton.frame.size.height = 90
@@ -202,9 +204,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
     
     // EditProfileButtonをタップしても反応しない
      @objc func didTappedEditProfileButton() {
-        self.delegate?.editProfileButtonPressed()
+        delegate?.editProfileButtonPressed(self)
      }
-    
-    
     
 }
