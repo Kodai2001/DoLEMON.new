@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol ProfileCustomHeaderViewDelegate: AnyObject  {
     func editProfileButtonPressed(_ header: ProfileCustomHeaderView)
@@ -82,7 +83,6 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 50
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "遠藤さくら")
         return imageView
     }()
     
@@ -128,10 +128,14 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
           super.init(reuseIdentifier: reuseIdentifier)
         addSubviews()
         let firestoreManager = FirestoreManager()
-        firestoreManager.getUser { [self] results in
-            fullNameLabel.text = results[0]
-            accountNameLabel.text = "@\(results[3])"
+        
+        firestoreManager.fetchUser { [self] result in
+            fullNameLabel.text = result.fullName
+            accountNameLabel.text = result.username
+            let url = URL(string: result.profileImageURL)
+            profileImageView.kf.setImage(with: url)
         }
+         
         clipsToBounds = true
         contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
       }
@@ -178,16 +182,16 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         followersTextButton.frame.origin.y = 30
         
         // fullNameLabel
-        fullNameLabel.frame.size.width = 200
+        fullNameLabel.frame.size.width = 100
         fullNameLabel.frame.size.height = 41
         fullNameLabel.frame.origin.x = 230
-        fullNameLabel.frame.origin.y = 0
+        fullNameLabel.frame.origin.y = 30
         
         // accountNameLabel
-        accountNameLabel.frame.size.width = 200
-        accountNameLabel.frame.size.height = 20
+        accountNameLabel.frame.size.width = 100
+        accountNameLabel.frame.size.height = 31
         accountNameLabel.frame.origin.x = 230
-        accountNameLabel.frame.origin.y = 40
+        accountNameLabel.frame.origin.y = fullNameLabel.frame.origin.y+40
         
         // editProfileButton
         editProfileButton.frame.size.width = 200
@@ -199,7 +203,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         profileImageView.frame.size.width = 100
         profileImageView.frame.size.height = 100
         profileImageView.frame.origin.x = 250
-        profileImageView.frame.origin.y = 95
+        profileImageView.frame.origin.y = editProfileButton.frame.origin.y
     }
     
     // EditProfileButtonをタップしても反応しない

@@ -63,7 +63,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1, green: 0.937254902, blue: 0.4705882353, alpha: 1)
         addSubviews()
-        
         // title
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true

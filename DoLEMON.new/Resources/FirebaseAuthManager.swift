@@ -10,9 +10,6 @@ import FirebaseFirestore
 import Firebase
 import UIKit
 
-
-
-
 class FirebaseAuthManager {
     
     // create user
@@ -36,7 +33,7 @@ class FirebaseAuthManager {
                     ] as [String : Any]
                     
                     //下の記述でFirestoreにデータを保存
-                    Firestore.firestore().collection("Users").document(uid).setData(docData) {(err) in
+                    COLLECTION_USERS.document(uid).setData(docData) {(err) in
                         if let err = err {
                             print("failed to upload user data\(err)...")
                             return

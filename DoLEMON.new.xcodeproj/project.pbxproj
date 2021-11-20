@@ -22,6 +22,7 @@
 		8823A3A8273DF26200C7E228 /* GooglePlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */; };
 		8823A3AC273F300700C7E228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8823A3AB273F300700C7E228 /* Main.storyboard */; };
 		8823A3AE273F465400C7E228 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3AD273F465300C7E228 /* CommentsViewController.swift */; };
+		883207102748685400E2921D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832070F2748685400E2921D /* Constants.swift */; };
 		8872F8592740906600504F81 /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8582740906600504F81 /* FollowingListViewController.swift */; };
 		8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */; };
 		8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85F2740938200504F81 /* EditProfileViewController.swift */; };
@@ -69,6 +70,7 @@
 		8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceManager.swift; sourceTree = "<group>"; };
 		8823A3AB273F300700C7E228 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8823A3AD273F465300C7E228 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		8832070F2748685400E2921D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8872F8582740906600504F81 /* FollowingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
 		8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		8872F85F2740938200504F81 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
@@ -143,12 +145,10 @@
 				8872F8742741EABF00504F81 /* Resources */,
 				8823A392273D242A00C7E228 /* Models */,
 				8823A391273D241B00C7E228 /* Views */,
-				8823A385273D204800C7E228 /* Assets.xcassets */,
-				8823A3AB273F300700C7E228 /* Main.storyboard */,
-				8823A387273D204800C7E228 /* LaunchScreen.storyboard */,
 				8823A390273D240C00C7E228 /* Controllers */,
 				8872F8672740FAB100504F81 /* Supporting Files */,
 				8872F8A32747A9D900504F81 /* API */,
+				8832070E2748682A00E2921D /* Utils */,
 				8872F87827424AAE00504F81 /* GoogleService-Info.plist */,
 				8823A38A273D204800C7E228 /* Info.plist */,
 			);
@@ -170,6 +170,9 @@
 			children = (
 				8872F87C27424CF100504F81 /* TableViewHeader */,
 				8872F85C2740911C00504F81 /* Cells */,
+				8823A385273D204800C7E228 /* Assets.xcassets */,
+				8823A3AB273F300700C7E228 /* Main.storyboard */,
+				8823A387273D204800C7E228 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +216,15 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		8832070E2748682A00E2921D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8872F8752741EAD400504F81 /* Extentions.swift */,
+				8832070F2748685400E2921D /* Constants.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		8872F8572740904F00504F81 /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				8823A3A7273DF26200C7E228 /* GooglePlaceManager.swift */,
-				8872F8752741EAD400504F81 /* Extentions.swift */,
 				8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */,
 				8872F8852744F66200504F81 /* FirestoreManager.swift */,
 				8872F8A12747A39000504F81 /* AccessPhotoManager.swift */,
@@ -325,13 +336,15 @@
 				8823A376273D204100C7E228 /* Frameworks */,
 				8823A377273D204100C7E228 /* Resources */,
 				24A1CC16D877E8D59A3D8276 /* [CP] Copy Pods Resources */,
-				DD9253DA1CFDD6CB813132CA /* [CP] Embed Pods Frameworks */,
+				C8DF2A7A6F481AAEE513F4CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DoLEMON.new;
+			packageProductDependencies = (
+			);
 			productName = DoLEMON.new;
 			productReference = 8823A379273D204100C7E228 /* DoLEMON.new.app */;
 			productType = "com.apple.product-type.application";
@@ -359,6 +372,8 @@
 				Base,
 			);
 			mainGroup = 8823A370273D204100C7E228;
+			packageReferences = (
+			);
 			productRefGroup = 8823A37A273D204100C7E228 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -422,7 +437,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD9253DA1CFDD6CB813132CA /* [CP] Embed Pods Frameworks */ = {
+		C8DF2A7A6F481AAEE513F4CB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -481,6 +496,7 @@
 				8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */,
 				8872F8762741EAD400504F81 /* Extentions.swift in Sources */,
 				8872F88C2745BE5300504F81 /* EditProfileCustomHeaderView.swift in Sources */,
+				883207102748685400E2921D /* Constants.swift in Sources */,
 				8872F88027432C2900504F81 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

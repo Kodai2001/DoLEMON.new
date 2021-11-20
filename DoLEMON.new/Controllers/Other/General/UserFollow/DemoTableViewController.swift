@@ -8,32 +8,45 @@
 import UIKit
 
 class DemoTableViewController: UITableViewController {
-
+    
+    let firestoreManager = FirestoreManager()
+    var users: [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // title
         navigationItem.title = "Account Name"
         
         tableView.register(UserFollowTableViewCell.self, forCellReuseIdentifier: "UserFollowTableViewCell")
+        firestoreManager.fetchUsers { [self] _users in
+            users = _users
+            tableView.reloadData()
+        }
     }
     
-  
+   
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 30
+        return self.users.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserFollowTableViewCell",
                                                  for: indexPath) as! UserFollowTableViewCell
+        let user = self.users[indexPath.row]
+
+        cell.accountNameLabel.text = user.username
+        cell.fullNameLabel.text = user.fullName
+
+        let url = URL(string: user.profileImageURL)
+        cell.profileImageView.kf.setImage(with: url)
+        
         return cell
     }
 

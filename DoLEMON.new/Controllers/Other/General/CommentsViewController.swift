@@ -178,6 +178,7 @@ class CommentsViewController: UIViewController {
         // comment structにcommentVCのデータを入れる
         putDataIntoCommentStruct()
         let firestoreManger = FirestoreManager()
+        
         firestoreManger.savePin(pin: pin)
         firestoreManger.saveComment(comment: comment)
     }

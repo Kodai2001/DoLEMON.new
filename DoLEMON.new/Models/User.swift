@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct User {
-    var email: String = ""
-    var fullname: String = ""
-    var password: String = ""
-    var username: String = ""
-    var uid: String = ""
+struct User: Codable {
     
-    var isFollowed: Bool = false
+    let profileImageURL: String
+    let email: String
+    let password: String
+    let fullName: String
+    let username: String
+    let uid: String
 }

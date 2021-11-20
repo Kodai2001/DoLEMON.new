@@ -7,73 +7,63 @@
 
 import FirebaseFirestore
 import MapKit
+import FirebaseAuth
+import FirebaseFirestoreSwift
+
 
 class FirestoreManager {
     
-    func getUser(completion: @escaping ([String]) -> Void) {
-        let db = Firestore.firestore()
-        var results: [String] = []
-        db.collection("Users").getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    guard let fullName = document.get("fullName") as? String else {return}
-                    guard let email = document.get("email") as? String else {return}
-                    guard let password = document.get("password") as? String else {return}
-                    guard let username = document.get("username") as? String else {return}
-                    
-                    results.append(fullName)
-                    results.append(email)
-                    results.append(password)
-                    results.append(username)
-                    completion(results)
-                }
-            }
+    let userSession = Auth.auth().currentUser
+    //var users = [User]()
+    
+//    init() {
+//        fetchUsers()
+//    }
+//
+    //MARK: - User
+    
+    func fetchUsers(completion: @escaping ([User]) -> Void) {
+        COLLECTION_USERS.getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else {return}
+            let users = documents.compactMap({try? $0.data(as: User.self)})
+            completion(users)
+     }
+    }
+    
+    func fetchUser(completion: @escaping (User) -> Void) {
+        guard let uid = userSession?.uid else {return}
+        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+            guard let user = try? snapshot?.data(as: User.self) else {return}
+            completion(user)
         }
     }
     
-    func savePin(pin: Pin) {
-        let db = Firestore.firestore()
-        db.collection("Pins").addDocument(data: [
-            "latitude": pin.latitude,
-            "longitude": pin.longitude,
-            "title": pin.title,
-            "subtitle": pin.subtitle
-            
-        ]) { (error) in
-            if let e = error {
-                print("There was a issue saving data to firestore, \(e)")
-            } else {
-                print("Succecessfully saved data")
-            }
-        }
-    }
+    //MARK: - Comment
     
     func saveComment(comment: Comment) {
-        let db = Firestore.firestore()
-        db.collection("Comments").addDocument(data: [
-            "placeName": comment.placeName,
-            "addressName": comment.addressName,
-            "username": comment.username,
-            "commentText": comment.commentText
-            
-        ]) { (error) in
-            if let e = error {
-                print("There was a issue saving data to firestore, \(e)")
-            } else {
-                print("Succecessfully saved data")
+        
+        COLLECTION_COMMENTS
+            .addDocument(data: [
+                "placeName": comment.placeName,
+                "addressName": comment.addressName,
+                "username": comment.username,
+                "commentText": comment.commentText
+                
+            ]) { (error) in
+                if let e = error {
+                    print("There was a issue saving data to firestore, \(e)")
+                } else {
+                    print("Succecessfully saved data")
+                }
             }
-        }
     }
     
     func getComment(completion: @escaping (Comment) -> Void) {
-        let db = Firestore.firestore()
         
-        db.collection("Comments")
-            // 仮の値でtestしている
-            // 本当は特定のドキュメントのフィールドを取得したい
-            .document("A4LyIc30gHk1snRPtR7e")
+        guard let uid = userSession?.uid else {return}
+        
+        COLLECTION_COMMENTS
+            .document(uid)
             .getDocument { (querySnapshot, error) in
                 if let e = error {
                     print("There was an issue retrieving data from Firestore. \(e)")
@@ -99,13 +89,31 @@ class FirestoreManager {
             }
     }
     
+    //MARK: - Pin
+    
+    func savePin(pin: Pin) {
+        
+        COLLECTION_PINS.addDocument(data: [
+            "latitude": pin.latitude,
+            "longitude": pin.longitude,
+            "title": pin.title,
+            "subtitle": pin.subtitle
+            
+        ]) { (error) in
+            if let e = error {
+                print("There was a issue saving data to firestore, \(e)")
+            } else {
+                print("Succecessfully saved data")
+            }
+        }
+    }
     
     
     func getAllPins(completion: @escaping ([Pin]) -> Void) {
-        let db = Firestore.firestore()
+        
         var results: [Pin] = []
         
-        db.collection("Pins").getDocuments { (querySnapshot, error) in
+        COLLECTION_PINS.getDocuments { (querySnapshot, error) in
             if let e = error {
                 print("There was an issue retrieving data from Firestore. \(e)")
             } else {

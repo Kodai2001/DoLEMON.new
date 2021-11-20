@@ -6,40 +6,38 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserFollowTableViewCell: UITableViewCell {
     
-    private let profileImageView: UIImageView = {
+    let profileImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 30
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "徳川家康")
         return imageView
     }()
     
     
-    private let accountNameLabel: UILabel = {
+    let accountNameLabel: UILabel = {
        let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 1
         label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        label.text = "@tokugawa.Edo"
         return label
     }()
     
-    private let fullNameLabel: UILabel = {
+    let fullNameLabel: UILabel = {
        let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 1
         label.textColor = .secondaryLabel
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        label.text = "徳川家康"
         return label
     }()
    
-    private let followButton: UIButton = {
+    let followButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = .white
         button.layer.masksToBounds = true
@@ -56,13 +54,10 @@ class UserFollowTableViewCell: UITableViewCell {
         return button
     }()
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
-        contentView.backgroundColor = .systemBackground
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

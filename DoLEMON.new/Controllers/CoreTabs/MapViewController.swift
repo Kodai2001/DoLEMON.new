@@ -135,8 +135,7 @@ extension MapViewController: MKMapViewDelegate {
             mapView.removeAnnotation(pin)
             
             // 指定されたドキュメントをFirestoreから取り出せるようにしたい
-            let db = Firestore.firestore()
-            db.collection("pin")
+            COLLECTION_PINS
                 // 仮の値でtestしている
                 // 本当は特定のドキュメントのフィールドを取得したい
                 .document("Ycmy1AgM77QYdVcs5sta")
