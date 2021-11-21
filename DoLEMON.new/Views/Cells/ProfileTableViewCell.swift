@@ -13,13 +13,11 @@ class ProfileTableViewCell: UITableViewCell {
        let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(systemName: "person.fill.badge.plus")
         return imageView
     }()
     
     private let cellLabel: UILabel = {
        let label = UILabel()
-        label.text = "Add Friend"
         label.textAlignment = .left
         label.numberOfLines = 2
         label.textColor = .black
@@ -46,15 +44,18 @@ class ProfileTableViewCell: UITableViewCell {
         cellIcon.frame.size.width = 30
         cellIcon.frame.size.height = 30
         cellIcon.frame.origin.x = 20
-        cellIcon.frame.origin.y = 0
+        cellIcon.frame.origin.y = 15
         
         // cellLabel
         cellLabel.frame.size.width = 200
         cellLabel.frame.size.height = 30
         cellLabel.frame.origin.x = 60
-        cellLabel.frame.origin.y = 0
+        cellLabel.frame.origin.y = 15
     }
     
-    
+    func configureCell(label: String, icon: UIImage) {
+        cellLabel.text = label
+        cellIcon.image = icon
+    }
     
 }

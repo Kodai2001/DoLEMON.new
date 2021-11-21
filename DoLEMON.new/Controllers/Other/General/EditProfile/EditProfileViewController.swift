@@ -49,6 +49,7 @@ class EditProfileViewController: UIViewController {
     // "Cancel"ボタンが押された時の処理
     @objc func cancelBarButtonTapped(_ sender: UIBarButtonItem) {
         print("did tap cancelBarButtonItem")
+        self.navigationController?.popViewController(animated: true)
     }
     // "Done"ボタンが押された時の処理
     @objc func doneBarButtonTapped(_ sender: UIBarButtonItem) {

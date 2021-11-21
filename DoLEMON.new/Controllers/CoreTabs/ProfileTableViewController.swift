@@ -35,6 +35,8 @@ class ProfileViewController: UIViewController {
         // tableViewCell
         tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
         
+        tableView.tableFooterView = UIView(frame: .zero)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,21 +51,60 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = SearchFriendViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        
+        if indexPath.row == 0 {
+            let vc = SearchFriendViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        else if indexPath.row == 1 {
+            // sign out
+            
+            // UIAlertControllerの生成
+            let alert = UIAlertController(title: nil, message: "Are you sure to sign out?", preferredStyle: .alert)
+            
+            // sign out
+            let signoutAction = UIAlertAction(title: "sign out", style: .destructive) { action in
+                let authManager = FirebaseAuthManager()
+                authManager.signout()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let homeVC = storyboard.instantiateViewController(identifier: "homeVC")
+                homeVC.modalPresentationStyle = .fullScreen
+                self.present(homeVC, animated: true, completion: nil)
+                
+            }
+            
+            // cancel
+            let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(signoutAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell",
                                                  for: indexPath) as! ProfileTableViewCell
+        if indexPath.row == 0 {
+            cell.configureCell(label: "Add friend", icon: UIImage(systemName: "person.fill.badge.plus")!)
+        }
+        else if indexPath.row == 1 {
+            cell.configureCell(label: "Sign out", icon: UIImage(systemName: "arrow.right.square")!)
+        }
         return cell
     }
     
