@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -13,14 +14,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        if let windowScene = scene as? UIWindowScene {
-//            let window = UIWindow(windowScene: windowScene)
-//            window.rootViewController = HomeViewController.init()
-//            self.window = window
-//            window.makeKeyAndVisible()
-//        }
+        
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        //もし一度ログインしたユーザーだったら skipLogin() を呼ぶ。
+        if Auth.auth().currentUser != nil {
+            skipLogin()
+        }
     }
+    
+    func skipLogin() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let TabBarController = storyboard.instantiateViewController(identifier: "rootVC")
+        window?.rootViewController = TabBarController
+        
+        //画面を表示。
+        window?.makeKeyAndVisible()
+    }
+
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

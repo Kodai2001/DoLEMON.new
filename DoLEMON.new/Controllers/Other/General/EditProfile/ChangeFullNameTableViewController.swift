@@ -15,6 +15,7 @@ class ChangeFullNameTableViewController: UITableViewController {
         configureBarButtonItem()
         
         tableView.register(RenameTableViewCell.self, forCellReuseIdentifier: "RenameTableViewCell")
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     func configureBarButtonItem() {

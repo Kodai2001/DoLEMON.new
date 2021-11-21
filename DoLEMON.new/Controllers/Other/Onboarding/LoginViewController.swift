@@ -84,15 +84,20 @@ class LoginViewController: UIViewController {
         loginManager.signIn(email: email, pass: password) {[weak self] (success) in
             guard let `self` = self else { return }
             var message: String = ""
+            
             if (success) {
-                message = "User was sucessfully logged in."
+                print("User was sucessfully logged in.")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let TabBarController = storyboard.instantiateViewController(identifier: "rootVC")
+                TabBarController.modalPresentationStyle = .fullScreen
+                self.present(TabBarController, animated: true, completion: nil)
             } else {
                 message = "There was an error."
+                print( "There was an error.")
+                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alertController, animated: true)
             }
-            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertController, animated: true)
-
         }
     }
 }

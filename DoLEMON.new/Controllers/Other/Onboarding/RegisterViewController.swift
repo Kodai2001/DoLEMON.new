@@ -157,15 +157,16 @@ class RegisterViewController: UIViewController {
                 guard let `self` = self else { return }
                 var message: String = ""
                 if (success) {
-                    message = "User was sucessfully created."
-                    //                    let vc = MapViewController()
-                    //                    self.present(vc, animated: true, completion: nil)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let TabBarController = storyboard.instantiateViewController(identifier: "rootVC")
+                    TabBarController.modalPresentationStyle = .fullScreen
+                    self.present(TabBarController, animated: true, completion: nil)
                 } else {
                     message = "There was an error."
+                    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self.present(alertController, animated: true)
                 }
-                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(alertController, animated: true)
             }
         }
     }

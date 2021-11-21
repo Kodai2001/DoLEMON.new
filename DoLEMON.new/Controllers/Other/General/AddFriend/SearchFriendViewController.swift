@@ -63,7 +63,17 @@ class SearchFriendViewController: UIViewController {
     }
     
     @objc func checkButtonPressed() {
-        let vc = AddFriendViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeVC = storyboard.instantiateViewController(identifier: "editProfileVC")
+        homeVC.modalPresentationStyle = .fullScreen
+        self.present(homeVC, animated: true, completion: nil)
+
+        
+//        let authManager = FirebaseAuthManager()
+//        authManager.signout()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let homeVC = storyboard.instantiateViewController(identifier: "homeVC")
+//        homeVC.modalPresentationStyle = .fullScreen
+//        self.present(homeVC, animated: true, completion: nil)
     }
 }

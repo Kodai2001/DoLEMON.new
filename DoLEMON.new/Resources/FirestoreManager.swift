@@ -14,12 +14,7 @@ import FirebaseFirestoreSwift
 class FirestoreManager {
     
     let userSession = Auth.auth().currentUser
-    //var users = [User]()
-    
-//    init() {
-//        fetchUsers()
-//    }
-//
+  
     //MARK: - User
     
     func fetchUsers(completion: @escaping ([User]) -> Void) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DemoTableViewController: UITableViewController {
+class FollowListTableViewController: UITableViewController {
     
     let firestoreManager = FirestoreManager()
     var users: [User] = []
@@ -20,6 +20,7 @@ class DemoTableViewController: UITableViewController {
         tableView.register(UserFollowTableViewCell.self, forCellReuseIdentifier: "UserFollowTableViewCell")
         firestoreManager.fetchUsers { [self] _users in
             users = _users
+            tableView.tableFooterView = UIView(frame: .zero)
             tableView.reloadData()
         }
     }

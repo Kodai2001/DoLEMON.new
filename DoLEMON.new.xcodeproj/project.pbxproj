@@ -23,7 +23,6 @@
 		8823A3AC273F300700C7E228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8823A3AB273F300700C7E228 /* Main.storyboard */; };
 		8823A3AE273F465400C7E228 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3AD273F465300C7E228 /* CommentsViewController.swift */; };
 		883207102748685400E2921D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832070F2748685400E2921D /* Constants.swift */; };
-		8872F8592740906600504F81 /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8582740906600504F81 /* FollowingListViewController.swift */; };
 		8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */; };
 		8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85F2740938200504F81 /* EditProfileViewController.swift */; };
 		8872F8622740965500504F81 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8612740965500504F81 /* EditProfileTableViewCell.swift */; };
@@ -45,8 +44,7 @@
 		8872F8972745DCEF00504F81 /* ChangeFullNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8962745DCEF00504F81 /* ChangeFullNameTableViewController.swift */; };
 		8872F8992745DD6700504F81 /* ChangeUsernameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8982745DD6700504F81 /* ChangeUsernameTableViewController.swift */; };
 		8872F89C274653D600504F81 /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F89B274653D600504F81 /* PagingViewController.swift */; };
-		8872F89E2746684400504F81 /* FollowedListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F89D2746684400504F81 /* FollowedListViewController.swift */; };
-		8872F8A02747211E00504F81 /* DemoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F89F2747211E00504F81 /* DemoTableViewController.swift */; };
+		8872F8A02747211E00504F81 /* FollowListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F89F2747211E00504F81 /* FollowListTableViewController.swift */; };
 		8872F8A22747A39000504F81 /* AccessPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8A12747A39000504F81 /* AccessPhotoManager.swift */; };
 		8872F8A52747A9F000504F81 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8A42747A9F000504F81 /* ImageUploader.swift */; };
 /* End PBXBuildFile section */
@@ -71,7 +69,6 @@
 		8823A3AB273F300700C7E228 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8823A3AD273F465300C7E228 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		8832070F2748685400E2921D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		8872F8582740906600504F81 /* FollowingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
 		8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		8872F85F2740938200504F81 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		8872F8612740965500504F81 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,8 +90,7 @@
 		8872F8962745DCEF00504F81 /* ChangeFullNameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFullNameTableViewController.swift; sourceTree = "<group>"; };
 		8872F8982745DD6700504F81 /* ChangeUsernameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUsernameTableViewController.swift; sourceTree = "<group>"; };
 		8872F89B274653D600504F81 /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
-		8872F89D2746684400504F81 /* FollowedListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowedListViewController.swift; sourceTree = "<group>"; };
-		8872F89F2747211E00504F81 /* DemoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableViewController.swift; sourceTree = "<group>"; };
+		8872F89F2747211E00504F81 /* FollowListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListTableViewController.swift; sourceTree = "<group>"; };
 		8872F8A12747A39000504F81 /* AccessPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPhotoManager.swift; sourceTree = "<group>"; };
 		8872F8A42747A9F000504F81 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -300,10 +296,8 @@
 		8872F89A2746539400504F81 /* UserFollow */ = {
 			isa = PBXGroup;
 			children = (
-				8872F8582740906600504F81 /* FollowingListViewController.swift */,
 				8872F89B274653D600504F81 /* PagingViewController.swift */,
-				8872F89D2746684400504F81 /* FollowedListViewController.swift */,
-				8872F89F2747211E00504F81 /* DemoTableViewController.swift */,
+				8872F89F2747211E00504F81 /* FollowListTableViewController.swift */,
 			);
 			path = UserFollow;
 			sourceTree = "<group>";
@@ -472,15 +466,13 @@
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
 				8872F8A22747A39000504F81 /* AccessPhotoManager.swift in Sources */,
 				8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */,
-				8872F8592740906600504F81 /* FollowingListViewController.swift in Sources */,
 				8872F89C274653D600504F81 /* PagingViewController.swift in Sources */,
 				8872F8992745DD6700504F81 /* ChangeUsernameTableViewController.swift in Sources */,
 				8872F87E27431ED100504F81 /* Place.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,
 				8872F88427448EEB00504F81 /* Comment.swift in Sources */,
 				8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */,
-				8872F8A02747211E00504F81 /* DemoTableViewController.swift in Sources */,
-				8872F89E2746684400504F81 /* FollowedListViewController.swift in Sources */,
+				8872F8A02747211E00504F81 /* FollowListTableViewController.swift in Sources */,
 				8823A381273D204100C7E228 /* HomeViewController.swift in Sources */,
 				8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */,
 				8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */,
