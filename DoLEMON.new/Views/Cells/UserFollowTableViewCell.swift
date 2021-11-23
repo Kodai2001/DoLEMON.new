@@ -50,7 +50,6 @@ class UserFollowTableViewCell: UITableViewCell {
             ofSize: 15,
             weight: .semibold
         )
-        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
         return button
     }()
     

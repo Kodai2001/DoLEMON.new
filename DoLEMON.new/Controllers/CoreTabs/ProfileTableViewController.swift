@@ -82,10 +82,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             self.present(alert, animated: true, completion: nil)
         }
         
+        if indexPath.row == 2 {
+            let vc = FollowListTableViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -104,6 +109,10 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
         else if indexPath.row == 1 {
             cell.configureCell(label: "Sign out", icon: UIImage(systemName: "arrow.right.square")!)
+        }
+        // headerが反応しないため臨時で設置
+        else if indexPath.row == 2 {
+            cell.configureCell(label: "follow", icon: UIImage(systemName: "arrow.right.square")!)
         }
         return cell
     }

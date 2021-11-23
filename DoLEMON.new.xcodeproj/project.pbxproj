@@ -23,6 +23,8 @@
 		8823A3AC273F300700C7E228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8823A3AB273F300700C7E228 /* Main.storyboard */; };
 		8823A3AE273F465400C7E228 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A3AD273F465300C7E228 /* CommentsViewController.swift */; };
 		883207102748685400E2921D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8832070F2748685400E2921D /* Constants.swift */; };
+		8860474B274B342B00BFE967 /* FollowUnfollowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860474A274B342B00BFE967 /* FollowUnfollowManager.swift */; };
+		8860474D274B35AE00BFE967 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860474C274B35AE00BFE967 /* UserService.swift */; };
 		8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */; };
 		8872F8602740938200504F81 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F85F2740938200504F81 /* EditProfileViewController.swift */; };
 		8872F8622740965500504F81 /* EditProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8612740965500504F81 /* EditProfileTableViewCell.swift */; };
@@ -69,6 +71,8 @@
 		8823A3AB273F300700C7E228 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8823A3AD273F465300C7E228 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		8832070F2748685400E2921D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8860474A274B342B00BFE967 /* FollowUnfollowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUnfollowManager.swift; sourceTree = "<group>"; };
+		8860474C274B35AE00BFE967 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		8872F85D2740916100504F81 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 		8872F85F2740938200504F81 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		8872F8612740965500504F81 /* EditProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				8872F87A27424C9800504F81 /* FirebaseAuthManager.swift */,
 				8872F8852744F66200504F81 /* FirestoreManager.swift */,
 				8872F8A12747A39000504F81 /* AccessPhotoManager.swift */,
+				8860474A274B342B00BFE967 /* FollowUnfollowManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				8872F8A42747A9F000504F81 /* ImageUploader.swift */,
+				8860474C274B35AE00BFE967 /* UserService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -469,6 +475,8 @@
 				8872F89C274653D600504F81 /* PagingViewController.swift in Sources */,
 				8872F8992745DD6700504F81 /* ChangeUsernameTableViewController.swift in Sources */,
 				8872F87E27431ED100504F81 /* Place.swift in Sources */,
+				8860474D274B35AE00BFE967 /* UserService.swift in Sources */,
+				8860474B274B342B00BFE967 /* FollowUnfollowManager.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,
 				8872F88427448EEB00504F81 /* Comment.swift in Sources */,
 				8872F86627409B5600504F81 /* UserPinPlaceListViewController.swift in Sources */,
