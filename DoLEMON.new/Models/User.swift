@@ -15,5 +15,6 @@ struct User: Codable {
     let fullName: String
     let username: String
     let uid: String
-    var isFollowd: Bool? = false
+    
+    var isFollowed: Bool? = false
 }

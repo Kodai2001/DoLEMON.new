@@ -8,16 +8,24 @@
 import Foundation
 
 class FollowUnfollowManager {
+    var user: User
+    init(user: User) {
+        self.user = user
+    }
     
-    func follow(uid: String) {
+    func follow(completion: @escaping () -> Void) {
+        let uid = self.user.uid
         UserService.follow(uid: uid) { _ in
-            print("DEBUG: succesfully \(uid) is followed")
+            self.user.isFollowed = true
+            completion()
         }
     }
-
-    func unfollow(uid: String) {
+    
+    func unfollow(completion: @escaping () -> Void) {
+        let uid = self.user.uid
         UserService.unfollow(uid: uid) { _ in
-            print("DEBUG: succesfully \(uid) is unfollowed")
+            self.user.isFollowed = false
+            completion()
         }
-    }}
-
+    }
+}

@@ -12,8 +12,9 @@ class FollowListTableViewController: UITableViewController {
     let firestoreManager = FirestoreManager()
     var users: [User] = []
     
-    //
-    var isFollowed: Bool = false
+    var followUnfollowManager: FollowUnfollowManager?
+    var isFollowed: Bool {return followUnfollowManager?.user.isFollowed ?? false}
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +57,14 @@ class FollowListTableViewController: UITableViewController {
         let url = URL(string: user.profileImageURL)
         cell.profileImageView.kf.setImage(with: url)
         
-        cell.followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
+        cell.followFollowingButton.backgroundColor = isFollowed ? .white : .systemBlue
+        cell.followFollowingButton.setTitle(isFollowed ? "Following" : "Follow", for: .normal)
+        cell.followFollowingButton.setTitleColor(isFollowed ? .black : .white, for: .normal)
+        cell.followFollowingButton.layer.borderWidth = isFollowed ? 2.0 : 0.0
         
-        cell.followButton.tag = indexPath.row
+        cell.followFollowingButton.addTarget(self, action: #selector(didTapFollowUnfollowButton), for: .touchUpInside)
         
+        cell.followFollowingButton.tag = indexPath.row
         return cell
     }
 
@@ -71,16 +76,25 @@ class FollowListTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    @objc func didTapFollowButton(_ sender: UIButton) {
-        let followUnfollowManager = FollowUnfollowManager()
+    @objc func didTapFollowUnfollowButton(_ sender: UIButton) {
+        
         let user = self.users[sender.tag]
-        let uid = user.uid
+        let followUnfollowManager = FollowUnfollowManager(user: user)
         
-        isFollowed ? followUnfollowManager.unfollow(uid: uid) : followUnfollowManager.follow(uid: uid)
+        isFollowed ? followUnfollowManager.unfollow(completion: {
+            sender.backgroundColor = .systemBlue
+            sender.setTitle("Follow", for: .normal)
+            sender.setTitleColor(.white, for: .normal)
+            sender.layer.borderWidth = 0.0
+        })
+        : followUnfollowManager.follow(completion: {
+//            sender.backgroundColor = .white
+//            sender.setTitle("Following", for: .normal)
+//            sender.setTitleColor(.black, for: .normal)
+//            sender.layer.borderWidth = 2.0
+        })
         
-        
-        
-   
     }
 }
+
 

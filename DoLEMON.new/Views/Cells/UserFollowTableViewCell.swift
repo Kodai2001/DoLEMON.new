@@ -37,7 +37,7 @@ class UserFollowTableViewCell: UITableViewCell {
         return label
     }()
    
-    let followButton: UIButton = {
+    let followFollowingButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = .white
         button.layer.masksToBounds = true
@@ -66,7 +66,7 @@ class UserFollowTableViewCell: UITableViewCell {
         contentView.addSubview(accountNameLabel)
         contentView.addSubview(fullNameLabel)
         contentView.addSubview(profileImageView)
-        contentView.addSubview(followButton)
+        contentView.addSubview(followFollowingButton)
     }
     
     override func layoutSubviews() {
@@ -90,11 +90,11 @@ class UserFollowTableViewCell: UITableViewCell {
         fullNameLabel.frame.origin.x = profileImageView.frame.origin.x+70
         fullNameLabel.frame.origin.y = accountNameLabel.frame.origin.y + 25
         
-        // followButton
-        followButton.frame.size.width = 120
-        followButton.frame.size.height = 40
-        followButton.frame.origin.x = fullNameLabel.frame.origin.x+130
-        followButton.frame.origin.y = 15
+        // followFollowingButton
+        followFollowingButton.frame.size.width = 120
+        followFollowingButton.frame.size.height = 40
+        followFollowingButton.frame.origin.x = fullNameLabel.frame.origin.x+140
+        followFollowingButton.frame.origin.y = 15
     }
     
 }
