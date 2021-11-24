@@ -82,10 +82,24 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.row == 2 {
-            let vc = FollowListTableViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            guard let uid = FirebaseAuthManager.shared.userSession?.uid else { return }
+            
+            let alert = UIAlertController(title: nil, message: uid, preferredStyle: .alert)
+            
+            // copy
+            let signoutAction = UIAlertAction(title: "Copy", style: .default) { action in
+                // alert.messageをコピーする
+                UIPasteboard.general.string = alert.message ?? ""
+            }
+            
+            // cancel
+            let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(signoutAction)
+            alert.addAction(cancelAction)
+            
+            self.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,11 +121,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configureCell(label: "Add friend", icon: UIImage(systemName: "person.fill.badge.plus")!)
         }
         else if indexPath.row == 1 {
-            cell.configureCell(label: "Sign out", icon: UIImage(systemName: "arrow.right.square")!)
+            cell.configureCell(label: "Sign out", icon: (UIImage(systemName: "rectangle.portrait.and.arrow.right.fill") ?? UIImage(named: "Logout"))!)
         }
         // headerが反応しないため臨時で設置
         else if indexPath.row == 2 {
-            cell.configureCell(label: "follow", icon: UIImage(systemName: "arrow.right.square")!)
+            cell.configureCell(label: "Show userID", icon: UIImage(systemName: "key.fill")!)
         }
         return cell
     }
