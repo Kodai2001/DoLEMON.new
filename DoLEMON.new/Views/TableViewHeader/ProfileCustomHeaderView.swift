@@ -8,15 +8,11 @@
 import UIKit
 import Kingfisher
 
-protocol ProfileCustomHeaderViewDelegate: AnyObject  {
-    func editProfileButtonPressed(_ header: ProfileCustomHeaderView)
-}
+
 
 class ProfileCustomHeaderView: UITableViewHeaderFooterView {
     
-    public weak var delegate: ProfileCustomHeaderViewDelegate?
-    
-    private let followingNumberButton: UIButton = {
+    let followingNumberButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
@@ -47,7 +43,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         return button
     }()
     
-    private let followersNumberButton: UIButton = {
+    let followersNumberButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
@@ -105,7 +101,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
     }()
 
     
-    private let editProfileButton: UIButton = {
+    let editProfileButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
@@ -118,7 +114,6 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
             ofSize: 30,
             weight: .bold
         )
-        button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
         return button
     }()
 
@@ -205,10 +200,4 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         profileImageView.frame.origin.x = 250
         profileImageView.frame.origin.y = editProfileButton.frame.origin.y
     }
-    
-    // EditProfileButtonをタップしても反応しない
-     @objc func didTappedEditProfileButton() {
-        delegate?.editProfileButtonPressed(self)
-     }
-    
 }

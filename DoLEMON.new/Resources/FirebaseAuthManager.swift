@@ -12,6 +12,14 @@ import UIKit
 
 class FirebaseAuthManager {
     
+    var userSession: FirebaseAuth.User?
+    
+    static let shared = FirebaseAuthManager()
+    
+    init() {
+        userSession = Auth.auth().currentUser
+    }
+    
     // create user
     func createUser(email: String, fullName: String, username: String, password: String, image: UIImage, completionBlock: @escaping (_ success: Bool) -> Void) {
         

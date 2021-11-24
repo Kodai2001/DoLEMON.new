@@ -17,4 +17,5 @@ struct User: Codable {
     let uid: String
     
     var isFollowed: Bool? = false
+    var isCurrentUser: Bool {return FirebaseAuthManager.shared.userSession?.uid == uid}
 }

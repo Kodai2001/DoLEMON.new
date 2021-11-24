@@ -14,7 +14,7 @@ class FollowListTableViewController: UITableViewController {
     
     var followUnfollowManager: FollowUnfollowManager?
     var isFollowed: Bool {return followUnfollowManager?.user.isFollowed ?? false}
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +57,14 @@ class FollowListTableViewController: UITableViewController {
         let url = URL(string: user.profileImageURL)
         cell.profileImageView.kf.setImage(with: url)
         
-        cell.followFollowingButton.backgroundColor = isFollowed ? .white : .systemBlue
-        cell.followFollowingButton.setTitle(isFollowed ? "Following" : "Follow", for: .normal)
-        cell.followFollowingButton.setTitleColor(isFollowed ? .black : .white, for: .normal)
-        cell.followFollowingButton.layer.borderWidth = isFollowed ? 2.0 : 0.0
-        
-        cell.followFollowingButton.addTarget(self, action: #selector(didTapFollowUnfollowButton), for: .touchUpInside)
-        
-        cell.followFollowingButton.tag = indexPath.row
+//        cell.followFollowingButton.backgroundColor = isFollowed ? .white : .systemBlue
+//        cell.followFollowingButton.setTitle(isFollowed ? "Following" : "Follow", for: .normal)
+//        cell.followFollowingButton.setTitleColor(isFollowed ? .black : .white, for: .normal)
+//        cell.followFollowingButton.layer.borderWidth = isFollowed ? 2.0 : 0.0
+//
+//        cell.followFollowingButton.addTarget(self, action: #selector(didTapFollowUnfollowButton), for: .touchUpInside)
+//
+//        cell.followFollowingButton.tag = indexPath.row
         return cell
     }
 
@@ -76,25 +76,26 @@ class FollowListTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    @objc func didTapFollowUnfollowButton(_ sender: UIButton) {
-        
-        let user = self.users[sender.tag]
-        let followUnfollowManager = FollowUnfollowManager(user: user)
-        
-        isFollowed ? followUnfollowManager.unfollow(completion: {
-            sender.backgroundColor = .systemBlue
-            sender.setTitle("Follow", for: .normal)
-            sender.setTitleColor(.white, for: .normal)
-            sender.layer.borderWidth = 0.0
-        })
-        : followUnfollowManager.follow(completion: {
+//    @objc func didTapFollowUnfollowButton(_ sender: UIButton) {
+//        
+//        var user = self.users[sender.tag]
+//        let followUnfollowManager = FollowUnfollowManager(user: user)
+//        
+//        print("DEBUG: user.isFollowed is \(self.isFollowed)")
+//        
+//        user.isFollowed ?? false ? followUnfollowManager.unfollow(completion: {
+//            sender.backgroundColor = .systemBlue
+//            sender.setTitle("Follow", for: .normal)
+//            sender.setTitleColor(.white, for: .normal)
+//            sender.layer.borderWidth = 0.0
+//        })
+//        : followUnfollowManager.follow(completion: {
 //            sender.backgroundColor = .white
 //            sender.setTitle("Following", for: .normal)
 //            sender.setTitleColor(.black, for: .normal)
 //            sender.layer.borderWidth = 2.0
-        })
-        
-    }
+//            print("DEBUG: user.isFollowed is \(self.isFollowed)")
+//        })
+//        
+//    }
 }
-
-

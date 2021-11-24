@@ -49,6 +49,7 @@
 		8872F8A02747211E00504F81 /* FollowListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F89F2747211E00504F81 /* FollowListTableViewController.swift */; };
 		8872F8A22747A39000504F81 /* AccessPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8A12747A39000504F81 /* AccessPhotoManager.swift */; };
 		8872F8A52747A9F000504F81 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8A42747A9F000504F81 /* ImageUploader.swift */; };
+		88F6AECF274E44680092772F /* EditProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F6AECE274E44680092772F /* EditProfileTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		8872F89F2747211E00504F81 /* FollowListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowListTableViewController.swift; sourceTree = "<group>"; };
 		8872F8A12747A39000504F81 /* AccessPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessPhotoManager.swift; sourceTree = "<group>"; };
 		8872F8A42747A9F000504F81 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		88F6AECE274E44680092772F /* EditProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileTableViewController.swift; sourceTree = "<group>"; };
 		9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoLEMON_new.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -294,6 +296,7 @@
 				8872F85F2740938200504F81 /* EditProfileViewController.swift */,
 				8872F8962745DCEF00504F81 /* ChangeFullNameTableViewController.swift */,
 				8872F8982745DD6700504F81 /* ChangeUsernameTableViewController.swift */,
+				88F6AECE274E44680092772F /* EditProfileTableViewController.swift */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				8872F8992745DD6700504F81 /* ChangeUsernameTableViewController.swift in Sources */,
 				8872F87E27431ED100504F81 /* Place.swift in Sources */,
 				8860474D274B35AE00BFE967 /* UserService.swift in Sources */,
+				88F6AECF274E44680092772F /* EditProfileTableViewController.swift in Sources */,
 				8860474B274B342B00BFE967 /* FollowUnfollowManager.swift in Sources */,
 				8823A39A273D25D000C7E228 /* MapViewController.swift in Sources */,
 				8872F88427448EEB00504F81 /* Comment.swift in Sources */,

@@ -37,21 +37,21 @@ class UserFollowTableViewCell: UITableViewCell {
         return label
     }()
    
-    let followFollowingButton: UIButton = {
-       let button = UIButton()
-        button.backgroundColor = .white
-        button.layer.masksToBounds = true
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 2.0
-        button.layer.borderColor = UIColor.black.cgColor
-        button.setTitleColor(UIColor.black,for: .normal)
-        button.setTitle("Following", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(
-            ofSize: 15,
-            weight: .semibold
-        )
-        return button
-    }()
+//    let followFollowingButton: UIButton = {
+//       let button = UIButton()
+//        button.backgroundColor = .white
+//        button.layer.masksToBounds = true
+//        button.layer.cornerRadius = 10
+//        button.layer.borderWidth = 2.0
+//        button.layer.borderColor = UIColor.black.cgColor
+//        button.setTitleColor(UIColor.black,for: .normal)
+//        button.setTitle("Following", for: .normal)
+//        button.titleLabel?.font = UIFont.systemFont(
+//            ofSize: 15,
+//            weight: .semibold
+//        )
+//        return button
+//    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -66,7 +66,7 @@ class UserFollowTableViewCell: UITableViewCell {
         contentView.addSubview(accountNameLabel)
         contentView.addSubview(fullNameLabel)
         contentView.addSubview(profileImageView)
-        contentView.addSubview(followFollowingButton)
+        // contentView.addSubview(followFollowingButton)
     }
     
     override func layoutSubviews() {
@@ -90,11 +90,11 @@ class UserFollowTableViewCell: UITableViewCell {
         fullNameLabel.frame.origin.x = profileImageView.frame.origin.x+70
         fullNameLabel.frame.origin.y = accountNameLabel.frame.origin.y + 25
         
-        // followFollowingButton
-        followFollowingButton.frame.size.width = 120
-        followFollowingButton.frame.size.height = 40
-        followFollowingButton.frame.origin.x = fullNameLabel.frame.origin.x+140
-        followFollowingButton.frame.origin.y = 15
+//        // followFollowingButton
+//        followFollowingButton.frame.size.width = 120
+//        followFollowingButton.frame.size.height = 40
+//        followFollowingButton.frame.origin.x = fullNameLabel.frame.origin.x+140
+//        followFollowingButton.frame.origin.y = 15
     }
     
 }

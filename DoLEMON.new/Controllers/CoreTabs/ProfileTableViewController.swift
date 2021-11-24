@@ -26,7 +26,6 @@ class ProfileViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        profileCustomHeaderView.delegate = self
         
         // HeaderView
         tableView.register(ProfileCustomHeaderView.self,
@@ -122,7 +121,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(
             withIdentifier:"ProfileCustomHeaderView") as! ProfileCustomHeaderView
-        
+        view.followingNumberButton.addTarget(self, action: #selector(didTapFollowingNumButton), for: .touchUpInside)
+        view.followersNumberButton.addTarget(self, action: #selector(didTapFollowersNumButton), for: .touchUpInside)
+        view.editProfileButton.addTarget(self, action: #selector(didTapEditProfileButton), for: .touchUpInside)
         return view
     }
     
@@ -130,14 +131,21 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return 250
     }
     
-}
-
-//MARK: - ProfileCustomHeaderViewDelegate
-
-extension ProfileViewController: ProfileCustomHeaderViewDelegate {
-    
-    func editProfileButtonPressed(_ header: ProfileCustomHeaderView) {
-        print("Succesfully pressed")
+    @objc func didTapFollowingNumButton() {
+        let vc = FollowListTableViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc func didTapFollowersNumButton() {
+        let vc = FollowListTableViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func didTapEditProfileButton() {
+        let vc = EditProfileTableViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
+
 
