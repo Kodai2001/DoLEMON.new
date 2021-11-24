@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AddFriendViewController: UIViewController {
+    
+    var user: User?
     
     private let profileImageView: UIImageView = {
        let imageView = UIImageView()
@@ -48,6 +51,15 @@ class AddFriendViewController: UIViewController {
         self.navigationItem.title = "Add Friend"
         view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
         addSubviews()
+        
+        // set User
+        // userがいる場合
+        guard let _user = user else { return }
+        let url = URL(string: _user.profileImageURL)
+        profileImageView.kf.setImage(with: url)
+        
+        fullNameLabel.text = _user.fullName
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -82,6 +94,16 @@ class AddFriendViewController: UIViewController {
     
     @objc func addButtonPressed() {
         
+        guard let _user = user else { return }
+        UserService.follow(uid: _user.uid) { _ in
+            let alert = UIAlertController(title: nil, message: "Successfully added \(_user.fullName) as a friend" , preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK!!!", style: .cancel, handler: nil)
+            
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
 }

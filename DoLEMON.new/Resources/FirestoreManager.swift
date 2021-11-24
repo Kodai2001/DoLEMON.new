@@ -14,6 +14,8 @@ import FirebaseFirestoreSwift
 class FirestoreManager {
     
     let userSession = Auth.auth().currentUser
+    
+    static let shared = FirestoreManager()
   
     //MARK: - User
     
@@ -27,6 +29,13 @@ class FirestoreManager {
     
     func fetchUser(completion: @escaping (User) -> Void) {
         guard let uid = userSession?.uid else {return}
+        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+            guard let user = try? snapshot?.data(as: User.self) else {return}
+            completion(user)
+        }
+    }
+    
+    func searchUser(uid: String, completion: @escaping (User) -> Void) {
         COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
             guard let user = try? snapshot?.data(as: User.self) else {return}
             completion(user)

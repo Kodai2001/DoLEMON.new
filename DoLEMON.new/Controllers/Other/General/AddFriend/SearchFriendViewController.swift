@@ -63,7 +63,14 @@ class SearchFriendViewController: UIViewController {
     }
     
     @objc func checkButtonPressed() {
-        let vc = AddFriendViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        
+        guard let uid = usernameTextField.text else { return }
+        
+        FirestoreManager.shared.searchUser(uid: uid) { user in
+            
+            let vc = AddFriendViewController()
+            vc.user = user
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
