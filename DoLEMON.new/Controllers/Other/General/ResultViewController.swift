@@ -69,7 +69,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // commentVCとpinのsubtitleにfullnameを代入
         
-        firestoreManager.fetchUser { result in
+        firestoreManager.fetchCurrentUser { result in
             commentsVC.usernameLabel.text = result.fullName
             commentsVC.pin.subtitle = result.fullName
         }

@@ -125,7 +125,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
         // headerが反応しないため臨時で設置
         else if indexPath.row == 2 {
-            cell.configureCell(label: "Show userID", icon: UIImage(systemName: "key.fill")!)
+            cell.configureCell(label: "Show User ID", icon: UIImage(systemName: "key.fill")!)
         }
         return cell
     }
@@ -146,12 +146,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func didTapFollowingNumButton() {
-        let vc = FollowListTableViewController()
+        let vc = FollowingListTableViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func didTapFollowersNumButton() {
-        let vc = FollowListTableViewController()
+        let vc = FollowersListTableViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     

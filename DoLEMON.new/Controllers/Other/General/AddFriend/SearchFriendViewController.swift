@@ -11,13 +11,13 @@ class SearchFriendViewController: UIViewController {
     
     private let usernameTextField: UITextField = {
         let attributes: [NSAttributedString.Key : Any] = [
-            .font: UIFont.boldSystemFont(ofSize: 20.0),
+            .font: UIFont.boldSystemFont(ofSize: 7.0),
             .foregroundColor : UIColor.lightGray
         ]
         let textField = UITextField()
         textField.backgroundColor = .clear
         textField.layer.masksToBounds = true
-        textField.attributedPlaceholder = NSAttributedString(string: "Enter Username",
+        textField.attributedPlaceholder = NSAttributedString(string: "Enter User ID",
                                                              attributes: attributes)
         textField.font = .boldSystemFont(ofSize: 30.0)
         textField.textAlignment = .center
@@ -64,13 +64,22 @@ class SearchFriendViewController: UIViewController {
     
     @objc func checkButtonPressed() {
         
-        guard let uid = usernameTextField.text else { return }
-        
-        FirestoreManager.shared.searchUser(uid: uid) { user in
+        if usernameTextField.text != nil {
+            guard let uid = usernameTextField.text else { return }
             
-            let vc = AddFriendViewController()
-            vc.user = user
-            self.navigationController?.pushViewController(vc, animated: true)
+            FirestoreManager.shared.searchUser(uid: uid) { user in
+                
+                let vc = AddFriendViewController()
+                vc.user = user
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else {
+            let alert = UIAlertController(title: nil, message: "Please enter User ID", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK!!!", style: .default, handler: nil)
+            alert.addAction(okAction)
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }

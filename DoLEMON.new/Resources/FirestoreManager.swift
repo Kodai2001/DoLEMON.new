@@ -16,18 +16,18 @@ class FirestoreManager {
     let userSession = Auth.auth().currentUser
     
     static let shared = FirestoreManager()
-  
+    
     //MARK: - User
     
-    func fetchUsers(completion: @escaping ([User]) -> Void) {
+    func fetchALLUsers(completion: @escaping ([User]) -> Void) {
         COLLECTION_USERS.getDocuments { snapshot, _ in
             guard let documents = snapshot?.documents else {return}
             let users = documents.compactMap({try? $0.data(as: User.self)})
             completion(users)
-     }
+        }
     }
     
-    func fetchUser(completion: @escaping (User) -> Void) {
+    func fetchCurrentUser(completion: @escaping (User) -> Void) {
         guard let uid = userSession?.uid else {return}
         COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
             guard let user = try? snapshot?.data(as: User.self) else {return}
@@ -35,10 +35,56 @@ class FirestoreManager {
         }
     }
     
+    func fetchUsers(uids: [String], completion: @escaping ([User]) -> Void) {
+
+        var users: [User] = []
+        for uid in uids {
+            COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
+                guard let user = try? snapshot?.data(as: User.self) else {return}
+                users.append(user)
+                completion(users)
+            }
+        }
+    }
+    
     func searchUser(uid: String, completion: @escaping (User) -> Void) {
-        COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
-            guard let user = try? snapshot?.data(as: User.self) else {return}
-            completion(user)
+        COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+            if let _error = error {
+                print("There was a issue saving data to firestore, \(_error)")
+            } else {
+                guard let user = try? snapshot?.data(as: User.self) else {return}
+                completion(user)
+            }
+        }
+    }
+    
+    //MARK: - followings
+    
+    func fetchFollowing(completion: @escaping ([String]) -> Void) {
+        guard let uid = self.userSession?.uid else { return }
+        COLLECTION_FOLLOWING.document(uid).collection("user-following").getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else {return}
+            var followingUid: [String] = []
+            for doc in documents {
+                let uid = doc.documentID
+                followingUid.append(uid)
+            }
+            completion(followingUid)
+        }
+    }
+    
+    //MARK: - followers
+    
+    func fetchFollowers(completion: @escaping ([String]) -> Void) {
+        guard let uid = self.userSession?.uid else { return }
+        COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else {return}
+            var followerUid: [String] = []
+            for doc in documents {
+                let uid = doc.documentID
+                followerUid.append(uid)
+            }
+            completion(followerUid)
         }
     }
     

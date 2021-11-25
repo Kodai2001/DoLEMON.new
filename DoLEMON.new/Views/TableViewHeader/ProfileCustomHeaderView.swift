@@ -18,7 +18,6 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         button.setTitleColor(UIColor.black,for: .normal)
-        button.setTitle("100", for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(
             ofSize: 25,
@@ -49,7 +48,6 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         button.setTitleColor(UIColor.black,for: .normal)
-        button.setTitle("7890", for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(
             ofSize: 25,
@@ -122,15 +120,9 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
           super.init(reuseIdentifier: reuseIdentifier)
         addSubviews()
-        let firestoreManager = FirestoreManager()
         
-        firestoreManager.fetchUser { [self] result in
-            fullNameLabel.text = result.fullName
-            accountNameLabel.text = result.username
-            let url = URL(string: result.profileImageURL)
-            profileImageView.kf.setImage(with: url)
-        }
-         
+        configureHeaderView()
+        
         clipsToBounds = true
         contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
       }
@@ -199,5 +191,25 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         profileImageView.frame.size.height = 100
         profileImageView.frame.origin.x = 250
         profileImageView.frame.origin.y = editProfileButton.frame.origin.y
+    }
+    
+    func configureHeaderView() {
+        
+        let firestoreManager = FirestoreManager()
+        
+        firestoreManager.fetchCurrentUser { [self] result in
+            fullNameLabel.text = result.fullName
+            accountNameLabel.text = result.username
+            let url = URL(string: result.profileImageURL)
+            profileImageView.kf.setImage(with: url)
+        }
+        
+        firestoreManager.fetchFollowers { followers in
+            self.followingNumberButton.setTitle(String(followers.count), for: .normal)
+        }
+        
+        firestoreManager.fetchFollowing { following in
+            self.followersNumberButton.setTitle(String(following.count), for: .normal)
+        }
     }
 }
