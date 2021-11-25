@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class EditProfileTableViewController: UITableViewController {
     
@@ -62,11 +63,13 @@ class EditProfileTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EditProfileTableViewCell", for: indexPath) as! EditProfileTableViewCell
-        if indexPath.row == 0 {
-            cell.configureCell(label: "FullName", text: "Sakura Endo")
-        }
-        else if indexPath.row == 1 {
-            cell.configureCell(label: "Username", text: "@Nogizaka46_Sony")
+        FirestoreManager.shared.fetchCurrentUser { user in
+            if indexPath.row == 0 {
+                cell.configureCell(label: "FullName", text: user.fullName)
+            }
+            else if indexPath.row == 1 {
+                cell.configureCell(label: "Username", text: user.username)
+            }
         }
         return cell
     }
@@ -89,6 +92,11 @@ class EditProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(
             withIdentifier:"EditProfileCustomHeaderView") as! EditProfileCustomHeaderView
+        
+        FirestoreManager.shared.fetchCurrentUser { user in
+            let url = URL(string: user.profileImageURL)
+            view.profileImageView.kf.setImage(with: url)
+        }
         
         view.changeButton.addTarget(self, action: #selector(didTapChangeProfileButton), for: .touchUpInside)
         

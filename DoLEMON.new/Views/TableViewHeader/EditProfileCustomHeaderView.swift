@@ -14,7 +14,6 @@ class EditProfileCustomHeaderView: UITableViewHeaderFooterView {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 60
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "遠藤さくら")
         return imageView
     }()
     
