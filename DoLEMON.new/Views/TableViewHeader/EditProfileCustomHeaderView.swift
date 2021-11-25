@@ -9,7 +9,7 @@ import UIKit
 
 class EditProfileCustomHeaderView: UITableViewHeaderFooterView {
     
-    private let profileImageView: UIImageView = {
+    let profileImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 60
@@ -18,24 +18,26 @@ class EditProfileCustomHeaderView: UITableViewHeaderFooterView {
         return imageView
     }()
     
-    private let changeButton: UIButton = {
+    let changeButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         button.titleLabel?.textAlignment = .center
-        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitleColor(UIColor.systemBlue,for: .normal)
         button.setTitle("Change Profile Photo", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(
             ofSize: 20,
             weight: .bold
         )
-        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
+        
         return button
     }()
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+        
+        contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
         
         contentView.addSubview(profileImageView)
         contentView.addSubview(changeButton)
@@ -62,3 +64,4 @@ class EditProfileCustomHeaderView: UITableViewHeaderFooterView {
         changeButton.frame.origin.y = profileImageView.frame.origin.y + 130
     }
 }
+

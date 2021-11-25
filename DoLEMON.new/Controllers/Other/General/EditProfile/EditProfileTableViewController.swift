@@ -90,6 +90,8 @@ class EditProfileTableViewController: UITableViewController {
         let view = tableView.dequeueReusableHeaderFooterView(
             withIdentifier:"EditProfileCustomHeaderView") as! EditProfileCustomHeaderView
         
+        view.changeButton.addTarget(self, action: #selector(didTapChangeProfileButton), for: .touchUpInside)
+        
         return view
     }
     
@@ -97,4 +99,32 @@ class EditProfileTableViewController: UITableViewController {
         return 250
     }
     
+    @objc func didTapChangeProfileButton() {
+        let accessPhotoManager = AccessPhotoManager()
+        accessPhotoManager.checkPermission()
+        
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        present(picker, animated: true)
+        self.present(picker, animated: true)
+    }
 }
+
+//MARK: -UIImagePickerControllerDelegate
+
+extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let view = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier:"EditProfileCustomHeaderView") as! EditProfileCustomHeaderView
+        if let selectedImage = info[.originalImage] as? UIImage {
+            view.profileImageView.image = selectedImage
+        }
+        self.dismiss(animated: true)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true)
+    }
+}
+
