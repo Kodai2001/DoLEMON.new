@@ -20,19 +20,19 @@ class RenameTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let nameTextField: UITextField = {
+    let nameTextField: UITextField = {
        let textField = UITextField()
         textField.backgroundColor = .clear
         textField.layer.masksToBounds = true
         textField.borderStyle = .none
         textField.textColor = .label
-        textField.text = "default name"
         textField.font = .boldSystemFont(ofSize: 25)
         return textField
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        nameTextField.delegate = self
         contentView.addSubview(titleLabel)
         contentView.addSubview(nameTextField)
     }
@@ -61,5 +61,16 @@ class RenameTableViewCell: UITableViewCell {
         self.titleLabel.text = titleLabel
         self.nameTextField.text = nameTextField
     }
-    
+}
+
+extension RenameTableViewCell: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        guard let fullNameText = textField.text else { return }
+        // firestoreを更新する
+        guard let uid = FirebaseAuthManager.shared.userSession?.uid else { return }
+        COLLECTION_USERS.document(uid).updateData(
+            ["fullName" : fullNameText]
+        )
+    }
 }
