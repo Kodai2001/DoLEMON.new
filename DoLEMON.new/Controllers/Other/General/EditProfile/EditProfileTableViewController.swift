@@ -41,12 +41,11 @@ class EditProfileTableViewController: UITableViewController {
     
     // "Cancel"ボタンが押された時の処理
     @objc func cancelBarButtonTapped(_ sender: UIBarButtonItem) {
-        print("did tap cancelBarButtonItem")
         self.navigationController?.popViewController(animated: true)
     }
     // "Done"ボタンが押された時の処理
     @objc func doneBarButtonTapped(_ sender: UIBarButtonItem) {
-        print("did tap doneBarButtonItem")
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Table view data source
@@ -128,6 +127,7 @@ extension EditProfileTableViewController: UIImagePickerControllerDelegate, UINav
             withIdentifier:"EditProfileCustomHeaderView") as! EditProfileCustomHeaderView
         if let selectedImage = info[.originalImage] as? UIImage {
             view.profileImageView.image = selectedImage
+            FirestoreManager.shared.updateProfileImage(image: selectedImage)
         }
         self.dismiss(animated: true)
     }

@@ -58,6 +58,15 @@ class FirestoreManager {
         }
     }
     
+    func updateProfileImage(image: UIImage) {
+        ImageUploader.uploadImage(image: image) { imageURL in
+            guard let uid = FirebaseAuthManager.shared.userSession?.uid else { return }
+            COLLECTION_USERS.document(uid).updateData(
+                ["profileImageURL" : imageURL]
+            )
+        }
+    }
+    
     //MARK: - followings
     
     func fetchFollowing(completion: @escaping ([String]) -> Void) {
