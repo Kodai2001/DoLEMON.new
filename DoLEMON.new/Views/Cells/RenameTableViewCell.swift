@@ -66,11 +66,21 @@ class RenameTableViewCell: UITableViewCell {
 extension RenameTableViewCell: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        guard let fullNameText = textField.text else { return }
-        // firestoreを更新する
-        guard let uid = FirebaseAuthManager.shared.userSession?.uid else { return }
-        COLLECTION_USERS.document(uid).updateData(
-            ["fullName" : fullNameText]
-        )
+        if self.titleLabel.text == "FullName" {
+            guard let fullNameText = textField.text else { return }
+            // firestoreを更新する
+            guard let uid = FirebaseAuthManager.shared.userSession?.uid else { return }
+            COLLECTION_USERS.document(uid).updateData(
+                ["fullName" : fullNameText]
+            )
+        }
+        else if self.titleLabel.text == "Username" {
+            guard let usernameText = textField.text else { return }
+            // firestoreを更新する
+            guard let uid = FirebaseAuthManager.shared.userSession?.uid else { return }
+            COLLECTION_USERS.document(uid).updateData(
+                ["username" : usernameText]
+            )
+        }
     }
 }
