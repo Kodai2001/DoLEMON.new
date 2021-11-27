@@ -91,7 +91,17 @@ extension MapViewController: MKMapViewDelegate {
         
         //アノテーションビューを作成する。
         let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-    
+        
+        FirestoreManager.shared.fetchCurrentUser { user in
+            if user.fullName == annotation.subtitle {
+                //　自分のPinは赤
+                pinView.pinTintColor = .systemRed
+            } else {
+                // 他の人のPinは青
+                pinView.pinTintColor = .systemBlue
+            }
+        }
+            
         //吹き出しを表示可能にする。
         pinView.canShowCallout = true
         
@@ -114,12 +124,12 @@ extension MapViewController: MKMapViewDelegate {
         
         // commentVCに遷移
         let commentVC = CommentsViewController()
+        present(commentVC, animated: true, completion: nil)
         
         if(control == view.leftCalloutAccessoryView) {
-            let firestoreManager = FirestoreManager()
             
             // 指定されたドキュメントをFirestoreから取り出せるようにしたい
-            firestoreManager.getComment { result in
+            FirestoreManager.shared.getComment { result in
                 commentVC.placeNameLabel.text = result.placeName
                 commentVC.addressLabel.text = result.addressName
                 commentVC.usernameLabel.text = result.username

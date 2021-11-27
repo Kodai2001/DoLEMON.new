@@ -59,7 +59,6 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let firestoreManager = FirestoreManager()
         tableView.isHidden = true
         let place = places[indexPath.row]
         let commentsVC = CommentsViewController()
@@ -69,7 +68,7 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // commentVCとpinのsubtitleにfullnameを代入
         
-        firestoreManager.fetchCurrentUser { result in
+        FirestoreManager.shared.fetchCurrentUser { result in
             commentsVC.usernameLabel.text = result.fullName
             commentsVC.pin.subtitle = result.fullName
         }
@@ -84,17 +83,15 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 DispatchQueue.main.async {
                     // AuthManagerに切り出したい
-                    let db = Firestore.firestore()
-                    db.collection("Users").getDocuments { (querySnapshot, err) in
+                    COLLECTION_USERS.getDocuments { (querySnapshot, err) in
                         if let err = err {
                             print("Error getting documents: \(err)")
                         } else {
-                            for document in querySnapshot!.documents {
-                                guard let username = document.get("fullName") as? String else {return}
+                            FirestoreManager.shared.fetchCurrentUser { user in
                                 commentsVC.pin.latitude = String(coordinate.latitude)
                                 commentsVC.pin.longitude = String(coordinate.longitude)
                                 
-                                self?.delegate?.didTapPlace(with: coordinate, title: place.placeName, subtitle: username)
+                                self?.delegate?.didTapPlace(with: coordinate, title: place.placeName, subtitle: user.fullName)
                             }
                         }
                     }

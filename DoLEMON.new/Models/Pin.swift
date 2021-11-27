@@ -10,7 +10,7 @@ import Foundation
 struct Pin {
     var title: String = ""
     var subtitle: String = ""
-    
+    var uid: String = ""
     var latitude: String = ""
     var longitude: String = ""
 }

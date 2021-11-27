@@ -177,10 +177,9 @@ class CommentsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         // comment structにcommentVCのデータを入れる
         putDataIntoCommentStruct()
-        let firestoreManger = FirestoreManager()
-        
-        firestoreManger.savePin(pin: pin)
-        firestoreManger.saveComment(comment: comment)
+        pin.uid = fetchUid()
+        FirestoreManager.shared.savePin(pin: pin)
+        FirestoreManager.shared.saveComment(comment: comment)
     }
     
     func putDataIntoCommentStruct () {
@@ -188,6 +187,11 @@ class CommentsViewController: UIViewController {
         comment.addressName = self.addressLabel.text ?? ""
         comment.username = self.usernameLabel.text ?? ""
         comment.commentText = self.textView.text ?? ""
+    }
+    
+    func fetchUid() -> String {
+        guard let uid = FirebaseAuthManager.shared.userSession?.uid else { return "" }
+        return uid
     }
     
 }

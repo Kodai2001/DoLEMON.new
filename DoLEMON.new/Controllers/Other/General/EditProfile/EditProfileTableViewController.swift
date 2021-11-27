@@ -10,6 +10,13 @@ import Kingfisher
 
 class EditProfileTableViewController: UITableViewController {
     
+    var renameFullname = "" {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    var renameUsername = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

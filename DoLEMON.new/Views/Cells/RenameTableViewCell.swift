@@ -73,6 +73,8 @@ extension RenameTableViewCell: UITextFieldDelegate {
             COLLECTION_USERS.document(uid).updateData(
                 ["fullName" : fullNameText]
             )
+            let vc = EditProfileTableViewController()
+            vc.renameFullname = fullNameText
         }
         else if self.titleLabel.text == "Username" {
             guard let usernameText = textField.text else { return }
