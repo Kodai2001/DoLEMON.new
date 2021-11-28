@@ -36,7 +36,7 @@ class FirestoreManager {
     }
     
     func fetchUsers(uids: [String], completion: @escaping ([User]) -> Void) {
-
+        
         var users: [User] = []
         for uid in uids {
             COLLECTION_USERS.document(uid).getDocument { snapshot, _ in
@@ -97,60 +97,6 @@ class FirestoreManager {
         }
     }
     
-    //MARK: - Comment
-    
-    func saveComment(comment: Comment) {
-        
-        guard let uid = self.userSession?.uid else { return }
-        
-        let docData = [
-            "placeName": comment.placeName,
-            "addressName": comment.addressName,
-            "username": comment.username,
-            "commentText": comment.commentText
-        ] as [String : Any]
-        
-        COLLECTION_COMMENTS.document(uid).setData(docData, completion: { error in
-            if let e = error {
-                print("There was a issue saving data to firestore, \(e)")
-            } else {
-                print("Succecessfully saved data")
-            }
-        })
-        
-    }
-    
-    func getComment(completion: @escaping (Comment) -> Void) {
-        
-        guard let uid = userSession?.uid else {return}
-        
-        COLLECTION_COMMENTS
-            .document(uid)
-            .getDocument { (querySnapshot, error) in
-                if let e = error {
-                    print("There was an issue retrieving data from Firestore. \(e)")
-                } else {
-                    guard let data = querySnapshot?.data() else { return }
-                    
-                    if let placeName = data["placeName"] as? String,
-                       let addressName = data["addressName"] as? String,
-                       let username = data["username"] as? String,
-                       let commentText = data["commentText"] as? String
-                    {
-                        var result = Comment()
-                        
-                        result.placeName = placeName
-                        result.addressName = addressName
-                        result.username = username
-                        result.commentText = commentText
-                        completion(result)
-                    } else {
-                        print("There was an issue")
-                    }
-                }
-            }
-    }
-    
     //MARK: - Pin
     
     func savePin(pin: Pin) {
@@ -200,7 +146,7 @@ class FirestoreManager {
                             pin.fullName = subtitle
                             pin.commentText = commentText
                             pin.addressName = addressName
-                            results.append(pin) 
+                            results.append(pin)
                         } else {
                             print("There was an issue")
                         }

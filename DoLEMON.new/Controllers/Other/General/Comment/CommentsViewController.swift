@@ -175,10 +175,8 @@ class CommentsViewController: UIViewController {
     
     @objc func didTapAddButton() {
         self.dismiss(animated: true, completion: nil)
-        // comment structにcommentVCのデータを入れる
         putDataIntoCommentStruct()
         FirestoreManager.shared.savePin(pin: pin)
-        //FirestoreManager.shared.saveComment(comment: comment)
     }
     
     func putDataIntoCommentStruct () {

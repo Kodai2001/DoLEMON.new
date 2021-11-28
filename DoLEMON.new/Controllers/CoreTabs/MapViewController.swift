@@ -33,7 +33,7 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
         navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-   
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         mapView.frame = CGRect(
@@ -94,6 +94,7 @@ extension MapViewController: MKMapViewDelegate {
         //アノテーションビューを作成する。
         let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
         
+        // currentUser判定をして、ピンの色を変える
         FirestoreManager.shared.fetchCurrentUser { user in
             if user.fullName == annotation.subtitle {
                 //　自分のPinは赤
@@ -103,21 +104,41 @@ extension MapViewController: MKMapViewDelegate {
                 pinView.pinTintColor = .systemBlue
             }
         }
-            
+        
+        //吹き出しに表示するスタックビューを生成する。
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.vertical
+        stackView.alignment = UIStackView.Alignment.leading
+        
+        FirestoreManager.shared.getAllPins { pins in
+            pins.forEach { pin in
+                if annotation.title == pin.placeName && annotation.subtitle == pin.fullName {
+                    
+                    //スタックビューにユーザーネームを追加する。
+                    let text = "👤: \(pin.fullName)"
+                    let userName:UILabel = UILabel()
+                    userName.frame = CGRect(x: 0, y: 0, width: 200, height: 0)
+                    userName.sizeToFit()
+                    userName.text = text
+                    stackView.addArrangedSubview(userName)
+                    
+                    //スタックビューにフリーテキストを追加する。
+                    let freeText = "📝: \(pin.commentText)"
+                    let testLabel:UILabel = UILabel()
+                    testLabel.frame = CGRect(x: 0, y: 0, width: 200, height: 0)
+                    testLabel.numberOfLines = 0
+                    testLabel.sizeToFit()
+                    testLabel.text = freeText
+                    stackView.addArrangedSubview(testLabel)
+                }
+            }
+        }
+        //ピンの吹き出しにスタックビューを設定する。
+        pinView.detailCalloutAccessoryView = stackView
+        
         //吹き出しを表示可能にする。
         pinView.canShowCallout = true
         
-        //左ボタンをアノテーションビューに追加する。
-        let deletePinButton = UIButton()
-        deletePinButton.frame = CGRect(x: 0,y: 0,width: 40,height: 40)
-        deletePinButton.setImage(UIImage(systemName: "trash"), for: .normal)
-        pinView.rightCalloutAccessoryView = deletePinButton
-        
-        //右ボタンをアノテーションビューに追加する。
-        let showDetailButton = UIButton()
-        showDetailButton.frame = CGRect(x: 0,y: 0,width: 40,height: 40)
-        showDetailButton.setImage(UIImage(systemName: "doc.text.magnifyingglass"), for: .normal)
-        pinView.leftCalloutAccessoryView = showDetailButton
         return pinView
     }
     
@@ -140,13 +161,13 @@ extension MapViewController: MKMapViewDelegate {
                 // 本当は特定のドキュメントのフィールドを取得したい
                 .document("Ycmy1AgM77QYdVcs5sta")
                 .delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    print("Document successfully removed!")
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document successfully removed!")
+                    }
                 }
-        }
-
+            
         }
     }
     
@@ -154,31 +175,13 @@ extension MapViewController: MKMapViewDelegate {
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         let firestoreManger = FirestoreManager()
         var annotations:[MKAnnotation] = []
-    
+        
         
         firestoreManger.getAnnotations { results in
             annotations = results
             annotations.forEach { annotation in
                 mapView.addAnnotation(annotation)
             }
-        }
-    }
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view.annotation{
-            
-            // titleとsubtitleがデータと同じ場合に
-            
-            // commentsVCにデータを反映させる
-            
-            if let title = annotation.title, let username = annotation.subtitle {
-                let commentsVC = ShowCommentsViewController()
-                commentsVC.placeNameLabel.text = title
-                commentsVC.usernameLabel.text = username
-            }
-            
-            
-            
         }
     }
 }
