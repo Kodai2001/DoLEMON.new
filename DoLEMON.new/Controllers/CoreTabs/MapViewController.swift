@@ -15,6 +15,8 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
     
     let searchVC = UISearchController(searchResultsController: ResultViewController())
     
+    let commentVC = ShowCommentsViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -122,22 +124,10 @@ extension MapViewController: MKMapViewDelegate {
     //吹き出しアクササリー押下時の呼び出しメソッド
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        // commentVCに遷移
-        let commentVC = CommentsViewController()
-        present(commentVC, animated: true, completion: nil)
-        
         if(control == view.leftCalloutAccessoryView) {
-            
-            // 指定されたドキュメントをFirestoreから取り出せるようにしたい
-            FirestoreManager.shared.getComment { result in
-                commentVC.placeNameLabel.text = result.placeName
-                commentVC.addressLabel.text = result.addressName
-                commentVC.usernameLabel.text = result.username
-                commentVC.textView.text = result.commentText
-                self.present(commentVC, animated: true, completion: nil)
-            }
-            
-            
+            // commentVCに遷移
+            commentVC.addressLabel.text = "DEBUG"
+            present(commentVC, animated: true, completion: nil)
         } else {
             guard let pin = view.annotation else {return}
             
@@ -171,6 +161,24 @@ extension MapViewController: MKMapViewDelegate {
             annotations.forEach { annotation in
                 mapView.addAnnotation(annotation)
             }
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation{
+            
+            // titleとsubtitleがデータと同じ場合に
+            
+            // commentsVCにデータを反映させる
+            
+            if let title = annotation.title, let username = annotation.subtitle {
+                let commentsVC = ShowCommentsViewController()
+                commentsVC.placeNameLabel.text = title
+                commentsVC.usernameLabel.text = username
+            }
+            
+            
+            
         }
     }
 }

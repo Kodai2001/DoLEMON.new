@@ -70,10 +70,10 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         FirestoreManager.shared.fetchCurrentUser { result in
             commentsVC.usernameLabel.text = result.fullName
-            commentsVC.pin.subtitle = result.fullName
+            commentsVC.pin.fullName = result.fullName
         }
         
-        commentsVC.pin.title = place.placeName
+        commentsVC.pin.placeName = place.placeName
         // commntsVCにmodalで遷移
         present(commentsVC, animated: true, completion: nil)
         

@@ -101,20 +101,23 @@ class FirestoreManager {
     
     func saveComment(comment: Comment) {
         
-        COLLECTION_COMMENTS
-            .addDocument(data: [
-                "placeName": comment.placeName,
-                "addressName": comment.addressName,
-                "username": comment.username,
-                "commentText": comment.commentText
-                
-            ]) { (error) in
-                if let e = error {
-                    print("There was a issue saving data to firestore, \(e)")
-                } else {
-                    print("Succecessfully saved data")
-                }
+        guard let uid = self.userSession?.uid else { return }
+        
+        let docData = [
+            "placeName": comment.placeName,
+            "addressName": comment.addressName,
+            "username": comment.username,
+            "commentText": comment.commentText
+        ] as [String : Any]
+        
+        COLLECTION_COMMENTS.document(uid).setData(docData, completion: { error in
+            if let e = error {
+                print("There was a issue saving data to firestore, \(e)")
+            } else {
+                print("Succecessfully saved data")
             }
+        })
+        
     }
     
     func getComment(completion: @escaping (Comment) -> Void) {
@@ -155,8 +158,10 @@ class FirestoreManager {
         COLLECTION_PINS.addDocument(data: [
             "latitude": pin.latitude,
             "longitude": pin.longitude,
-            "title": pin.title,
-            "subtitle": pin.subtitle
+            "placeName": pin.placeName,
+            "fullName": pin.fullName,
+            "commentText": pin.commentText,
+            "addressName": pin.addressName,
             
         ]) { (error) in
             if let e = error {
@@ -182,16 +187,20 @@ class FirestoreManager {
                         let data = doc.data()
                         if let longitude = data["longitude"] as? String,
                            let latitude = data["latitude"] as? String,
-                           let title = data["title"] as? String,
-                           let subtitle = data["subtitle"] as? String
+                           let title = data["placeName"] as? String,
+                           let subtitle = data["fullName"] as? String,
+                           let commentText = data["commentText"] as? String,
+                           let addressName = data["addressName"] as? String
                         {
                             var pin = Pin()
                             
                             pin.longitude = longitude
                             pin.latitude = latitude
-                            pin.title = title
-                            pin.subtitle = subtitle
-                            results.append(pin)
+                            pin.placeName = title
+                            pin.fullName = subtitle
+                            pin.commentText = commentText
+                            pin.addressName = addressName
+                            results.append(pin) 
                         } else {
                             print("There was an issue")
                         }
@@ -210,8 +219,8 @@ class FirestoreManager {
             pins.forEach { pin in
                 let annotation = MKPointAnnotation()
                 let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude)!, longitude: CLLocationDegrees(pin.longitude)!)
-                annotation.title = pin.title
-                annotation.subtitle = pin.subtitle
+                annotation.title = pin.placeName
+                annotation.subtitle = pin.fullName
                 annotation.coordinate = coordinate
                 results.append(annotation)
                 completion(results)

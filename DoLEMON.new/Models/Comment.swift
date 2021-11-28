@@ -9,7 +9,7 @@ import Foundation
 
 struct Comment {
     var placeName: String = ""
-    var addressName: String = ""
+    var addressName: String = "" 
     var username: String = ""
-    var commentText: String = ""
+    var commentText: String = "" 
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42C117EB687731AA4A60751A /* Pods_DoLEMON_new.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */; };
+		880C868B2752FDCE009799EC /* ShowCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C868A2752FDCE009799EC /* ShowCommentsViewController.swift */; };
 		8823A37D273D204100C7E228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A37C273D204100C7E228 /* AppDelegate.swift */; };
 		8823A37F273D204100C7E228 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A37E273D204100C7E228 /* SceneDelegate.swift */; };
 		8823A381273D204100C7E228 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A380273D204100C7E228 /* HomeViewController.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		1853D7AB88FABA64DC5E1F70 /* Pods-DoLEMON.new.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoLEMON.new.release.xcconfig"; path = "Target Support Files/Pods-DoLEMON.new/Pods-DoLEMON.new.release.xcconfig"; sourceTree = "<group>"; };
 		2E032FEE26837181AF766BAF /* Pods-DoLEMON.new.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoLEMON.new.debug.xcconfig"; path = "Target Support Files/Pods-DoLEMON.new/Pods-DoLEMON.new.debug.xcconfig"; sourceTree = "<group>"; };
+		880C868A2752FDCE009799EC /* ShowCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentsViewController.swift; sourceTree = "<group>"; };
 		8823A379273D204100C7E228 /* DoLEMON.new.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoLEMON.new.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8823A37C273D204100C7E228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8823A37E273D204100C7E228 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,15 @@
 				1853D7AB88FABA64DC5E1F70 /* Pods-DoLEMON.new.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		880C86892752FD98009799EC /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				8823A3AD273F465300C7E228 /* CommentsViewController.swift */,
+				880C868A2752FDCE009799EC /* ShowCommentsViewController.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		8823A370273D204100C7E228 = {
@@ -231,7 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				8823A3A2273D2ADE00C7E228 /* ResultViewController.swift */,
-				8823A3AD273F465300C7E228 /* CommentsViewController.swift */,
+				880C86892752FD98009799EC /* Comment */,
 				8872F8772742004500504F81 /* AddFriend */,
 				8872F89A2746539400504F81 /* UserFollow */,
 				8872F88D2745DA9900504F81 /* EditProfile */,
@@ -472,6 +483,7 @@
 				8872F8A52747A9F000504F81 /* ImageUploader.swift in Sources */,
 				8872F88227434A1B00504F81 /* Pin.swift in Sources */,
 				8823A394273D244E00C7E228 /* LoginViewController.swift in Sources */,
+				880C868B2752FDCE009799EC /* ShowCommentsViewController.swift in Sources */,
 				8823A39C273D273700C7E228 /* AddFriendViewController.swift in Sources */,
 				8872F8A22747A39000504F81 /* AccessPhotoManager.swift in Sources */,
 				8872F86B2741049E00504F81 /* ProfileTableViewController.swift in Sources */,

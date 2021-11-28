@@ -8,9 +8,10 @@
 import Foundation
 
 struct Pin {
-    var title: String = ""
-    var subtitle: String = ""
-    var uid: String = ""
+    var placeName: String = ""
+    var fullName: String = ""
     var latitude: String = ""
     var longitude: String = ""
+    var commentText: String = ""
+    var addressName: String = ""
 }

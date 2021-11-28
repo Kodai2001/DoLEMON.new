@@ -24,7 +24,7 @@ class CommentsViewController: UIViewController {
         return imageView
     }()
     
-    let placeNameLabel: UILabel = {
+    var placeNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .black
@@ -41,7 +41,7 @@ class CommentsViewController: UIViewController {
         return imageView
     }()
     
-    let addressLabel: UILabel = {
+    var addressLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .black
@@ -177,21 +177,13 @@ class CommentsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         // comment structにcommentVCのデータを入れる
         putDataIntoCommentStruct()
-        pin.uid = fetchUid()
         FirestoreManager.shared.savePin(pin: pin)
-        FirestoreManager.shared.saveComment(comment: comment)
+        //FirestoreManager.shared.saveComment(comment: comment)
     }
     
     func putDataIntoCommentStruct () {
-        comment.placeName = self.placeNameLabel.text ?? ""
-        comment.addressName = self.addressLabel.text ?? ""
-        comment.username = self.usernameLabel.text ?? ""
-        comment.commentText = self.textView.text ?? ""
-    }
-    
-    func fetchUid() -> String {
-        guard let uid = FirebaseAuthManager.shared.userSession?.uid else { return "" }
-        return uid
+        pin.commentText = self.textView.text ?? ""
+        pin.addressName = self.addressLabel.text ?? ""
     }
     
 }
