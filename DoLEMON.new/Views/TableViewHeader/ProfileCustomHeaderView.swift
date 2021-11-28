@@ -122,7 +122,6 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         addSubviews()
         
         configureHeaderView()
-        
         clipsToBounds = true
         contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
       }
