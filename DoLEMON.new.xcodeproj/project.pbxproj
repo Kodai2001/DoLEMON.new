@@ -40,7 +40,6 @@
 		8872F88227434A1B00504F81 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88127434A1A00504F81 /* Pin.swift */; };
 		8872F88427448EEB00504F81 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88327448EEB00504F81 /* Comment.swift */; };
 		8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8852744F66200504F81 /* FirestoreManager.swift */; };
-		8872F88A2745B7AF00504F81 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8892745B7AF00504F81 /* TestViewController.swift */; };
 		8872F88C2745BE5300504F81 /* EditProfileCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F88B2745BE5300504F81 /* EditProfileCustomHeaderView.swift */; };
 		8872F8932745DBB700504F81 /* RenameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8922745DBB700504F81 /* RenameTableViewCell.swift */; };
 		8872F8972745DCEF00504F81 /* ChangeFullNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8872F8962745DCEF00504F81 /* ChangeFullNameTableViewController.swift */; };
@@ -90,7 +89,6 @@
 		8872F88127434A1A00504F81 /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		8872F88327448EEB00504F81 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		8872F8852744F66200504F81 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
-		8872F8892745B7AF00504F81 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		8872F88B2745BE5300504F81 /* EditProfileCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileCustomHeaderView.swift; sourceTree = "<group>"; };
 		8872F8922745DBB700504F81 /* RenameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameTableViewCell.swift; sourceTree = "<group>"; };
 		8872F8962745DCEF00504F81 /* ChangeFullNameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeFullNameTableViewController.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 			children = (
 				8823A39D273D288400C7E228 /* Other */,
 				8823A398273D259500C7E228 /* CoreTabs */,
-				8872F8892745B7AF00504F81 /* TestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -500,7 +497,6 @@
 				8823A381273D204100C7E228 /* HomeViewController.swift in Sources */,
 				8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */,
 				8823A37D273D204100C7E228 /* AppDelegate.swift in Sources */,
-				8872F88A2745B7AF00504F81 /* TestViewController.swift in Sources */,
 				8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */,
 				8823A37F273D204100C7E228 /* SceneDelegate.swift in Sources */,
 				8872F8622740965500504F81 /* EditProfileTableViewCell.swift in Sources */,

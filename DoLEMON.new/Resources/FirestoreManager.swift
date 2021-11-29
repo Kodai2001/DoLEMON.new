@@ -119,7 +119,7 @@ class FirestoreManager {
         }
     }
     
-    
+    // DBからピンを取ってくる
     func getAllPins(completion: @escaping ([Pin]) -> Void) {
         
         var results: [Pin] = []
@@ -160,22 +160,20 @@ class FirestoreManager {
         }
     }
     
+    // Pin構造体をマップに表示できる形に変換
     func getAnnotations(pin: Pin, completion: @escaping ([MKAnnotation]) -> Void) {
-//        var pins: [Pin] = []
-//        getAllPins { piNs in
-//            pins = piNs
-            var results:[MKPointAnnotation] = []
-//            pins.forEach { pin in
-                let annotation = MKPointAnnotation()
-                let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude)!, longitude: CLLocationDegrees(pin.longitude)!)
-                annotation.title = pin.placeName
-                annotation.subtitle = pin.fullName
-                annotation.coordinate = coordinate
-                results.append(annotation)
-                completion(results)
-            }
-        }
-//    }
-//}
+        
+        var results:[MKPointAnnotation] = []
+        
+        let annotation = MKPointAnnotation()
+        let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude)!, longitude: CLLocationDegrees(pin.longitude)!)
+        annotation.title = pin.placeName
+        annotation.subtitle = pin.fullName
+        annotation.coordinate = coordinate
+        results.append(annotation)
+        completion(results)
+    }
+}
+
 
 

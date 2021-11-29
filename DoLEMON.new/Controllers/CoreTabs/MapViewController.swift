@@ -147,53 +147,52 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     //吹き出しアクササリー押下時の呼び出しメソッド
-//    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//
-//        if(control == view.leftCalloutAccessoryView) {
-//            // commentVCに遷移
-//            commentVC.addressLabel.text = "DEBUG"
-//            present(commentVC, animated: true, completion: nil)
-//        } else {
-//            guard let pin = view.annotation else {return}
-//
-//            // ピンをマップ上から削除する
-//            mapView.removeAnnotation(pin)
-//
-//            // 指定されたドキュメントをFirestoreから取り出せるようにしたい
-//            COLLECTION_PINS
-//                // 仮の値でtestしている
-//                // 本当は特定のドキュメントのフィールドを取得したい
-//                .document("Ycmy1AgM77QYdVcs5sta")
-//                .delete() { err in
-//                    if let err = err {
-//                        print("Error removing document: \(err)")
-//                    } else {
-//                        print("Document successfully removed!")
-//                    }
-//                }
-//
-//        }
-//    }
+    //    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+    //
+    //        if(control == view.leftCalloutAccessoryView) {
+    //            // commentVCに遷移
+    //            commentVC.addressLabel.text = "DEBUG"
+    //            present(commentVC, animated: true, completion: nil)
+    //        } else {
+    //            guard let pin = view.annotation else {return}
+    //
+    //            // ピンをマップ上から削除する
+    //            mapView.removeAnnotation(pin)
+    //
+    //            // 指定されたドキュメントをFirestoreから取り出せるようにしたい
+    //            COLLECTION_PINS
+    //                // 仮の値でtestしている
+    //                // 本当は特定のドキュメントのフィールドを取得したい
+    //                .document("Ycmy1AgM77QYdVcs5sta")
+    //                .delete() { err in
+    //                    if let err = err {
+    //                        print("Error removing document: \(err)")
+    //                    } else {
+    //                        print("Document successfully removed!")
+    //                    }
+    //                }
+    //
+    //        }
+    //    }
     
     // マップのロード終了時に呼ばれる
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         let firestoreManger = FirestoreManager()
-        //var annotations:[MKAnnotation] = []
+        let currentUid = FirebaseAuthManager.shared.userSession?.uid
         
-        //firestoreManger.getAnnotations { results in
-            // followingしてるUserのピンのみを表示する
-//            // follwingのuidとuserのuidを照合する
-//            annotations = results
-//            mapView.addAnnotations(annotations)
-            
-            firestoreManger.getAllPins { pins in
-                for pin in pins {
-                    firestoreManger.fetchFollowing { uids in
-                        for uid in uids {
-                            if pin.uid == uid {
-                                firestoreManger.getAnnotations(pin: pin) { pins in
-                                    mapView.addAnnotations(pins)
-                                }
+        firestoreManger.getAllPins { pins in
+            for pin in pins {
+                firestoreManger.fetchFollowing { uids in
+                    for uid in uids {
+                        // followしてる人のピンが表示される
+                        if pin.uid == uid {
+                            firestoreManger.getAnnotations(pin: pin) { pins in
+                                mapView.addAnnotations(pins)
+                            }
+                            // 自分のピンが表示される
+                        } else if pin.uid == currentUid {
+                            firestoreManger.getAnnotations(pin: pin) { pins in
+                                mapView.addAnnotations(pins)
                             }
                         }
                     }
@@ -201,4 +200,4 @@ extension MapViewController: MKMapViewDelegate {
             }
         }
     }
-//}
+}

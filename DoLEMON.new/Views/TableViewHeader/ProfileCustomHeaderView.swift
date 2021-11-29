@@ -204,11 +204,11 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         }
         
         firestoreManager.fetchFollowers { followers in
-            self.followingNumberButton.setTitle(String(followers.count), for: .normal)
+            self.followersNumberButton.setTitle(String(followers.count), for: .normal)
         }
         
         firestoreManager.fetchFollowing { following in
-            self.followersNumberButton.setTitle(String(following.count), for: .normal)
+            self.followingNumberButton.setTitle(String(following.count), for: .normal)
         }
     }
 }

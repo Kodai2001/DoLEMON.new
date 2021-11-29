@@ -98,8 +98,9 @@ class AddFriendViewController: UIViewController {
         UserService.follow(uid: _user.uid) { _ in
             let alert = UIAlertController(title: nil, message: "Successfully added \(_user.fullName) as a friend" , preferredStyle: .alert)
             
-            let okAction = UIAlertAction(title: "OK!!!", style: .cancel, handler: nil)
-            
+            let okAction = UIAlertAction(title: "OK ! ! !" , style: .default) { action in
+                self.navigationController?.popToRootViewController(animated: true)
+            }
             alert.addAction(okAction)
             
             self.present(alert, animated: true, completion: nil)
