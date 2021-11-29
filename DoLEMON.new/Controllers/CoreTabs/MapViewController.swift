@@ -178,11 +178,27 @@ extension MapViewController: MKMapViewDelegate {
     // マップのロード終了時に呼ばれる
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         let firestoreManger = FirestoreManager()
-        var annotations:[MKAnnotation] = []
+        //var annotations:[MKAnnotation] = []
         
-        firestoreManger.getAnnotations { results in
-            annotations = results
-            mapView.addAnnotations(annotations)
+        //firestoreManger.getAnnotations { results in
+            // followingしてるUserのピンのみを表示する
+//            // follwingのuidとuserのuidを照合する
+//            annotations = results
+//            mapView.addAnnotations(annotations)
+            
+            firestoreManger.getAllPins { pins in
+                for pin in pins {
+                    firestoreManger.fetchFollowing { uids in
+                        for uid in uids {
+                            if pin.uid == uid {
+                                firestoreManger.getAnnotations(pin: pin) { pins in
+                                    mapView.addAnnotations(pins)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-}
+//}

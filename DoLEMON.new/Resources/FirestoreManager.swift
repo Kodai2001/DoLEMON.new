@@ -17,6 +17,7 @@ class FirestoreManager {
     
     static let shared = FirestoreManager()
     
+    
     //MARK: - User
     
     func fetchALLUsers(completion: @escaping ([User]) -> Void) {
@@ -100,7 +101,6 @@ class FirestoreManager {
     //MARK: - Pin
     
     func savePin(pin: Pin) {
-        
         COLLECTION_PINS.addDocument(data: [
             "latitude": pin.latitude,
             "longitude": pin.longitude,
@@ -108,6 +108,7 @@ class FirestoreManager {
             "fullName": pin.fullName,
             "commentText": pin.commentText,
             "addressName": pin.addressName,
+            "uid": pin.uid
             
         ]) { (error) in
             if let e = error {
@@ -136,7 +137,8 @@ class FirestoreManager {
                            let title = data["placeName"] as? String,
                            let subtitle = data["fullName"] as? String,
                            let commentText = data["commentText"] as? String,
-                           let addressName = data["addressName"] as? String
+                           let addressName = data["addressName"] as? String,
+                           let uid = data["uid"] as? String
                         {
                             var pin = Pin()
                             
@@ -146,6 +148,7 @@ class FirestoreManager {
                             pin.fullName = subtitle
                             pin.commentText = commentText
                             pin.addressName = addressName
+                            pin.uid = uid
                             results.append(pin)
                         } else {
                             print("There was an issue")
@@ -157,12 +160,12 @@ class FirestoreManager {
         }
     }
     
-    func getAnnotations(completion: @escaping ([MKAnnotation]) -> Void) {
-        var pins: [Pin] = []
-        getAllPins { piNs in
-            pins = piNs
+    func getAnnotations(pin: Pin, completion: @escaping ([MKAnnotation]) -> Void) {
+//        var pins: [Pin] = []
+//        getAllPins { piNs in
+//            pins = piNs
             var results:[MKPointAnnotation] = []
-            pins.forEach { pin in
+//            pins.forEach { pin in
                 let annotation = MKPointAnnotation()
                 let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude)!, longitude: CLLocationDegrees(pin.longitude)!)
                 annotation.title = pin.placeName
@@ -172,7 +175,7 @@ class FirestoreManager {
                 completion(results)
             }
         }
-    }
-}
+//    }
+//}
 
 

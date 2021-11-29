@@ -12,10 +12,6 @@ class FollowingListTableViewController: UITableViewController {
     let firestoreManager = FirestoreManager()
     var followings: [User] = []
     
-    var followUnfollowManager: FollowUnfollowManager?
-    var isFollowed: Bool {return followUnfollowManager?.user.isFollowed ?? false}
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -15,4 +15,5 @@ struct Pin {
     var longitude: String = ""
     var commentText: String = ""
     var addressName: String = ""
+    var uid: String = ""
 }

@@ -176,6 +176,8 @@ class CommentsViewController: UIViewController {
     @objc func didTapAddButton() {
         self.dismiss(animated: true, completion: nil)
         putDataIntoCommentStruct()
+        
+        pin.uid = FirebaseAuthManager.shared.userSession?.uid ?? ""
         FirestoreManager.shared.savePin(pin: pin)
     }
     

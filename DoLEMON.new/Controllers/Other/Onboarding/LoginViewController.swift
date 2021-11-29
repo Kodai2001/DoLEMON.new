@@ -81,7 +81,7 @@ class LoginViewController: UIViewController {
     @objc func loginButtonPressed() {
         let loginManager = FirebaseAuthManager()
         guard let email = emailTextField.text, let password = passwordlTextField.text else { return }
-        loginManager.signIn(email: email, pass: password) {[weak self] (success) in
+        loginManager.signIn(email: email, password: password) {[weak self] (success) in
             guard let `self` = self else { return }
             var message: String = ""
             
