@@ -120,9 +120,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             cell.configureCell(label: "Add friend", icon: UIImage(systemName: "person.fill.badge.plus")!)
         }
         else if indexPath.row == 1 {
-            cell.configureCell(label: "Sign out", icon: (UIImage(systemName: "rectangle.portrait.and.arrow.right.fill") ?? UIImage(named: "Logout"))!)
+            cell.configureCell(label: "Sign out", icon: (UIImage(systemName: "arrow.uturn.up") ?? UIImage(named: "Logout"))!)
         }
-        // headerが反応しないため臨時で設置
         else if indexPath.row == 2 {
             cell.configureCell(label: "Show User ID", icon: UIImage(systemName: "key.fill")!)
         }

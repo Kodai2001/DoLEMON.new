@@ -49,7 +49,7 @@ class ProfileTableViewCell: UITableViewCell {
         // cellLabel
         cellLabel.frame.size.width = 200
         cellLabel.frame.size.height = 30
-        cellLabel.frame.origin.x = 60
+        cellLabel.frame.origin.x = 70
         cellLabel.frame.origin.y = 15
     }
     

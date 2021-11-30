@@ -88,22 +88,10 @@ extension MapViewController: ResultViewControllerDelegate {
 //　ピンをカスタムする
 extension MapViewController: MKMapViewDelegate {
     
-    //　ピンをカスタマイズする
+    //ピンをカスタマイズする
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         //アノテーションビューを作成する。
         let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
-        
-        // currentUser判定をして、ピンの色を変える
-        let firestoreManager = FirestoreManager()
-        firestoreManager.fetchCurrentUser { user in
-            if user.fullName == annotation.subtitle {
-                //　自分のPinは赤
-                pinView.pinTintColor = .systemRed
-            } else {
-                // 他の人のPinは青
-                pinView.pinTintColor = .systemBlue
-            }
-        }
         
         //吹き出しに表示するスタックビューを生成する。
         let stackView = UIStackView()
@@ -112,8 +100,7 @@ extension MapViewController: MKMapViewDelegate {
         
         FirestoreManager.shared.getAllPins { pins in
             pins.forEach { pin in
-                // 同じピンを繰り返し反映しないようにしたい
-                //　全てピンが出終えてから処理
+                
                 if annotation.title == pin.placeName && annotation.subtitle == pin.fullName {
                     
                     if stackView.arrangedSubviews.count <= 1 {
@@ -125,6 +112,7 @@ extension MapViewController: MKMapViewDelegate {
                         userNameLabel.text = text
                         stackView.addArrangedSubview(userNameLabel)
                         
+                        
                         //スタックビューにフリーテキストを追加する。
                         let freeText = "📝: \(pin.commentText)"
                         let freeTextLabel:UILabel = UILabel()
@@ -133,8 +121,38 @@ extension MapViewController: MKMapViewDelegate {
                         freeTextLabel.sizeToFit()
                         freeTextLabel.text = freeText
                         stackView.addArrangedSubview(freeTextLabel)
+                        
+                        let deleteButton: UIButton = {
+                            let button = UIButton()
+                            button.setImage(UIImage(systemName: "trash"), for: .normal)
+                            button.frame = CGRect(x: 0,y: 0,width: 40,height: 40)
+                            return button
+                        }()
+                        
+                        // 自分のピンのみdeleteButtonを表示する
+                        let firestoreManager = FirestoreManager()
+                        firestoreManager.fetchCurrentUser { user in
+                            if user.fullName == annotation.subtitle {
+                                //stackView.addArrangedSubview(deleteButton)
+                                pinView.rightCalloutAccessoryView = deleteButton
+                                
+                            }
+                        }
                     }
                 }
+            }
+        }
+        
+        // currentUser判定をして、ピンの色を変える
+        let firestoreManager = FirestoreManager()
+        firestoreManager.fetchCurrentUser { user in
+            if user.fullName == annotation.subtitle {
+                //　自分のPinは赤
+                pinView.pinTintColor = .systemRed
+                
+            } else {
+                // 他の人のPinは青
+                pinView.pinTintColor = .systemBlue
             }
         }
         //ピンの吹き出しにスタックビューを設定する。
@@ -147,33 +165,21 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     //吹き出しアクササリー押下時の呼び出しメソッド
-    //    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-    //
-    //        if(control == view.leftCalloutAccessoryView) {
-    //            // commentVCに遷移
-    //            commentVC.addressLabel.text = "DEBUG"
-    //            present(commentVC, animated: true, completion: nil)
-    //        } else {
-    //            guard let pin = view.annotation else {return}
-    //
-    //            // ピンをマップ上から削除する
-    //            mapView.removeAnnotation(pin)
-    //
-    //            // 指定されたドキュメントをFirestoreから取り出せるようにしたい
-    //            COLLECTION_PINS
-    //                // 仮の値でtestしている
-    //                // 本当は特定のドキュメントのフィールドを取得したい
-    //                .document("Ycmy1AgM77QYdVcs5sta")
-    //                .delete() { err in
-    //                    if let err = err {
-    //                        print("Error removing document: \(err)")
-    //                    } else {
-    //                        print("Document successfully removed!")
-    //                    }
-    //                }
-    //
-    //        }
-    //    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if(control == view.rightCalloutAccessoryView) {
+            guard let pin = view.annotation else {return}
+            // ピンをマップ上から削除する
+            FirestoreManager.shared.getAllPins { pins in
+                pins.forEach { _pin in
+                    if pin.title == _pin.placeName && pin.subtitle == _pin.fullName {
+                        FirestoreManager.shared.deleteAnnotation(placeName: _pin.placeName)
+                        mapView.removeAnnotation(pin)
+                    }
+                }
+            }
+        }
+    }
     
     // マップのロード終了時に呼ばれる
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {

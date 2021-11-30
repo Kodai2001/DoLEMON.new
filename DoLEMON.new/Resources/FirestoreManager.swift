@@ -101,16 +101,16 @@ class FirestoreManager {
     //MARK: - Pin
     
     func savePin(pin: Pin) {
-        COLLECTION_PINS.addDocument(data: [
-            "latitude": pin.latitude,
-            "longitude": pin.longitude,
-            "placeName": pin.placeName,
-            "fullName": pin.fullName,
-            "commentText": pin.commentText,
-            "addressName": pin.addressName,
-            "uid": pin.uid
-            
-        ]) { (error) in
+        let data =
+            ["latitude": pin.latitude,
+             "longitude": pin.longitude,
+             "placeName": pin.placeName,
+             "fullName": pin.fullName,
+             "commentText": pin.commentText,
+             "addressName": pin.addressName,
+             "uid": pin.uid]
+        
+        COLLECTION_PINS.document(pin.placeName).setData(data) { (error) in
             if let e = error {
                 print("There was a issue saving data to firestore, \(e)")
             } else {
@@ -172,6 +172,10 @@ class FirestoreManager {
         annotation.coordinate = coordinate
         results.append(annotation)
         completion(results)
+    }
+    
+    func deleteAnnotation(placeName: String) {
+        COLLECTION_PINS.document(placeName).delete()
     }
 }
 
