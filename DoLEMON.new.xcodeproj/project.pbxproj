@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		42C117EB687731AA4A60751A /* Pods_DoLEMON_new.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9521EA2BFA435F9B56DDE446 /* Pods_DoLEMON_new.framework */; };
 		880C868B2752FDCE009799EC /* ShowCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C868A2752FDCE009799EC /* ShowCommentsViewController.swift */; };
+		880C868E2756FAE4009799EC /* findPlace.json in Resources */ = {isa = PBXBuildFile; fileRef = 880C868C2756FAE3009799EC /* findPlace.json */; };
+		880C868F2756FAE4009799EC /* friendFind.json in Resources */ = {isa = PBXBuildFile; fileRef = 880C868D2756FAE4009799EC /* friendFind.json */; };
+		880C86912756FAF3009799EC /* addPin.json in Resources */ = {isa = PBXBuildFile; fileRef = 880C86902756FAF3009799EC /* addPin.json */; };
+		880C8695275700BB009799EC /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C8693275700BB009799EC /* OnboardingCollectionViewCell.swift */; };
+		880C8696275700BB009799EC /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880C8694275700BB009799EC /* OnboardingCollectionViewCell.xib */; };
+		880C86982757024B009799EC /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C86972757024B009799EC /* Page.swift */; };
+		880C869A2757028E009799EC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C86992757028E009799EC /* OnboardingViewController.swift */; };
 		8823A37D273D204100C7E228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A37C273D204100C7E228 /* AppDelegate.swift */; };
 		8823A37F273D204100C7E228 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A37E273D204100C7E228 /* SceneDelegate.swift */; };
 		8823A381273D204100C7E228 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8823A380273D204100C7E228 /* HomeViewController.swift */; };
@@ -56,6 +63,13 @@
 		1853D7AB88FABA64DC5E1F70 /* Pods-DoLEMON.new.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoLEMON.new.release.xcconfig"; path = "Target Support Files/Pods-DoLEMON.new/Pods-DoLEMON.new.release.xcconfig"; sourceTree = "<group>"; };
 		2E032FEE26837181AF766BAF /* Pods-DoLEMON.new.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoLEMON.new.debug.xcconfig"; path = "Target Support Files/Pods-DoLEMON.new/Pods-DoLEMON.new.debug.xcconfig"; sourceTree = "<group>"; };
 		880C868A2752FDCE009799EC /* ShowCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentsViewController.swift; sourceTree = "<group>"; };
+		880C868C2756FAE3009799EC /* findPlace.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = findPlace.json; sourceTree = "<group>"; };
+		880C868D2756FAE4009799EC /* friendFind.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = friendFind.json; sourceTree = "<group>"; };
+		880C86902756FAF3009799EC /* addPin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addPin.json; sourceTree = "<group>"; };
+		880C8693275700BB009799EC /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		880C8694275700BB009799EC /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		880C86972757024B009799EC /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		880C86992757028E009799EC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8823A379273D204100C7E228 /* DoLEMON.new.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoLEMON.new.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8823A37C273D204100C7E228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8823A37E273D204100C7E228 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,10 +146,21 @@
 			path = Comment;
 			sourceTree = "<group>";
 		};
+		880C86922756FB2A009799EC /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				880C868C2756FAE3009799EC /* findPlace.json */,
+				880C868D2756FAE4009799EC /* friendFind.json */,
+				880C86902756FAF3009799EC /* addPin.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		8823A370273D204100C7E228 = {
 			isa = PBXGroup;
 			children = (
 				8823A37B273D204100C7E228 /* DoLEMON.new */,
+				880C86922756FB2A009799EC /* Lottie */,
 				8823A37A273D204100C7E228 /* Products */,
 				3C0E195120A5D58F91E759C9 /* Pods */,
 				F263E82E9153A13F8FB748B5 /* Frameworks */,
@@ -194,6 +219,7 @@
 				8872F87F27432C2900504F81 /* User.swift */,
 				8872F88127434A1A00504F81 /* Pin.swift */,
 				8872F88327448EEB00504F81 /* Comment.swift */,
+				880C86972757024B009799EC /* Page.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +230,7 @@
 				8823A380273D204100C7E228 /* HomeViewController.swift */,
 				8823A393273D244E00C7E228 /* LoginViewController.swift */,
 				8823A395273D246A00C7E228 /* RegisterViewController.swift */,
+				880C86992757028E009799EC /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -255,6 +282,8 @@
 				8872F8612740965500504F81 /* EditProfileTableViewCell.swift */,
 				8872F8722741D85A00504F81 /* ProfileTableViewCell.swift */,
 				8872F8922745DBB700504F81 /* RenameTableViewCell.swift */,
+				880C8693275700BB009799EC /* OnboardingCollectionViewCell.swift */,
+				880C8694275700BB009799EC /* OnboardingCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -399,9 +428,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880C86912756FAF3009799EC /* addPin.json in Resources */,
+				880C868F2756FAE4009799EC /* friendFind.json in Resources */,
 				8823A389273D204800C7E228 /* LaunchScreen.storyboard in Resources */,
+				880C868E2756FAE4009799EC /* findPlace.json in Resources */,
 				8823A3AC273F300700C7E228 /* Main.storyboard in Resources */,
 				8823A386273D204800C7E228 /* Assets.xcassets in Resources */,
+				880C8696275700BB009799EC /* OnboardingCollectionViewCell.xib in Resources */,
 				8872F87927424AAE00504F81 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,13 +531,16 @@
 				8872F8862744F66200504F81 /* FirestoreManager.swift in Sources */,
 				8823A37D273D204100C7E228 /* AppDelegate.swift in Sources */,
 				8872F8732741D85A00504F81 /* ProfileTableViewCell.swift in Sources */,
+				880C8695275700BB009799EC /* OnboardingCollectionViewCell.swift in Sources */,
 				8823A37F273D204100C7E228 /* SceneDelegate.swift in Sources */,
 				8872F8622740965500504F81 /* EditProfileTableViewCell.swift in Sources */,
 				8872F87B27424C9800504F81 /* FirebaseAuthManager.swift in Sources */,
 				8872F87127412D5200504F81 /* ProfileCustomHeaderView.swift in Sources */,
 				8872F85E2740916100504F81 /* UserFollowTableViewCell.swift in Sources */,
 				8823A396273D246A00C7E228 /* RegisterViewController.swift in Sources */,
+				880C869A2757028E009799EC /* OnboardingViewController.swift in Sources */,
 				8823A3A3273D2ADE00C7E228 /* ResultViewController.swift in Sources */,
+				880C86982757024B009799EC /* Page.swift in Sources */,
 				88F6AED1274EFC860092772F /* FollowersListTableViewController.swift in Sources */,
 				8872F8762741EAD400504F81 /* Extentions.swift in Sources */,
 				8872F88C2745BE5300504F81 /* EditProfileCustomHeaderView.swift in Sources */,

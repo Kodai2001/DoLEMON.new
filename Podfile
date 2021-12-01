@@ -13,5 +13,6 @@ target 'DoLEMON.new' do
   pod 'Firebase/Storage'
   pod 'Kingfisher', '~> 7.1'
   pod 'FirebaseFirestoreSwift', '8.9.0-beta'
+  pod 'lottie-ios'
 
 end

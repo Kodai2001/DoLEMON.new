@@ -158,7 +158,7 @@ class RegisterViewController: UIViewController {
                 var message: String = ""
                 if (success) {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let TabBarController = storyboard.instantiateViewController(identifier: "rootVC")
+                    let TabBarController = storyboard.instantiateViewController(identifier: "onboardingVC")
                     TabBarController.modalPresentationStyle = .fullScreen
                     self.present(TabBarController, animated: true, completion: nil)
                 } else {

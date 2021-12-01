@@ -391,7 +391,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GooglePlaces (5.1.0)
+  - GooglePlaces (6.0.0)
   - GoogleUtilities/AppDelegateSwizzler (7.6.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -434,6 +434,7 @@ PODS:
   - GTMSessionFetcher/Core (1.7.0)
   - Kingfisher (7.1.1)
   - leveldb-library (1.22.1)
+  - lottie-ios (3.2.3)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -448,6 +449,7 @@ DEPENDENCIES:
   - FirebaseFirestoreSwift (= 8.9.0-beta)
   - GooglePlaces
   - Kingfisher (~> 7.1)
+  - lottie-ios
 
 SPEC REPOS:
   trunk:
@@ -468,6 +470,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - Kingfisher
     - leveldb-library
+    - lottie-ios
     - nanopb
     - PromisesObjC
 
@@ -482,16 +485,17 @@ SPEC CHECKSUMS:
   FirebaseFirestoreSwift: 2ca5da7c13b5d43a34696a7b84a702ef584da5f5
   FirebaseStorage: 452c98c31ccb40b819764bf3039426c4388d9939
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
-  GooglePlaces: c57cd5aa7e91d10fa5106c792de74f3bd6436260
+  GooglePlaces: c97d96ae68594acb64035c9ca9f26fbfc1d23af1
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  lottie-ios: c058aeafa76daa4cf64d773554bccc8385d0150e
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 0826d64f278ad61b21f21474be4c83b5544bdd5b
+PODFILE CHECKSUM: 60053084e96e8df0f5dbb0b4096ec44c0eba714e
 
 COCOAPODS: 1.11.2

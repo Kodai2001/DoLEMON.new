@@ -82,7 +82,13 @@ extension MapViewController: ResultViewControllerDelegate {
                                 longitudeDelta: 0.5)),
                           animated: true)
     }
+    
 }
+
+
+
+
+
 
 
 //　ピンをカスタムする
@@ -100,7 +106,6 @@ extension MapViewController: MKMapViewDelegate {
         
         FirestoreManager.shared.getAllPins { pins in
             pins.forEach { pin in
-                
                 if annotation.title == pin.placeName && annotation.subtitle == pin.fullName {
                     
                     if stackView.arrangedSubviews.count <= 1 {
@@ -133,7 +138,6 @@ extension MapViewController: MKMapViewDelegate {
                         let firestoreManager = FirestoreManager()
                         firestoreManager.fetchCurrentUser { user in
                             if user.fullName == annotation.subtitle {
-                                //stackView.addArrangedSubview(deleteButton)
                                 pinView.rightCalloutAccessoryView = deleteButton
                                 
                             }
