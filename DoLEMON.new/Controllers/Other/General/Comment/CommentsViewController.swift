@@ -102,6 +102,7 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSubviews()
+        textView.delegate = self
         view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
     }
     
@@ -185,5 +186,14 @@ class CommentsViewController: UIViewController {
         pin.commentText = self.textView.text ?? ""
         pin.addressName = self.addressLabel.text ?? ""
     }
+}
+
+extension CommentsViewController: UITextViewDelegate {
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+    }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

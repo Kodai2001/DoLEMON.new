@@ -42,6 +42,8 @@ class SearchFriendViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
         self.navigationItem.title = "Search Friend"
+        usernameTextField.delegate = self
+        
         view.addSubview(usernameTextField)
         view.addSubview(checkButton)
     }
@@ -81,5 +83,15 @@ class SearchFriendViewController: UIViewController {
             
             self.present(alert, animated: true, completion: nil)
         }
+    }
+}
+
+extension SearchFriendViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

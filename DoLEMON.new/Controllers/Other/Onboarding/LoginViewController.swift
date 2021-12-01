@@ -47,6 +47,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
         self.navigationItem.title = "LOGIN"
+        emailTextField.delegate = self
+        passwordlTextField.delegate = self
         addSubviews()
     }
     
@@ -99,5 +101,15 @@ class LoginViewController: UIViewController {
                 self.present(alertController, animated: true)
             }
         }
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

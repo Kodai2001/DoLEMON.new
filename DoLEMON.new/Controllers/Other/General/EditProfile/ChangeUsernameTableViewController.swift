@@ -13,6 +13,7 @@ class ChangeUsernameTableViewController: UITableViewController {
         super.viewDidLoad()
         
         configureBarButtonItem()
+        
         // tableViewCell
         tableView.register(RenameTableViewCell.self, forCellReuseIdentifier: "RenameTableViewCell")
         tableView.tableFooterView = UIView(frame: .zero)
@@ -63,3 +64,4 @@ class ChangeUsernameTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+

@@ -84,6 +84,10 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
         self.navigationItem.title = "SIGN UP"
+        emailTextField.delegate = self
+        fullNameTextField.delegate = self
+        userNamelTextField.delegate = self
+        passwordlTextField.delegate = self
         addSubviews()
     }
     
@@ -199,3 +203,12 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
     }
 }
 
+extension RegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+}
