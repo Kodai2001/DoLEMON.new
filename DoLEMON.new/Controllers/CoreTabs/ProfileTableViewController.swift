@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.isUserInteractionEnabled = true
-        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
+        view.backgroundColor = .systemBackground
         
         // title
         navigationItem.largeTitleDisplayMode = .always

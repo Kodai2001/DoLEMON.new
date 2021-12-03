@@ -27,7 +27,7 @@ class CommentsViewController: UIViewController {
     var placeNameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
+        label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return label
     }()
@@ -44,7 +44,7 @@ class CommentsViewController: UIViewController {
     var addressLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
+        label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return label
     }()
@@ -62,7 +62,7 @@ class CommentsViewController: UIViewController {
         
         let label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .black
+        label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return label
     }()
@@ -78,7 +78,8 @@ class CommentsViewController: UIViewController {
     
     let textView: UITextView = {
         let textView = UITextView()
-        textView.textColor = .black
+        textView.textColor = .label
+        textView.backgroundColor = .secondarySystemFill
         textView.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         return textView
     }()
@@ -103,8 +104,36 @@ class CommentsViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         textView.delegate = self
-        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
+        view.backgroundColor = .systemBackground
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
+    
+    // textViewをキーボード共に上げる
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            } else {
+                let suggestionHeight = self.view.frame.origin.y + keyboardSize.height
+                self.view.frame.origin.y -= suggestionHeight
+            }
+        }
+    }
+    
+    // textViewをキーボード共に下げる
+    @objc func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     
     private func addSubviews() {
         view.addSubview(placeNameIcon)
@@ -163,7 +192,7 @@ class CommentsViewController: UIViewController {
         
         // textView
         textView.frame.size.width = view.frame.size.width-100
-        textView.frame.size.height = 300
+        textView.frame.size.height = 200
         textView.frame.origin.x = placeNameIcon.frame.origin.x+60
         textView.frame.origin.y = view.safeAreaInsets.top + 350
         
@@ -171,7 +200,7 @@ class CommentsViewController: UIViewController {
         addButton.frame.size.width = 60
         addButton.frame.size.height = 60
         addButton.frame.origin.x = view.frame.size.width-70
-        addButton.frame.origin.y = view.safeAreaInsets.top + 670
+        addButton.frame.origin.y = textView.frame.origin.y + 160
     }
     
     @objc func didTapAddButton() {

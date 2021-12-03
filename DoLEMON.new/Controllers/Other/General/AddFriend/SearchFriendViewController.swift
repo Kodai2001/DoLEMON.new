@@ -20,6 +20,7 @@ class SearchFriendViewController: UIViewController {
         textField.attributedPlaceholder = NSAttributedString(string: "Enter User ID",
                                                              attributes: attributes)
         textField.font = .boldSystemFont(ofSize: 30.0)
+        textField.textColor = .label
         textField.textAlignment = .center
         return textField
     }()
@@ -40,13 +41,42 @@ class SearchFriendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
+        view.backgroundColor = .systemBackground
         self.navigationItem.title = "Search Friend"
         usernameTextField.delegate = self
         
         view.addSubview(usernameTextField)
         view.addSubview(checkButton)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
+    
+    // textViewをキーボード共に上げる
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 50
+            } else {
+                let suggestionHeight = self.view.frame.origin.y + keyboardSize.height
+                self.view.frame.origin.y -= suggestionHeight
+            }
+        }
+    }
+    
+    // textViewをキーボード共に下げる
+    @objc func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -55,13 +85,13 @@ class SearchFriendViewController: UIViewController {
         usernameTextField.frame.size.width = 300
         usernameTextField.frame.size.height = 100
         usernameTextField.frame.origin.x = self.view.frame.size.width / 2 - usernameTextField.frame.size.width / 2
-        usernameTextField.frame.origin.y = usernameTextField.frame.origin.y + 300
+        usernameTextField.frame.origin.y = view.frame.size.height/2.0 - 100
         
         // checkButton
         checkButton.frame.size.width = 100
         checkButton.frame.size.height = 80
         checkButton.frame.origin.x = self.view.frame.size.width / 2 - checkButton.frame.size.width / 2
-        checkButton.frame.origin.y = checkButton.frame.origin.y + 450
+        checkButton.frame.origin.y = usernameTextField.frame.origin.y + 150
     }
     
     @objc func checkButtonPressed() {

@@ -36,7 +36,7 @@ class EditProfileCustomHeaderView: UITableViewHeaderFooterView {
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
+        contentView.backgroundColor = .systemBackground
         
         contentView.addSubview(profileImageView)
         contentView.addSubview(changeButton)

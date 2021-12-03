@@ -26,7 +26,7 @@ class AddFriendViewController: UIViewController {
         label.text = "Sakura Endo"
         label.textAlignment = .center
         label.numberOfLines = 2
-        label.textColor = .black
+        label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         return label
     }()
@@ -49,7 +49,7 @@ class AddFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Add Friend"
-        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
+        view.backgroundColor = .systemBackground
         addSubviews()
         
         // set User

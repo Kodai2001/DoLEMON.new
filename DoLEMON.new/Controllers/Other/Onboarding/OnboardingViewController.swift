@@ -18,7 +18,7 @@ class OnboardingViewController: UIViewController, UICollectionViewDataSource, UI
     // data for the Onboarding Screens
     let pages: [Page] = [Page(animationName: "findPlace", title: "Find Favorite Place", description: "「ずっと興味はあったけど、まだ行けてないんだよな...。」そういう場所って沢山あるよね.."),
                          Page(animationName: "friendFind", title: "Add Pins", description: "ツイートする感覚で行きたい場所にピンを立てよう。一言も添えてね。"),
-                         Page(animationName: "addPin", title: "Friends find your pin", description: "あとは友達が君のピンを見つけるのを待つだけ！友達の魅力的なピンも探してみよう！")]
+                         Page(animationName: "addPin", title: "Friends find your pin", description: "あとは友達が君のピンを見つけるのを待つだけ。友達の魅力的なピンも探してみる？")]
     
     
     

@@ -17,13 +17,13 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
-        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitleColor(UIColor.label,for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(
             ofSize: 25,
             weight: .bold
         )
-        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -32,13 +32,13 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
-        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitleColor(UIColor.label,for: .normal)
         button.setTitle("Following", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(
             ofSize: 15,
             weight: .semibold
         )
-        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -47,13 +47,12 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
-        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitleColor(UIColor.label,for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(
             ofSize: 25,
             weight: .bold
         )
-        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
         return button
     }()
     
@@ -62,13 +61,12 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
-        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitleColor(UIColor.label,for: .normal)
         button.setTitle("Followers", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(
             ofSize: 15,
             weight: .semibold
         )
-        //button.addTarget(self, action: #selector(didTappedEditProfileButton), for: .touchUpInside)
         return button
     }()
     
@@ -77,6 +75,8 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 50
         imageView.contentMode = .scaleAspectFill
+        imageView.layer.borderWidth = 2.0
+        imageView.layer.borderColor = UIColor.label.cgColor
         return imageView
     }()
     
@@ -84,7 +84,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
        let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 2
-        label.textColor = .black
+        label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         return label
     }()
@@ -93,7 +93,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
        let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 2
-        label.textColor = .black
+        label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         return label
     }()
@@ -104,9 +104,9 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         button.backgroundColor = .clear
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
-        button.setTitleColor(UIColor.black,for: .normal)
+        button.setTitleColor(UIColor.label,for: .normal)
         button.layer.borderWidth = 2.0
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = UIColor.label.cgColor
         button.setTitle("Edit Profile", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(
             ofSize: 30,
@@ -123,7 +123,7 @@ class ProfileCustomHeaderView: UITableViewHeaderFooterView {
         
         configureHeaderView()
         clipsToBounds = true
-        contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1) 
+        contentView.backgroundColor = .systemBackground
       }
     
     required init?(coder: NSCoder) {

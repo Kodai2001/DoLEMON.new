@@ -44,7 +44,7 @@ class RegisterViewController: UIViewController {
     
     private let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .white
+        textField.backgroundColor = .systemBackground
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 10.0
         textField.placeholder = "       Email"
@@ -53,7 +53,7 @@ class RegisterViewController: UIViewController {
     
     private let fullNameTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .white
+        textField.backgroundColor = .systemBackground
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 10.0
         textField.placeholder = "       Full Name"
@@ -62,7 +62,7 @@ class RegisterViewController: UIViewController {
     
     private let userNamelTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .white
+        textField.backgroundColor = .systemBackground
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 10.0
         textField.placeholder = "       Username"
@@ -71,7 +71,7 @@ class RegisterViewController: UIViewController {
     
     private let passwordlTextField: UITextField = {
         let textField = UITextField()
-        textField.backgroundColor = .white
+        textField.backgroundColor = .systemBackground
         textField.layer.masksToBounds = true
         textField.layer.cornerRadius = 10.0
         textField.placeholder = "       Password"
@@ -89,7 +89,36 @@ class RegisterViewController: UIViewController {
         userNamelTextField.delegate = self
         passwordlTextField.delegate = self
         addSubviews()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
+    
+    // textViewをキーボード共に上げる
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 50
+            } else {
+                let suggestionHeight = self.view.frame.origin.y + keyboardSize.height
+                self.view.frame.origin.y -= suggestionHeight
+            }
+        }
+    }
+    
+    // textViewをキーボード共に下げる
+    @objc func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     
     private func addSubviews() {
         view.addSubview(createAccountButton)

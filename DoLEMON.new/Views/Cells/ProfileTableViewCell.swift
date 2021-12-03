@@ -20,7 +20,7 @@ class ProfileTableViewCell: UITableViewCell {
        let label = UILabel()
         label.textAlignment = .left
         label.numberOfLines = 2
-        label.textColor = .black
+        label.textColor = .label
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         return label
     }()
@@ -29,7 +29,7 @@ class ProfileTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(cellIcon)
         contentView.addSubview(cellLabel)
-        contentView.backgroundColor = #colorLiteral(red: 0.6941176471, green: 1, blue: 0.9921568627, alpha: 1)
+        contentView.backgroundColor = .systemBackground
 
         selectionStyle = .none
     }
