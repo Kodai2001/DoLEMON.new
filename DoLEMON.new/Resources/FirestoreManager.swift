@@ -166,7 +166,7 @@ class FirestoreManager {
         var results:[MKPointAnnotation] = []
         
         let annotation = MKPointAnnotation()
-        let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude)!, longitude: CLLocationDegrees(pin.longitude)!)
+        let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(pin.latitude) ?? 1, longitude: CLLocationDegrees(pin.longitude) ?? 1)
         annotation.title = pin.placeName
         annotation.subtitle = pin.fullName
         annotation.coordinate = coordinate

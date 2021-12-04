@@ -17,16 +17,19 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
     
     let commentVC = ShowCommentsViewController()
     
+    var searchCompleter = MKLocalSearchCompleter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(mapView)
         searchVC.searchBar.backgroundColor = .secondarySystemBackground
-        searchVC.searchResultsUpdater = self
         navigationItem.searchController = searchVC
         view.backgroundColor = .systemBackground
         
         mapView.delegate = self
+        searchVC.searchResultsUpdater = self
+        searchCompleter.delegate = self
         
         // titleの設定
         navigationItem.title = "MAPS"
@@ -52,18 +55,32 @@ class MapViewController: UIViewController, UISearchResultsUpdating {
         
         resultVC.delegate = self
         
-        GooglePlaceManager.shared.findPlaces(query: query) { result in
-            switch result {
-            case .success(let places):
-                DispatchQueue.main.async {
-                    resultVC.update(with: places)
-                }
-            case .failure(let error):
-                print(error)
-            }
+        searchCompleter.queryFragment = query
+        let results = searchCompleter.results
+       
+        DispatchQueue.main.async {
+            resultVC.update(with: results)
         }
     }
 }
+
+//MARK: - completer
+
+extension MapViewController: MKLocalSearchCompleterDelegate {
+    
+    // 正常に検索結果が更新されたとき
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+
+    }
+    
+    // 検索が失敗したとき
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        // エラー処理
+    }
+}
+
+//MARK: - resultVC
+
 
 extension MapViewController: ResultViewControllerDelegate {
     func didTapPlace(with coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
@@ -74,6 +91,7 @@ extension MapViewController: ResultViewControllerDelegate {
         pin.title = title
         pin.subtitle = subtitle
         pin.coordinate = coordinate
+        
         mapView.addAnnotation(pin)
         mapView.setRegion(MKCoordinateRegion(
                             center: coordinate,
@@ -85,11 +103,7 @@ extension MapViewController: ResultViewControllerDelegate {
     
 }
 
-
-
-
-
-
+//MARK: - MapViewDelegate
 
 //　ピンをカスタムする
 extension MapViewController: MKMapViewDelegate {
@@ -211,3 +225,4 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
 }
+

@@ -22,13 +22,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVk-Ep-gBG">
-                        <rect key="frame" x="24" y="504" width="49.5" height="30"/>
+                        <rect key="frame" x="24" y="490" width="49.5" height="30"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium a" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pCa-mJ-sNX">
-                        <rect key="frame" x="22" y="544" width="256" height="49"/>
+                        <rect key="frame" x="22" y="530" width="256" height="68"/>
                         <color key="textColor" systemColor="labelColor"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -39,7 +39,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="5O6-mA-OUC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="L6V-gu-Lzm"/>
-                <constraint firstItem="wVk-Ep-gBG" firstAttribute="top" secondItem="5O6-mA-OUC" secondAttribute="bottom" constant="24" id="Mit-zF-Cmi"/>
+                <constraint firstItem="wVk-Ep-gBG" firstAttribute="top" secondItem="5O6-mA-OUC" secondAttribute="bottom" constant="10" id="Mit-zF-Cmi"/>
                 <constraint firstItem="pCa-mJ-sNX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="22" id="NhT-7h-TNb"/>
                 <constraint firstItem="5O6-mA-OUC" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="Rf4-rC-SdU"/>
                 <constraint firstItem="pCa-mJ-sNX" firstAttribute="top" secondItem="wVk-Ep-gBG" secondAttribute="bottom" constant="10" id="bNc-WW-16R"/>
@@ -47,7 +47,7 @@
                 <constraint firstItem="5O6-mA-OUC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="doj-yz-S0G"/>
                 <constraint firstAttribute="trailing" secondItem="pCa-mJ-sNX" secondAttribute="trailing" constant="22" id="eb5-Sw-fKM"/>
                 <constraint firstItem="wVk-Ep-gBG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="fkF-eC-Y02"/>
-                <constraint firstAttribute="bottom" secondItem="pCa-mJ-sNX" secondAttribute="bottom" constant="7" id="tAv-3U-OlI"/>
+                <constraint firstAttribute="bottom" secondItem="pCa-mJ-sNX" secondAttribute="bottom" constant="2" id="tAv-3U-OlI"/>
             </constraints>
             <connections>
                 <outlet property="animationContainer" destination="5O6-mA-OUC" id="WhZ-gE-wln"/>

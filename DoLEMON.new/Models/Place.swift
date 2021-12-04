@@ -8,8 +8,6 @@
 import Foundation
 
 struct Place {
-    let name: String
     let placeName: String
     let address: String
-    let identifier: String
 }

@@ -38,7 +38,7 @@
                                 </cells>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="tEv-27-06q">
-                                <rect key="frame" x="146.5" y="719" width="121.5" height="28"/>
+                                <rect key="frame" x="146.5" y="694" width="121.5" height="28"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" red="0.15686274510000001" green="0.16078431369999999" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -67,7 +67,7 @@
                             <constraint firstItem="hi4-hR-L30" firstAttribute="trailing" secondItem="Mgc-dL-0Fs" secondAttribute="trailing" constant="24" id="C94-BV-uZV"/>
                             <constraint firstItem="Mgc-dL-0Fs" firstAttribute="leading" secondItem="hi4-hR-L30" secondAttribute="leading" constant="24" id="CvA-Fe-bO8"/>
                             <constraint firstItem="rva-g9-6v6" firstAttribute="height" secondItem="hi4-hR-L30" secondAttribute="height" multiplier="0.77" id="SRe-p1-1h9"/>
-                            <constraint firstItem="tEv-27-06q" firstAttribute="top" secondItem="rva-g9-6v6" secondAttribute="bottom" constant="45" id="cmz-qb-6Ue"/>
+                            <constraint firstItem="tEv-27-06q" firstAttribute="top" secondItem="rva-g9-6v6" secondAttribute="bottom" constant="20" id="cmz-qb-6Ue"/>
                             <constraint firstItem="hi4-hR-L30" firstAttribute="bottom" secondItem="Mgc-dL-0Fs" secondAttribute="bottom" constant="24" id="hKG-ZH-o2K"/>
                             <constraint firstItem="tEv-27-06q" firstAttribute="centerX" secondItem="zil-n0-MiY" secondAttribute="centerX" id="jaa-pW-iJj"/>
                             <constraint firstItem="rva-g9-6v6" firstAttribute="top" secondItem="hi4-hR-L30" secondAttribute="top" id="n6O-gS-rKg"/>
